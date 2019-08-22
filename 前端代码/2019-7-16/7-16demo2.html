@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>window相关1</title>
+	</head>
+	<body>
+		<a href="7-16demo3.html?name=lianghongbiao">前往3页面</a>
+		<br>
+		<br>
+		<input id="bt1" type="button" onclick="navTo3()" value="去百度" />
+		<input type="button" id="windowClose" value="windowClose" />
+		<input type="button" id="windowOpen" value="windowOpen" />
+		<input type="button" id="windowCloseSon" value="关儿子" />
+		<input type="button" id="reload" value="reload" />
+	</body>
+</html>
+<script type="text/javascript">
+	window.name = "window222";
+	console.info("页面加载 " + new Date().getTime());
+
+	function navTo3() {
+		// 脚本注入 
+		window.location = "http://baidu.com";
+	};
+	document.getElementById("bt1").onclick = function() {
+		window.location = "http://baidu.com";
+	};
+	// document.getElementById("bt1").click();// 模拟点击
+	document.getElementById("windowClose").onclick = function() {
+		window.close(); // 关闭当前窗口
+	};
+	// open 参数列表( url, name ,字符串)
+	// 关于name函数, 可以自定义,也可以使用这几个值: _self 当前窗口打开
+	// _blank(默认值) 新窗口打开  _top 表示顶层窗口   
+	document.getElementById("windowOpen").onclick = function() {
+		_son = window.open("7-16demo3.html", "_self");
+	};
+	document.getElementById("windowCloseSon").onclick = function() {
+		_son.close();
+	};
+
+	// 关闭网页之前要做的事情
+	window.onunload = function() {
+		_son.close();
+	}
+	// 打开页面的时候顺带打开新的子页面
+	window.onload = function() {
+		_son = window.open("7-16demo3.html");
+	}
+	// 重新加载当前页面
+	document.getElementById("reload").onclick = function() {
+		location.reload();
+	};
+
+	
+</script>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.audio01{
+				width: 500px;
+				height: 400px;
+				background-color: red;
+				position: relative;
+				left: 400px;
+			}
+			.audio01>audio{
+				margin-top: 346px;
+				margin-left: 120px;
+			}
+			.mcList{
+				width: 200px;
+				height: 400px;
+				background-color: skyblue;
+				position: absolute;
+				left: 210px;
+			}
+			.mcList a{
+				text-decoration: none;
+			}
+			.mcList li{
+				list-style: none;
+				text-align: center;
+				margin-top: 50px;
+			}
+			.pushB{
+				width: 100px;
+				height: 50px;
+				/* background-color: yellow; */
+				position: absolute;
+				bottom: 0;
+				left: 15px;
+				display: flex;
+				justify-content: center;
+			}
+			.pushB>input{
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				/* background-color: greenyellow; */
+			}
+			.album{
+				width: 300px;
+				height: 300px;
+				border-radius: 50%;
+				background-color: yellow;
+				position: absolute;
+				left: 100px;
+				top: 10px;
+				
+			}
+			.newRotate{
+				animation: bgRotate 20s linear infinite ;
+			}
+			img{
+				width: 300px;
+				height: 300px;
+				border-radius: 50%;
+				
+			}
+			@keyframes bgRotate{
+				from{
+					transform: rotate(0deg);
+				}
+				to{
+					transform: rotate(360deg);
+				}
+			}
+			.newColor{
+				background-color: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mcList">
+			<ul>
+				<li id="song1" onclick="changeVideo(1) "><a href="#">第一首</a></li>
+				<li id="song2" onclick="changeVideo(2) "><a href="#">第二首</a></li>
+				<li id="song3" onclick="changeVideo(3) "><a href="#">第三首</a></li>
+			</ul>
+		</div>
+		<div class="audio01">
+			<div class="album">
+			</div>
+			<div class="pushB">
+				<input type="button" value="上一首">
+				<input type="button" value="下一首">
+			</div>
+			<audio id="audio01" src="audio/001.MP3" controls="controls" autoplay="autoplay" >
+			</audio>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+		function changeVideo(videoSrc) {
+		if (!videoSrc) {
+			return;
+		}
+		switch (videoSrc) {
+			case 1:
+				{
+					videoSrc = "audio/001.MP3"
+					break;
+				}
+			case 2:
+				{
+					videoSrc = "audio/002.MP3"
+					break;
+				}
+			case 3:
+				{
+					videoSrc = "audio/003.MP3"
+					break;
+				}
+		}
+		var v01 = document.getElementById("audio01");
+		v01.src = videoSrc;
+	}
+	$(function(){
+		$("#song1").click(function(){
+			$(".newColor").removeClass("newColor");
+			$(".newRotate").removeClass("newRotate");
+			$("#song1").addClass("newColor");
+			$(".album").addClass("newRotate");
+			$(".album").css({
+				"backgroundImage":"url(images/001.jpg)"
+			})
+		});
+		$("#song2").click(function(){
+			$(".newColor").removeClass("newColor");
+			$(".newRotate").removeClass("newRotate");
+			$("#song2").addClass("newColor");
+			$(".album").addClass("newRotate");
+			$(".album").css({
+				"backgroundImage":"url(images/002.jpg)"
+			})
+		});
+		$("#song3").click(function(){
+			$(".newColor").removeClass("newColor");
+			$(".newRotate").removeClass("newRotate");
+			$("#song3").addClass("newColor");
+			$(".album").addClass("newRotate");
+			$(".album").css({
+				"backgroundImage":"url(images/003.jpg)"
+			})
+		});
+	})
+</script>

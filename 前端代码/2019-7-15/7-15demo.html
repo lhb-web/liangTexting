@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>炮弹游戏</title>
+		<style type="text/css">
+			body {
+				position: relative;
+			}
+
+			.main {
+				width: 100%;
+				height: 600px;
+				border: 1px aqua solid;
+			}
+
+			.horizon {
+				position: absolute;
+				width: 100%;
+				height: 4px;
+				top: 80%;
+				background-color: black;
+			}
+
+			.monster {
+				position: absolute;
+				width: 60px;
+				height: 60px;
+				background-color: saddlebrown;
+				top: 80%;
+				margin-top: -60px;
+				left: 90%;
+			}
+
+			.canon {
+				width: 300px;
+				height: 75px;
+				background: url("200.png") right no-repeat;
+				background-size: 74%;
+				position: absolute;
+				left: 15%;
+				margin-left: -300px;
+				top: 80%;
+				margin-top: -60px;
+			}
+
+			.bom {
+				width: 30px;
+				height: 30px;
+				background-color: black;
+				border: 1px solid #fff;
+				border-radius: 50%;
+				position: absolute;
+				left: 5%;
+				top: 80%;
+				margin-top: -40px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<input type="button" id="fire" value="发射" />
+			<div class="canon" id="stick1"></div>
+			<div class="bom" id="bom001"></div>
+			<div class="monster" id="monster001"></div>
+			<div class="horizon"></div>
+
+		</div>
+
+	</body>
+</html>
+<script type="text/javascript">
+	function gameInit() {
+		document.body.oncontextmenu = function(e) {
+			return false;
+		}
+		resetMonster("monster001");
+		restBom("bom001");
+		// monsterMove("monster001");
+	}
+	gameInit();
+
+	// 炮弹复位
+	function restBom(bomId) {
+		document.getElementById(bomId).style.left = "5%";
+		document.getElementById(bomId).style.top = "80%";
+	}
+
+	// 僵尸复位
+	function resetMonster(monsterId) {
+		document.getElementById(monsterId).style.left = "90%";
+	}
+
+	// 僵尸移动
+	function monsterMove(monsterId) {
+
+		var monsterItem = document.getElementById(monsterId);
+		if (!monsterId) {
+			console.info("获取僵尸个体出错");
+			return;
+		}
+		setInterval(function() {
+			var currX = monsterItem.style.left;
+			currX = currX.replace("%", "");
+			currX = parseFloat(currX);
+			currX -= 0.05;
+			monsterItem.style.left = currX + "%";
+			hitCheck("monster_hit_canno", currX);
+		}, 10);
+	}
+	// 鼠标滚轮调整角度 // 炮口取值0 ~ -60
+	window.onmousewheel = function(e) {
+		console.info(e);
+		var currAngle = document.getElementById("stick1").style.transform;
+		if (!currAngle) {
+			currAngle = 0;
+		} else {
+			currAngle = currAngle.replace("rotate(", "");
+			currAngle = currAngle.replace("deg)", "");
+			currAngle = parseInt(currAngle);
+		}
+		// 鼠标y方向的变化, 小于0代表向上, 反之亦然
+		if (e.shiftKey) {
+			if (e.deltaY < 0) {
+				currAngle -= 1;
+			} else {
+				currAngle += 1;
+			}
+		}
+
+		//限制角度,超过角度不操作
+		if (currAngle > -60 && currAngle < 0) {
+			document.getElementById("stick1").style.transform = "rotate(" + currAngle + "deg)";
+		}
+
+	}
+	function formattAngle ( currAngle ){
+		var trans001 = currAngle + 60; 
+		var trans002 = (trans001 - 60) / (120-60); 
+		var trans003 = (70 - 30) * trans002 + 30;
+		_nextAngle = trans003 || 45 ; // 计算出错,就按45度角打出去
+		
+		
+	}
+	
+	// 发射炮弹  炮弹角度在70 ~ 30
+	var _bomTimer = 0;
+	function bomMove() {
+		// 容错
+		if( angle > 70){
+			return;
+		}
+		
+		clearInterval(_bomTimer);
+		restBom();
+		
+		var angle = 60;
+		var gggg = 0.02; //  加速度
+		var xSpeed = 0.6; // px
+		var ySpeed = Math.tan(angle * 0.017453293) * xSpeed; // 正弦
+		_bomTimer = setInterval(function() {
+			// x 方向的运动
+			var bomCurrX = document.getElementById("bom001").style.left;
+			bomCurrX = parseFloat(bomCurrX.replace("%", ""));
+			document.getElementById("bom001").style.left = bomCurrX + xSpeed + "%";
+			// 当前Y位置
+			var currY = document.getElementById("bom001").style.top;
+			currY = parseFloat(currY.replace("%", ""));
+			// 减去加速度
+			ySpeed -= gggg; // 这个值非常关键!!!
+			currY = currY - ySpeed;
+			// y位移
+			document.getElementById("bom001").style.top = currY + "%";
+			// 复位
+			if (currY > 80) {
+				// 可以考虑在这里做碰撞
+				document.getElementById("bom001").style.left = "5%";
+				document.getElementById("bom001").style.top = "80%";
+				ySpeed = Math.tan(angle * 0.017453293) * xSpeed;
+				clearInterval(x);
+			}
+		}, 20)
+	}
+	
+	document.getElementById("fire").onclick = function(){
+		if(!_nextAngle){
+			_nextAngle = 45;
+		}
+		 bomMove();
+	}
+	// bomMove();
+	// 碰撞测试
+	function hitCheck(type, monsterX,bomX) {
+		if (type == "monster_hit_canno") {
+			if (monsterX < 10) {
+				// 僵尸碰到了大炮
+				handle_monster_hit_canon();
+			} else {
+				return;
+			}
+		}
+		if(type == "monster_hit_monster"){
+			// 取出当前monste的x的值
+			var monsterX = document.getElementById("monster001").style.left;
+			monsterX = monsterX.replace("%");
+			monsterX = parseFloat(monsterX);
+			
+			if( Math.abs( monsterX - bomX) <= 2){
+				monster_hit_monster();
+			}
+		}
+	}
+
+	function handle_monster_hit_canon() {
+		alert("monster_hit_canon");
+		resetMonster("monster001");
+	}
+	function monster_hit_monster() {
+		alert("monster_hit_canon");
+		resetMonster("monster001");
+	}
+</script>

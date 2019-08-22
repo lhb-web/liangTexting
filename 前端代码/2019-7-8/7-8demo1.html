@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			body{
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		1.1函数声明:
+	</body>
+</html>
+<script type="text/javascript">
+	var a = 100;
+	var xx = "xx";
+
+	function myFunction(a, b, c, d) {
+		//函数体,可以使用参数,也可以使用外部变量
+		console.info(a + c);
+		//如果a,不在参数列表中,是可以读取外部变量
+		console.info(xx); //使用外部变量
+		console.info(d);
+	}
+	//显示调用函数
+	myFunction(45, null, 10);
+	myFunction();
+
+	//写一个函数,返回a+b的值
+	function addEx(a, b) {
+		var x = a + b;
+		return x;
+	}
+	console.info(addEx(2, 6));
+
+
+	//匿名函数
+	var times = function(a, b) {
+		return a * b;
+	}
+	console.info(times(3, 6));
+
+	//return 关键字 
+	function demo1() {
+		var a = 1,
+			b = 2,
+			c = 3;
+		if (a > 0) {
+			return a;
+		}
+		var d = a + b + c;
+		console.info(d);
+	}
+	console.info(demo1());
+
+	//例程1:编写函数,实现输入两个数字,返回较大的数
+	function Max(a, b) {
+
+		if (isNaN(a) || isNaN(b)) {
+			console.info("这不是一个数字");
+
+		} else {
+			return a > b ? a : b;
+		}
+
+	}
+	console.info(Max(3, 4));
+
+
+	//例程2编写函数， 实现输入一个字符串，一个数组， 返回- 字符串是否在数组中， 如果在，返回其在数组中的下标
+	var arr01 = ["liang", "liu", "li", "zhang"]
+
+	function matchTest(str, arr) {
+		for (var i = 0; i < arr.length; i++) {
+			if (str == arr[i]) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	//4s
+
+	var prices = {
+		"ford": 12,
+		"Benz": 40,
+		"changan": 10,
+		"haval": 15,
+		"suzuki": 14,
+		"volvo": 20
+	}
+
+	function CarList(brand, count) {
+		this.brand = brand;
+		this.count = count;
+		this.getTotalPrice = function() {
+			//去价格表查询当前的单价
+			var singlePrice = prices[this.brand];
+			if (singlePrice) {
+				//单价乘以count数量
+				this.totalPrice = singlePrice * this.count;
+			} else {
+				this.totalPrice = 0;
+			}
+		}
+		this.getTotalPrice(); //执行它
+	}
+	// var fordPrice = new CarList("ford", 20);
+	// var BenzPrice = new CarList("Benz", 10);
+	// var changanPrice = new CarList("changan", 4);
+	// var havalPrice = new CarList("haval", 5);
+	// var suzukiPrice = new CarList("suzuki", 6);
+	// var volvoPrice = new CarList("volvo", 18);
+	// var allPrice = fordPrice.totalPrice + BenzPrice.totalPrice +
+	// 	changanPrice.totalPrice + havalPrice.totalPrice + suzukiPrice.totalPrice + volvoPrice.totalPrice;
+
+	var all = [];
+	all.push(new CarList("ford", 20));
+	all.push(new CarList("Benz", 10));
+	all.push(new CarList("changan", 4));
+	all.push(new CarList("haval", 5));
+	all.push(new CarList("suzuki", 6));
+	all.push(new CarList("volvo", 18));
+
+	var allPrice = 0;
+	for (var i = 0; i < all.length; i++) {
+		allPrice += all[i].totalPrice;
+		
+		console.info("小计" + allPrice);
+
+	}
+
+	console.info("库存总价格" + allPrice+"万");
+</script>

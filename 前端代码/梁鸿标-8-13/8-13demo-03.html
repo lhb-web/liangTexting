@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.welcomeBG {
+				width: 100%;
+				height: 100%;
+			}
+
+			.theme {
+				position: absolute;
+				top: 350px;
+				left: 1270px;
+				font-size: 48px;
+				color: white;
+			}
+
+			.spirit {
+				width: 150px;
+				height: 150px;
+				position: absolute;
+				top: 700px;
+				left: 50px;
+				animation: Beat 1.5s infinite;
+			}
+
+			.Mascot {
+				width: 150px;
+				height: 150px;
+			}
+
+			.man {
+				width: 200px;
+				height: 400px;
+			}
+
+			.blackboard {
+				width: 1050px;
+				height: 650px;
+				position: absolute;
+				top: 50px;
+				left: 200px;
+			}
+
+			.bg {
+				width: 1050px;
+				height: 650px;
+			}
+
+			.container {
+				width: 150px;
+				height: 60px;
+				position: absolute;
+				top: 250px;
+				left: 650px;
+			}
+
+			.containerBtn {
+				width: 150px;
+				height: 60px;
+			}
+
+			.waterBg {
+				width: 150px;
+				height: 190px;
+				position: absolute;
+				top: 350px;
+				left: 230px;
+			}
+
+			.waterBg>img {
+				width: 150px;
+				height: 190px;
+			}
+
+			.Green {
+				width: 150px;
+				height: 190px;
+				position: absolute;
+				top: 350px;
+				left: 420px;
+			}
+
+			.Green>img {
+				width: 50px;
+				height: 190px;
+			}
+
+			.Blue {
+				width: 150px;
+				height: 190px;
+				position: absolute;
+				top: 350px;
+				left: 570px;
+			}
+
+			.Blue>img {
+				width: 50px;
+				height: 190px;
+			}
+
+			.Red {
+				width: 150px;
+				height: 190px;
+				position: absolute;
+				top: 350px;
+				left: 730px;
+			}
+
+			.Red>img {
+				width: 50px;
+				height: 190px;
+			}
+
+			.dropperBG {
+				width: 150px;
+				height: 190px;
+				position: absolute;
+				top: 350px;
+				left: 900px;
+			}
+
+			.dropperBG>img {
+				width: 30px;
+				height: 190px;
+			}
+
+			.shavingCreamBg {
+				width: 150px;
+				height: 190px;
+				position: absolute;
+				top: 350px;
+				left: 1100px;
+			}
+
+			.shavingCreamBg>img {
+				width: 60px;
+				height: 190px;
+			}
+
+			.containerBG {
+				width: 150px;
+				height: 150px;
+				position: absolute;
+				top: 100px;
+				left: 650px;
+			}
+
+			.containerBG>img {
+				width: 150px;
+				height: 150px;
+			}
+
+			.blackboard-footer {
+				width: 1000px;
+				height: 90px;
+				position: absolute;
+				top: 550px;
+				left: 220px;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+
+			}
+
+			.blackboard-footer>div {
+				width: 150px;
+				height: 60px;
+			}
+
+			.blackboard-footer>div>img {
+				width: 150px;
+				height: 60px;
+			}
+
+			@keyframes Beat {
+				0% {
+					top: 700px;
+				}
+
+				50% {
+					top: 600px;
+				}
+
+				100% {
+					top: 700px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<img src="welcomeBG.jpg" class="welcomeBG">
+		<div class="blackboard">
+			<img src="bg.png" class="bg">
+		</div>
+		<div class="theme">
+			<img src="man.png" class="man">
+		</div>
+		<div class="spirit">
+			<img src="Mascot.png" class="Mascot">
+		</div>
+		<div class="blackboard-footer">
+			<div class="water">
+				<img src="waterBtn.png" class="waterBtn">
+			</div>
+			<div class="gPigment">
+				<img src="greenBtn.png" class="greenBtn">
+			</div>
+			<div class="bPigment">
+				<img src="blueBtn.png" class="blueBtn">
+			</div>
+			<div class="rPigment">
+				<img src="redBtn.png" class="redBtn">
+			</div>
+			<div class="dropper">
+				<img src="dropperBtn.png" class="dropperBtn">
+			</div>
+			<div class="shavingCream">
+				<img src="shavingCreamBtn.png" class="shavingCreamBtn">
+			</div>
+		</div>
+		<div id="moveThings">
+			<div class="waterBg">
+				<img src="water.png">
+			</div>
+
+			<div class="Green">
+				<img src="green.png">
+			</div>
+
+			<div class="Blue">
+				<img src="blue.png">
+			</div>
+
+			<div class="Red">
+				<img src="red.png">
+			</div>
+
+			<div class="dropperBG">
+				<img src="dropper.png">
+			</div>
+
+			<div class="shavingCreamBg">
+				<img src="shavingCream.png">
+			</div>
+			<div class="containerBG">
+				<img src="container.png">
+			</div>
+		</div>
+
+		<div class="container">
+			<img src="containerBtn.png" class="containerBtn">
+		</div>
+
+	</body>
+</html>
+<script type="text/javascript">
+	var x = 0;
+	var y = 0;
+	var l = 0;
+	var t = 0;
+	var isDown = false;
+	$(function(){
+		$("#moveThings").delegate("div","mousedown",function(e){
+			//获取x坐标和y坐标
+			x = e.clientX;
+			y = e.clientY;
+			
+			//获取左部和顶部的偏移量
+			var l = $(this).offset().left;
+			var t = $(this).offset().top;
+			console.info(l);
+			//开关打开
+			isDown = true;
+			//设置样式
+			$(this).css({
+				cursor: "move"
+			});
+			
+		});
+		// 鼠标移动
+		$("#moveThings").delegate("div","mousemove",function(e){
+			if (isDown == false) {
+				return;
+			}
+			//获取x和y
+			var nx = e.clientX;
+			var ny = e.clientY;
+			//计算移动后的左偏移量和顶部的偏移量
+			var nl = nx - (x - l);
+			var nt = ny - (y - t);
+			$(this).css({
+				left: nl + "px",
+				top: nt + "px"
+			});
+			// dv.style.left = nl + 'px';
+			// dv.style.top = nt + 'px';
+		});
+		
+		// 鼠标抬起
+		$("#moveThings").delegate("div","mouseup",function(e){
+			//开关关闭
+			isDown = false;
+			$(this).css({
+				cursor: "default"
+			});
+		});
+	});
+</script>

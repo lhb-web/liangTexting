@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉</title>
+</head>
+<body>
+<div class="box">
+    下拉菜单
+    <div class="caidan">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+</div>
+</body>
+<style>
+    .box{
+        width: 200px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        position: relative;
+        border: 1px solid #000;
+
+    }
+    .caidan{
+        width: 200px;
+        /*height: 200px;*/
+        border: 1px solid #000;
+        box-sizing: border-box;
+        transition: 2s;
+        background-color: #b3d4fc;
+        /*第一种*/
+        /*display: none;!*不保留物理空间*!*/
+        /*visibility: hidden;!*保留物理空间*!*/
+        /*第二种*/
+        /*opacity: 0;!*透明度为0*!*/
+        /*第三种*/
+        height: 0;
+        overflow: hidden;
+    }
+    .caidan>div{
+        width: 200px;
+        height: 50px;
+        
+    }
+    .box:hover>.caidan{
+        /*display: block;!*显示属性为块级元素*!*/
+        /*opacity: 1;*/
+        height: 200px;
+        display: block;
+        background-color: #fff;
+    }
+</style>
+</html>

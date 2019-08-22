@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="human">
+    <div class="tou">
+        <div class="a"></div>
+        <div class="b"></div>
+        <div class="c"></div>
+    </div>
+    <div class="shenti">
+
+    </div>
+    <div class="shou">
+        <div class="zuo"></div>
+        <div class="you"></div>
+    </div>
+    <div class="jiao ">
+        <div class="zuojiao"></div>
+        <div class="youjiao"></div>
+    </div>
+</div>
+
+
+</body>
+<style>
+.human{
+    width: 300px;
+    height: 600px;
+    background-color:black;
+    position: relative;
+    left: 0;
+    animation: ren 5s linear infinite;
+
+}
+    .tou{
+        width: 150px;
+        height: 150px;
+        background-color: #DD4A68;
+        position: relative;
+
+    }
+    .a{
+        width: 30px;
+        height: 20px;
+        border-radius: 10px;
+        background-color: white;
+        position: absolute;
+        left: 135px;
+    }
+    .b{
+        width: 80px;
+        height: 20px;
+        border-radius: 10px;
+        background-color: #fff;
+        position: absolute;
+        left: 110px;
+    }
+    .c {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        /*background-color:black;*/
+        border: 5px solid white;
+        position: absolute;
+        top: 35px;
+        left: 115px;
+    }
+    .shenti{
+        width: 70px;
+        height: 200px;
+        border-right: 10px solid white;
+        position: absolute;
+        top: 105px;
+        left: 75px;
+    }
+    .zuo{
+        width: 70px;
+        height: 70px;
+        border-top: 10px solid white;
+        border-left: 10px solid white;
+        position: absolute;
+        top: 105px;
+        left:70px;
+        animation: lshou 0.5s ease-in infinite;
+
+
+    }
+    .you{
+         width: 70px;
+         height: 70px;
+         border-bottom: 10px solid white;
+         border-left: 10px solid white;
+         position: absolute;
+         top: 105px;
+         left: 145px;
+
+     }
+    .zuojiao{
+         width: 70px;
+         height: 70px;
+         border-top: 10px solid white;
+         border-right: 10px solid white;
+         position: absolute;
+         top: 300px;
+         left: 145px;
+     }
+    .youjiao{
+          width: 70px;
+          height: 70px;
+          border-bottom: 10px solid white;
+          border-right: 10px solid white;
+          position: absolute;
+          top: 300px;
+          left: 75px;
+    }
+    body{
+        background-color: black;
+    }
+@keyframes ren {
+    0%{
+        left: 0;
+    }
+    100%{
+        left: 1000px;
+    }
+}
+@keyframes lshou {
+    0%{
+        transform: rotate(-60deg);
+    }
+    100%{
+        transform: rotate(60deg);
+    }
+}
+@keyframes rshou {
+    0%{
+        transform: rotate(60deg);
+    }
+    100%{
+        transform: rotate(-60deg);
+    }
+}
+@keyframes rfoot {
+    0%{
+        transform: rotate(-90deg);
+    }
+    100%{
+        transform: rotate(60deg);
+    }
+}
+@keyframes rfoot {
+    0%{
+        transform: rotate(-90deg);
+    }
+    100%{
+        transform: rotate(60deg);
+    }
+}
+
+</style>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="aa"></div>
+</body>
+<style>
+    body{
+        background-color: #1d1f20;
+    }
+    .aa{
+        width:0;
+        height: 600px;
+        border-left: 300px solid #000;
+        border-right: 300px solid #fff;
+        border-radius: 50%;
+    }
+    .aa::before{
+        content: '';
+        display: block;
+        width: 100px;
+        height: 100px;
+        border: 100px solid black;
+        border-radius: 50%;
+        background-color: white;
+        margin-left: -150px;
+
+    }
+    .aa::after{
+        content: '';
+        display: block;
+        width: 100px;
+        height: 100px;
+        border: 100px solid white;
+        border-radius: 50%;
+        background-color: black;
+        margin-left: -150px;
+
+    }
+</style>
+</html>

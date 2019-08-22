@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&ak=E4805d16520de693a3fe707cdc962045&services=&t=20190622163250"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/library/DistanceTool/1.2/src/DistanceTool_min.js"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script>
+		<script src="new_file.js" type="text/javascript" charset="utf-8"></script>
+
+		<style type="text/css">
+			.map01 {
+				width: 100%;
+				height: 600px;
+				border: 1px solid skyblue;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="map01" id="map01"></div>
+		<input type="text" id="city" />
+		<input type="button" name="" id="bt1" value="开启鼠标测距" />
+
+		<div id="r-result">
+			<input type="button" onclick="add_control();" value="添加比例标尺" />
+			<input type="button" onclick="delete_control();" value="删除比例标尺" />
+		</div>
+		<input type="button" onclick="remove_overlay();" value="删除覆盖物" />
+	</body>
+</html>
+<script type="text/javascript">
+	$(function() {
+		map = new BMap.Map("map01");
+		// map.centerAndZoom(new BMap.Point(108.404,22.915),11);
+		map.centerAndZoom("平南")
+		map.enableScrollWheelZoom(true);
+		// change事件  // 按回车一样触发change事件
+		$("#city").change(function() {
+			map.centerAndZoom($(this).val());
+		});
+		var myDis = new BMapLib.DistanceTool(map);
+
+		$("#bt1").click(function() {
+			myDis.open();
+		});
+		top_left_control = new BMap.ScaleControl({
+			anchor: BMAP_ANCHOR_TOP_LEFT
+		}); // 左上角，添加比例尺
+		top_left_navigation = new BMap.NavigationControl(); //左上角，添加默认缩放平移控件
+		top_right_navigation = new BMap.NavigationControl({
+			anchor: BMAP_ANCHOR_TOP_RIGHT,
+			type: BMAP_NAVIGATION_CONTROL_SMALL
+		}); //右上角，仅包含平移和缩放按钮
+		/*缩放控件type有四种类型:
+		BMAP_NAVIGATION_CONTROL_SMALL：仅包含平移和缩放按钮；BMAP_NAVIGATION_CONTROL_PAN:仅包含平移按钮；BMAP_NAVIGATION_CONTROL_ZOOM：仅包含缩放按钮*/
+		map.addEventListener("click", function(e) {
+			// marker = new BMap.Marker(new BMap.Point(e.point.lng, e.point.lat)); // 创建点
+			// add_overlay();
+			var pt = new BMap.Point(e.point.lng, e.point.lat);
+			var myIcon = new BMap.Icon("biaoji1.png", new BMap.Size(100, 100));
+			var marker2 = new BMap.Marker(pt, {
+				icon: myIcon
+			});
+			// 创建标注
+			map.addOverlay(marker2);
+			marker2.addEventListener("click", function(e) {
+				var label = new BMap.Label("嘿嘿嘿嘿嘿", {
+					offset: new BMap.Size(20, -10)
+				});
+				marker2.setLabel(label);
+			})
+
+
+		});
+
+
+
+	});
+	//添加控件和比例尺
+	function add_control() {
+		map.addControl(top_left_control);
+		map.addControl(top_left_navigation);
+		map.addControl(top_right_navigation);
+	}
+	//移除控件和比例尺
+	function delete_control() {
+		map.removeControl(top_left_control);
+		map.removeControl(top_left_navigation);
+		map.removeControl(top_right_navigation);
+	}
+
+
+	//清除覆盖物
+	function remove_overlay() {
+		map.clearOverlays();
+	}
+</script>

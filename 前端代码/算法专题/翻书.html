@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.book1{
+				width: 200px;
+				height: 300px;
+				background-color: skyblue;
+				position: absolute;
+				left: 209px;
+			}
+			.book2{
+				width: 200px;
+				height: 300px;
+				background-color: pink;
+				position: absolute;
+				left: 209px;
+				transition: 5s;
+				transform-origin: left;
+			}
+			.book2:hover{
+				transition: 5s;
+				transform: rotateY(-180deg) /* skewY(5deg) */;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="book1">哈哈哈哈</div>
+		<div class="book2">嘿嘿嘿</div>
+	</body>
+</html>

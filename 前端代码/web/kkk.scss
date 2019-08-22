@@ -1,0 +1,23 @@
+$yanse:red;
+$zitidaxiao:50px;
+
+.box{
+  width: 500px;
+  height: 500px;
+  background-color: $yanse;
+  font-size: $zitidaxiao;
+  >.ccc{
+    width: 250px;
+    height: 250px;
+    background-color: #fff;
+    >.ooo{
+      width: 50px;
+      height: 50px;
+      background-color: #000000;
+    }
+  }
+  >.ccc:hover>.ooo{
+    background-color: #9a6e3a;
+  }
+
+}

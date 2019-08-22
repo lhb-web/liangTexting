@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>转盘</title>
+		<style type="text/css">
+
+			.rollingpan {
+				width: 600px;
+				height: 600px;
+				border-radius: 50%;
+				border: 1px #FF0000 solid;
+				background-color: skyblue;
+			}
+
+			.itemX {
+				width: 600px;
+				height: 80px;
+				/* border: 1px black solid; */
+				margin-top: 260px;
+				position: absolute;
+				font-size: 16px;
+			}
+
+			.arrow {
+				width: 40px;
+				height: 260px;
+				background-color: black;
+				position: absolute;
+				top: 75px;
+				left: 290px;
+				clip-path: polygon(20px 0, 40px 20px, 30px 20px, 30px 300px, 10px 300px, 10px 20px, 0 20px, 20px 0);
+				z-index: 80;
+
+			}
+		</style>
+	</head>
+	<body>
+		<div class="arrow"></div>
+		<input type="button" id="doRolling" value="抽奖" />
+		<!-- <input type="button" id="stopRolling" value="停止" /> -->
+		<div class="rollingpan" id="rollingpan111">
+			<!-- <div class="itemX" id="item1" style="transform: rotate(0deg);">曾敏</div>
+			<div class="itemX" id="item2" style="transform: rotate(12deg);">黄盛玺</div>
+			<div class="itemX" id="item3" style="transform: rotate(24deg);">杨庆文</div>
+			<div class="itemX" id="item4" style="transform: rotate(36deg);">李春鹏</div>
+			<div class="itemX" id="item5" style="transform: rotate(48deg);">赵珊</div>
+			<div class="itemX" id="item6" style="transform: rotate(60deg);">苏壮晖</div>
+			<div class="itemX" id="item7" style="transform: rotate(72deg);">孙蒙</div>
+			<div class="itemX" id="item8" style="transform: rotate(84deg);">高原</div>
+			<div class="itemX" id="item9" style="transform: rotate(96deg);">雷雪煜</div>
+			<div class="itemX" id="item10" style="transform: rotate(108deg);">王文金</div>
+			<div class="itemX" id="item11" style="transform: rotate(120deg);">韦清源</div>
+			<div class="itemX" id="item12" style="transform: rotate(132deg);">高家俊</div>
+			<div class="itemX" id="item13" style="transform: rotate(144deg);">董青林</div>
+			<div class="itemX" id="item14" style="transform: rotate(156deg);">刘伟业</div>
+			<div class="itemX" id="item15" style="transform: rotate(168deg);">陈艺宇</div>
+			<div class="itemX" id="item16" style="transform: rotate(180deg);">李烜铖</div>
+			<div class="itemX" id="item17" style="transform: rotate(192deg);">满春发</div>
+			<div class="itemX" id="item18" style="transform: rotate(204deg);">蒙城彪</div>
+			<div class="itemX" id="item19" style="transform: rotate(216deg);">施一航</div>
+			<div class="itemX" id="item20" style="transform: rotate(228deg);">王程鑫</div>
+			<div class="itemX" id="item21" style="transform: rotate(240deg);">梁鸿标</div>
+			<div class="itemX" id="item22" style="transform: rotate(252deg);">黄伟洪</div>
+			<div class="itemX" id="item23" style="transform: rotate(264deg);">黄河源</div>
+			<div class="itemX" id="item24" style="transform: rotate(276deg);">杨昊</div>
+			<div class="itemX" id="item25" style="transform: rotate(288deg);">李旭昊</div>
+			<div class="itemX" id="item26" style="transform: rotate(300deg);">黄春惠</div>
+			<div class="itemX" id="item27" style="transform: rotate(312deg);">尚冉</div>
+			<div class="itemX" id="item28" style="transform: rotate(324deg);">袁鑫</div>
+			<div class="itemX" id="item29" style="transform: rotate(336deg);">帅哥</div>
+			<div class="itemX" id="item30" style="transform: rotate(348deg);">美女</div> -->
+
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+
+	var timerPan = 0;
+
+	function doRolling(flag) {
+		if (timerPan) {
+			console.info(document.getElementById("rollingpan111").style.transform);
+			clearInterval(timerPan);
+		}
+		if (flag) {
+			var currAngle = document.getElementById("rollingpan111").style.transform;
+			if (!currAngle) {
+				currAngle = 0;
+			} else {
+				currAngle = currAngle.replace("rotate(", "");
+				currAngle = currAngle.replace("deg)", "");
+				currAngle = parseInt(currAngle);
+			}
+			timerPan = setInterval(function() {
+				currAngle += 5;
+				if (currAngle > 360) {
+					currAngle = 0;
+				}
+				document.getElementById("rollingpan111").style.transform = "rotate(" + currAngle + "deg)";
+			}, 50)
+		}
+	}
+	// document.getElementById("stopRolling").onclick = function(e) {
+	// 	doRolling(false);
+	// }
+	var _isRolling = false;
+	document.getElementById("doRolling").onclick = function(e) {
+		if(_isRolling){
+			_isRolling = false;
+		}else{
+			_isRolling = true;
+		}
+		doRolling(_isRolling);
+	}
+	
+	// 课堂作业,数据分离
+	
+	
+	var allStudents = [
+		{ name:"曾敏",id: 1},
+		{ name:"黄盛玺", id: 2},
+		{ name:"杨庆文", id: 3},
+		{ name:"李春鹏", id: 4},
+		{ name:"赵珊", id: 5},
+		{ name:"苏壮晖", id: 6},
+		{ name:"孙蒙", id: 7},
+		{ name:"高原", id: 8},
+		{ name:"雷雪煜", id: 9},
+		{ name:"王文金", id: 10},
+		{ name:"韦清源", id: 11},
+		{ name:"高家俊", id: 12},
+		{ name:"董青林", id: 13},
+		{ name:"刘伟业", id: 14},
+		{ name:"陈艺宇", id: 15},
+		{ name:"李烜铖", id: 16},
+		{ name:"满春发", id: 17},
+		{ name:"蒙城彪", id: 18},
+		{ name:"施一航", id: 19},
+		{ name:"王程鑫", id: 20},
+		{ name:"梁鸿标", id: 21},
+		{ name:"黄伟洪", id: 22},
+		{ name:"黄河源", id: 23},
+		{ name:"杨昊", id: 24},
+		{ name:"李旭昊", id: 25},
+		{ name:"黄春惠", id: 26},
+		{ name:"尚冉", id: 27},
+		{ name:"袁鑫", id: 28}
+		
+	];
+	function fillRolingPan( studentArr){
+		// 角度分割
+		var oneAngle =  360 / studentArr.length;
+
+		for(var i = 0;i<studentArr.length;i++){
+			var newStudent = document.createElement("div");
+			newStudent.setAttribute("class","itemX");
+			newStudent.id = "item"+ allStudents[i].id;
+			newStudent.innerText = allStudents[i].name;
+			var currAngle = oneAngle * i;
+			newStudent.style.transform = "rotate(" + currAngle +"deg)";
+			
+			document.getElementById("rollingpan111").appendChild(newStudent);
+		}
+	}
+	fillRolingPan(allStudents);
+	
+</script>

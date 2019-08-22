@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	function num02(a, b) {
+		/* var i = typeof(a);
+		var j = typeof(b); */
+		if (isNaN(a) || isNaN(b)) {
+			console.info("输入的参数不是数字");
+			return;
+
+		} else {
+			return a > b ? a : b;
+		}
+
+	}
+
+	//使用或运算进行容错
+	var name = "";
+	var username = name || "未登录"; //如果第一个条件不满足,则取下一个条件,以此类推
+
+	name = "liang";
+	username = name || "未登录"; //只要第一个条件成立,则不再计算后边条件
+	console.info(username);
+
+	//编写函数,实现输入一个字符串,一个数组,返回- 字符串是否在数组中,如果在,返回其在数组中的下标
+	function searchArray(string1, array1) {
+		for (var i = 0; i < array1.length; i++) {
+			if (string1 == array1[i]) {
+				return i;
+			}
+		}
+		return "no - match";
+	}
+	var str = "liang";
+	var ourClass = ["li", "zhang", "liu", "huang", "yang"];
+	var result = searchArray(str, ourClass);
+	console.info(result);
+
+
+	//例程3:编写一个函数,参数为a,b两个数字,返回值为这两个数字之间的随机数
+
+	function getRan(a, b) {
+
+		return Math.floor(Math.random() * (Math.abs(a - b) + 1) + (a < b ? a : b));
+	}
+	console.info(getRan(3, 5));
+	//例程4: 编写一个函数,实现交换数组中两个元素的位置( a = ["tony","peter"])
+	var a001 = ["tony", "peter", "liang", "li"];
+	var k;
+	var l;
+	var temp;
+
+	function name(string1, string2) {
+		for (var i = 0; i < a001.length; i++) {
+			if (string1 == a001[i]) {
+				k = i;
+				break;
+			}
+		}
+		for (var j = 0; j < a001.length; j++) {
+			if (string2 == a001[j]) {
+				l = j;
+				break;
+			}
+		}
+		temp = a001[k];
+		a001[k] = a001[l];
+		a001[l] = temp;
+		console.info(a001);
+	}
+</script>

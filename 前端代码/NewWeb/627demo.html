@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="jquery-3.1.1.min.js"></script>
+	</head>
+	<body>
+		20190627
+	</body>
+</html>
+<script type="text/javascript">
+	/* var a = ['fang','yang','li','liu'];
+	a.push('lin');
+	a.splice(2,2,'tom','jim')
+	a.splice(2,2,'li','liu') */
+
+	//数组拼接concat 不会改变原有数组,而是返回一个新数组
+	//splice 替换元素,会改变原数组
+	//slice  截取数组的一段出来用,不会改变原数组,截取的片段应该用新变量接收
+	/* var a1 = ['fang','yang','li','liu','lin'];
+	var a2=a1.splice(2,2,'tom','jim');
+	a1=a1.concat(a2); */
+
+	//对象的构造函数
+	var student03 = {
+		name: "zhang",
+		grade: "大三",
+		id: "16060303",
+		"class": "计算机科学与技术一班",
+		"house": "17#105",
+		total: 88
+	}
+	//student 对象的构造器函数(看作是student类)
+	function Student(name, grade, id, classIn, house, total) {
+		this.name = name;
+		this.grade = grade;
+		this.id = id;
+		this.classIn = classIn;
+		this.house = house;
+		this.total = total;
+
+		/* 构造器函数本身只做声明，如果想要使用，必先实例化一个对象。MAth是一个全局对象！
+		   它不可以new，因为它不是一个构造函数。
+		   
+		-->全局对象，意思是直接就可以拿来用的对象，一般值工具类型（对象） window的子集
+	
+	
+		 构造器函数的扩展，使用.prototype 来修改其原型
+		 
+		 */
+		this.pingjia = function() {
+			var tempTotal = this.total;
+			if (tempTotal >= 80) {
+				console.info("这是个栋梁之才")
+			} else if (tempTotal < 60) {
+				alert("通知家长！");
+			}
+		}
+	}
+	//实例化一个student
+	var student01 = new Student("fang", "大四", "16060300", "计科3班", "1703", "80");
+	var student02 = new Student("lianghongbiao", "大三", "16060327", "计科三班", "1703", "88");
+
+	var aa = 0;
+	var counter = 1;
+	while (aa != 1) {
+		aa = Math.floor(Math.random() * 100);
+		console.info(aa + "-----" + counter++);
+	}
+</script>

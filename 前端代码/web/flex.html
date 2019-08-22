@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex</title>
+</head>
+<body>
+<div class="box">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+</div>
+
+</body>
+<style>
+    .box{
+        width: 500px;
+        height: 500px;
+        border: 1px solid #000;
+        display: flex;
+        /*flex-direction: row;!*设置主轴方向 默认值row从左到右 *!*/
+        /*flex-wrap: nowrap;!*默认值nowarp 设置项目是否换行*!*/
+        /*flex-flow: row wrap;!*综合上面两个属性的简写形式*!*/
+        /*justify-content: space-evenly ;*//*主轴方向的对齐方式
+        space-evenly:项目两边到边界的距离等于项目间距
+        space-around:项目两边到边界的距离等于项目间距的一半
+        space-between:项目两边靠两边，项目间距均等
+        */
+        /*align-items: stretch;!*交叉轴方向的对齐方式 默认值stretch占满父容器*!*/
+        /*align-content: space-evenly;!*多条轴线时 交叉轴的对齐 默认值stretch占满父容器*!*/
+
+    }
+    .box>div{
+        width: 100px;
+        height: 100px;
+        border: 1px solid #000;
+        flex: 1;
+        /*flex-basis: 50px;*/
+    }
+    /*.box>div:nth-last-child(1){*/
+        /*order: -1;!*设置项目的排列顺序 默认值为零 值越小越靠前*!*/
+    /*}*/
+    /*.box>div:nth-child(2){*/
+        /*flex-grow: 1;!*设置项目的放大比例 默认为0*!*/
+    /*}*/
+    /*.box>div:nth-child(1){*/
+        /*flex-grow: 1;!*设置项目的放大比例 默认为0*!*/
+    /*}*/
+    .box>div:nth-child(2){
+        flex-shrink: 0;/*设置项目的缩小比例 默认值是1 */
+    }.box>div:nth-child(3){
+        flex-shrink: 4;/*设置项目的缩小比例 默认值是1 */
+    }
+</style>
+</html>

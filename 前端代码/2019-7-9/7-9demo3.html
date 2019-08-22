@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>DOM-3</title>
+		<style type="text/css">
+			body {
+				position: relative;
+				background-color: white;
+			}
+
+			.rain {
+				position: absolute;
+				/* background-color: white; */
+				/* border: 1px solid white; */
+				border-radius: 50%;
+				width: 40px;
+				height: 40px;
+				
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<!-- <div class="rain"></div> -->
+	</body>
+</html>
+<script type="text/javascript">
+	var rainCount = 0;//当前雨滴数
+	var rainMax = 200;//雨滴总数量
+	
+	
+	
+	function doRainFall() {
+		if (rainCount >= rainMax) {
+			return;
+		}
+		//创建div
+		var rainFall = document.createElement("div");
+		rainFall.setAttribute("class", "rain");
+		
+		var img = document.createElement("img");
+		img.setAttribute("id","xue");
+		var photo1 = "xuehua.png";
+		var photo2 = "xuehua02.jpg";
+		var photo3 = "xuehua03.jpg";
+		var photo4 = "xuehua04.jpg";
+		var temp = [photo1,photo2,photo3,photo4];
+		var nub = Math.floor(Math.random()*4 );
+		img.src = temp[nub];//图片路径
+		rainFall.appendChild(img);
+		img.style.width = "40px";
+		img.style.height = "40px";
+		
+		document.body.appendChild(rainFall);
+		
+		rainFall.style.top = "0px";
+		rainFall.style.left = Math.random() * 100 + "%";
+		rainCount += 1;
+		var rainTimer = setInterval(function() {
+			var newTop = rainFall.style.top.replace("px", "");
+			newTop = parseFloat(newTop);
+			newTop += Math.floor(Math.random() * 15 + 5);//下落速度
+			//限制高度
+			if (newTop >= 800) {
+				rainFall.remove();
+				rainCount -= 1;
+				clearInterval(rainTimer);
+			}
+			rainFall.style.top = newTop + "px";
+
+		}, 100)
+	}
+	setInterval(function() {
+		doRainFall();
+	}, 800)
+	doRainFall();
+</script>

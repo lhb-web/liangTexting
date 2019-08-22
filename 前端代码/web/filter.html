@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="./images/banner.jpg" alt="">
+<div class="aa">qweqweqweqwe</div>
+</body>
+<style>
+img{
+    /*filter: blur(10px);!*高斯模糊*!*/
+    /*filter: brightness(10%);!*暗度 默认值100%  0-100%是暗度 100%以上是亮度*!*/
+    /*filter: contrast(10%);!*对比度  默认值100%*!*/
+    /*filter: drop-shadow(1px 1px 1px black);!*图像阴影：值1阴影的水平位移 值2阴影的垂直位移 值3阴影模糊值 值4阴影颜色*!*/
+    filter: grayscale(100%);/*灰度 默认为0  取值0-100%*/
+    /*filter: hue-rotate(0deg);!*色相旋转 取值为度数*!*/
+    /*filter: invert(10%);!*图像翻转 *!*/
+    /*filter: opacity(20%);!*图像透明度  取值百分比 默认100%*!*/
+    /*filter: saturate(20%);!*图像饱和度 取值范围0到正无穷*!*/
+    /*filter:sepia(20%);!*褐度 取值范围0-100% 默认0*!*/
+}
+    .aa{
+        width: 200px;
+        height: 200px;
+        border: 1px solid #000;
+        text-shadow: 1px 1px 1px black;/*文字阴影: 值1阴影的水平位移 值2阴影的垂直位移 值3阴影模糊值 值4阴影颜色*/
+        box-shadow: 1px 1px 1px 1px black;/*盒子阴影：值1阴影的水平位移 值2阴影的垂直位移 值3阴影模糊值 值4阴影外延值 值5阴影颜色*/
+    }
+</style>
+</html>

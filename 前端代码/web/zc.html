@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="top">
+    <div class="zhiwei">
+        职位
+        <div class="zcaidan">
+            <div>职位</div>
+            <div>公司</div>
+            <div>+发布职位</div>
+        </div>
+    </div>
+    <div class="huodong">
+        活动
+        <div class="hcaidan">
+        <div>设计大赛</div>
+        <div>专题策划</div>
+        <div>线上活动</div>
+        <div>线下活动</div>
+        <div>学习音频</div>
+        </div>
+    </div>
+</div>
+</body>
+<style>
+    body{
+        background-color: #f2f2f2;
+    }
+.top{
+    width: 100%;
+    height: 56px;
+    background-color: #ffe300;
+}
+    .zhiwei{
+        height: 56px;
+        width: 76px;
+        line-height: 56px;
+        float: left;
+        text-align: center;
+        margin-left: 788px;
+
+    }
+    .huodong{
+        height: 56px;
+        width: 76px;
+        line-height: 56px;
+        float: left;
+        text-align: center;
+    }
+    .zcaidan{
+        display: none;
+        box-shadow: 1px 1px 10px 0 #969896;
+        width: 152px;
+    }
+    .hcaidan{
+        display: none;
+        box-shadow: 1px 1px 10px 0 #969896;
+        width: 152px;
+    }
+    .zcaidan>div{
+        height: 56px;
+        width: 132px;
+        line-height: 56px;
+        text-align: left;
+        padding-left: 20px;
+    }
+    .hcaidan>div{
+        height: 56px;
+        width: 132px;
+        line-height: 56px;
+        text-align: left;
+        padding-left: 20px;
+    }
+    .zhiwei:hover>.zcaidan{
+        display: block;
+        background-color:white;
+    }
+    .huodong:hover>.hcaidan{
+        display: block;
+        background-color:white;
+    }
+    .zhiwei:hover{
+        background-color:black;
+        color: #ffe300;
+    }
+    .huodong:hover{
+        background-color:black;
+        color: #ffe300;
+
+    }
+    .zcaidan>div:hover{
+        background-color:#ffe300;
+        color: black;
+    }
+    .hcaidan>div:hover{
+        background-color: #ffe300;
+        color: black;
+
+    }
+    .zhiwei:hover>div{
+        color: black;
+    }
+    .huodong:hover>div{
+        color: black;
+    }
+
+</style>
+</html>

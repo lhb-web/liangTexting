@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="box">
+    <div class="left">
+        <div class="images"><img src="https://dimg07.c-ctrip.com/images/100j0y000000m0bhg78DC_C_221_166.jpg" >
+            <div class="jiage">
+                <h3>北京</h3>
+                <p>¥</p>
+                <b>1296</b>
+                <div class="zi">/人起</div>
+            </div>
+            <div class="xiaoliang">月销10000笔</div>
+        </div>
+        <div class="images"><img src="https://dimg05.c-ctrip.com/images/100r12000000swa1q2CDE_C_221_166.jpg" >
+            <div class="jiage">
+                <h3>北京</h3>
+                <p>¥</p>
+                <b>1296</b>
+                <div class="zi">/人起</div>
+            </div>
+            <div class="xiaoliang">月销10000笔</div>
+        </div>
+        <div class="images"><img src="https://dimg07.c-ctrip.com/images/100f0e00000076pmrC805_C_221_166.jpg" >
+            <div class="jiage">
+                <h3>北京</h3>
+                <p>¥</p>
+                <b>1296</b>
+                <div class="zi">/人起</div>
+            </div>
+            <div class="xiaoliang">月销10000笔</div>
+        </div>
+        <div class="images"><img src="https://dimg04.c-ctrip.com/images/fd/tg/g2/M0B/87/F3/CghzgVWwtkiABWPkACg8DgXiBlU807_C_221_166.jpg" >
+            <div class="jiage">
+                <h3>北京</h3>
+                <p>¥</p>
+                <b>1296</b>
+                <div class="zi">/人起</div>
+            </div>
+            <div class="xiaoliang">月销10000笔</div>
+        </div>
+        <div class="images"><img src="https://dimg07.c-ctrip.com/images/100f0g00000087ngm6A83_C_221_166.jpg" >
+            <div class="jiage">
+                <h3>北京</h3>
+                <p>¥</p>
+                <b>1296</b>
+                <div class="zi">/人起</div>
+            </div>
+            <div class="xiaoliang">月销10000笔</div>
+        </div>
+        <div class="images"><img src="https://dimg05.c-ctrip.com/images/10050a0000004xyzo1CB3_C_221_166.jpg" >
+            <div class="jiage">
+                <h3>北京</h3>
+                <p>¥</p>
+                <b>1296</b>
+                <div class="zi">/人起</div>
+            </div>
+            <div class="xiaoliang">月销10000笔</div>
+        </div>
+        <div class="images"><img src="https://dimg05.c-ctrip.com/images/fd/tg/g5/M04/6E/D3/CggYsFbvxkWAW8azAApi7j9YZzA868_C_221_166.jpg" >
+            <div class="jiage">
+                <h3>北京</h3>
+                <p>¥</p>
+                <b>1296</b>
+                <div class="zi">/人起</div>
+            </div>
+            <div class="xiaoliang">月销10000笔</div>
+        </div>
+        <div class="images"><img src="https://dimg05.c-ctrip.com/images/100u0n000000e0fpmBF3A_C_221_166.jpg" >
+            <div class="jiage">
+                <h3>北京</h3>
+                <p>¥</p>
+                <b>1296</b>
+                <div class="zi">/人起</div>
+            </div>
+            <div class="xiaoliang">月销10000笔</div>
+        </div>
+    </div >
+    <div class="right"><img src="https://dimg04.c-ctrip.com/images/700q15000000xqpeqB5A5_220_330_527.jpg" ></div>
+</div>
+</body>
+<style>
+.box{
+    width: 1160px;
+    height: 375px;
+    /*border: 1px solid #000;*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+}
+    .left{
+        width: 925px;
+        height: 330px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-content: space-between;
+    }
+    .right{
+        width: 220px;
+        height: 345px;
+        align-self: center;
+    }
+    .images{
+        width: 220px;
+        height: 160px;
+        position: relative;
+        overflow: hidden;
+
+    }
+    .jiage{
+        width: 120px;
+        height: 120px;
+        background: rgba(0 ,0 ,0, 0.5);/*背景颜色 最后一个数值为透明度*/
+        position: absolute;
+        z-index: 11;
+        top: 32px;
+        left: 57px;
+        border-radius: 50%;
+
+    }
+    .xiaoliang{
+        width: 80px;
+        height: 18px;
+        /*border: 1px solid #000;*/
+        position: absolute;
+        z-index: 11;
+        top: 0;
+        left: 0;
+        background-color: orangered;
+        font-size: 2px;
+        color: white;
+        border-bottom-right-radius: 10px;
+    }
+    h3{
+        width: 120px;
+        color: white;
+        border-bottom: 2px solid white;
+        position: absolute;
+        text-align: center;
+        opacity: 1;
+        /*margin: 0 auto;*/
+    }
+    p{
+        line-height: 100%;
+        color: white;
+        position: absolute;
+        top: 45px;
+        right: -15px;
+        width: 120px;
+        font-size: 1px;
+        opacity: 1;
+    }
+    b{
+        line-height: 100%;
+        color: #ff2d0a;
+        position: absolute;
+        top: 55px;
+        right: -25px;
+        width: 120px;
+        font-size: 25px;
+        opacity: 1;
+    }
+    .zi{
+        line-height: 100%;
+        color: white;
+        position: absolute;
+        top: 63px;
+        right: -88px;
+        width: 120px;
+        font-size: 1px;
+        opacity: 1;
+    }
+</style>
+</html>

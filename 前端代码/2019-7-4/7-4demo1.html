@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+
+</html>
+<script type="text/javascript">
+	//数组是对象
+	//变量的属性是无须的
+	//对象是一组无序的kry-value结构,键-值对
+	//属性名-属性值
+	//严格的说,属性名是固定的,且是字符串
+	//对象的属性可以随意增删
+	var ob01 = {
+		"name": "huang",
+		"age": 23,
+		"long": "3.5inc",
+		"weight": "56kg",
+		"title": "天下第一屁",
+		"secTitle": "臭屁精"
+
+	};
+
+	ob01.fullName = "黄大仙人"; //对象的属性可以随意增删
+	delete ob01.secTitle; //删除对象的属性 使用关键字 delete
+
+	//遍历对象  for in
+	//例程1,遍历自己
+	for (var x in ob01) {
+		console.info(x + ":" + ob01[x]);
+	}
+
+	//课堂练习 ,在几个student中,找出分数大于80的同学
+	var student1 = {
+		name: "李",
+		id: 16060301,
+		grade: "大三",
+		umint: "计科",
+		total: 70
+
+	}
+	var student2 = {
+		name: "刘",
+		id: 16060302,
+		grade: "大三",
+		umint: "计科",
+		total: 81
+
+	}
+	var student3 = {
+		name: "梁",
+		id: 16060303,
+		grade: "大三",
+		umint: "计科",
+		total: 90
+
+	}
+	var student4 = {
+		name: "张",
+		id: 16060304,
+		grade: "大三",
+		umint: "计科",
+		total: 60
+
+	}
+	var Student = [student1, student2, student3, student4];
+	var a = [];
+	for (var i = 0; i < Student.length; i++) {
+		if (Student[i].total > 80) {
+			a.push(Student[i])
+		}
+	}
+	console.info(a);
+
+
+	var song1 = {
+		name: "只因你太美",
+		type: "pop",
+		auther: "蔡徐坤",
+		total: 0
+	}
+	var song2 = {
+		name: "十七岁",
+		type: "pop",
+		auther: "刘德华",
+		total: 62
+	}
+	var song3 = {
+		name: "阳光宅男",
+		type: "pop",
+		auther: "周杰伦",
+		total: 88
+	}
+	var song4 = {
+		name: "稻香",
+		type: "pop",
+		auther: "周杰伦",
+		total: 76
+	}
+	var song5 = {
+		name: "庆功酒",
+		type: "pop",
+		auther: "福克斯",
+		total: 66
+	}
+	var song6 = {
+		name: "为你我受冷风吹",
+		type: "pop",
+		auther: "林忆莲",
+		total: 77
+	}
+	var song7 = {
+		name: "够钟",
+		type: "pop",
+		auther: "周柏豪",
+		total: 100
+	}
+	var song8 = {
+		name: "等你下课",
+		type: "pop",
+		auther: "周杰伦",
+		total: 99
+	}
+	var song9 = {
+		name: "冬天里的一把火",
+		type: "pop",
+		auther: "费翔",
+		total: 69
+	}
+	var song10 = {
+		name: "最炫民族风",
+		type: "pop",
+		auther: "凤凰传奇",
+		total: 59
+	}
+	var songList = [];
+	songList.push(song1);
+	songList.push(song2);
+	songList.push(song3);
+	songList.push(song4);
+	songList.push(song5);
+	songList.push(song6);
+	songList.push(song7);
+	songList.push(song8);
+	songList.push(song9);
+	songList.push(song10);
+
+
+	//方法一
+	/* for (var i = 0; i < songList.length; i++) {
+		var x = Math.floor(Math.random() * (songList.length - 1));
+		var temp = songList[i];
+		songList[i] = songList[x];
+		songList[x] = temp;
+	}
+	console.info(songList); */
+
+	//方法二
+	/* var newArr = [];
+	var flag = [];
+	while (newArr.length < 10) {
+		var ran = Math.floor(Math.random() * 10);
+		if (flag.indexOf(ran) >= 0) {
+			continue;
+		} else {
+			flag.push(ran);
+			newArr.push(songList[ran]);
+		}
+	}
+	console.info(newArr);
+	 */
+
+
+	for (var i = 0; i < songList.length; i++) {
+		for (var j = 0; j < songList.length - 1 - i; j++) {
+			if (songList[j].total < songList[j + 1].total) {
+				var temp = songList[j];
+				songList[j] = songList[j + 1];
+				songList[j + 1] = temp;
+			}
+		}
+
+	}
+
+	for (var i = 0; i < songList.length; i++) {
+		songList[i].index = i + 1;
+	}
+	console.info(songList);
+</script>

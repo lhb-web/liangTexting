@@ -1,0 +1,47 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <title></title>
+ 
+</head>
+<body>
+<div class="content">
+    <div class="slider">
+         <div class="icon">
+             <span class="fa fa-circle" id="cart" ></span>  
+          </div>
+     </div>
+</div>
+
+<script>
+   // x = 100,y = 400,h = 2000ms
+    (function () {
+     var x = 100, y = 200
+     var $cart = document.querySelector('#cart')
+     // 距离底部的位置
+     var offsetBottom = document.documentElement.clientHeight 
+             - $cart.offsetParent.offsetTop 
+             - $cart.offsetHeight
+
+     var xh =500, yh=offsetBottom,p = xh * xh / (-2 * yh) 
+
+     function flicker(){
+       // 抛物线公式：x2=-2py
+       // x 可以控制速度
+       x -= 5
+       y = (x * x) / (-2 * p)
+
+       $cart.style.transform = "translate("+ x +"px, "+ y +"px)"
+
+       if (x  > -xh) { 
+         requestAnimationFrame(flicker);
+       } else {
+         $cart.style.transform = "translate(0px, 0px)"
+       }
+     }
+     flicker()
+    })()
+   </script>
+</body>
+</html>

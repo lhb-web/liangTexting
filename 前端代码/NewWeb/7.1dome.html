@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="shortcut icon" type="image/x-icon" href="konglong.png" media="screen"/>
+		<style>
+			body{
+				position: relative;
+			}
+			.redBak{
+				background-color: red;
+			}
+			.greenBak{
+				background-color: greenyellow;
+			}
+			.coundown{
+				position: absolute;
+				width: 400px;
+				height: 400px;
+				top:50%;
+				left: 50%;
+				margin-left: -200px;
+				border: 1px solid white;
+				background: #c3c3c3;
+				border-radius: 50%;
+				font-size: 32px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				display: none;
+				/* text-align: center; */
+			}
+			.coundown02{
+				display: flex;
+				justify-content: center;
+				align-content: center;
+				/* margin-top: 43%; */
+			}
+			.consoleBord{
+				width: 600px;
+				height: 180px;
+				position: fixed;
+				top:0;
+				left: 50%;
+				margin-left: -300px;
+				background-color: sandybrown;
+				padding-top: 20px;
+				
+			}
+			.consoleButton{
+				width: 140px;
+				height: 140px;
+				border: 1px solid black;
+				border-radius: 50%;
+				font-size:24px;
+				margin-left: 40px;
+				display: inline-block;
+			}
+			img{
+				filter: grayscale(100%);
+			}
+			
+		</style>
+	</head>
+	<body onload="loadDo()">
+		<p class="p1" id="line1">我有一头小毛驴</p>
+		<p class="p1" id="line2">我从来也不骑</p>
+
+		<span class="span1" ,id="span1">山雨欲来风满楼 </span>
+		<span class="span2" ,id="span2">月满西楼</span>
+		<div class="coundown" id="coundown1">
+			<div class="coundown02" id="coundown02">
+				5
+			</div>
+		</div>
+		<img src="https://www.baidu.com/img/bd_logo1.png">
+		<div class="consoleBord">
+			<input type="button" class="consoleButton greenBak" id="bt1" value="开始倒计时" />
+			<input type="button" class="consoleButton greenBak" id="bt2" value="改变灰度" />
+			<input type="button" class="consoleButton greenBak" id="bt3" value="待定" />
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		/* document.getElementById("line1");
+		document.getElementById("line1").innerText = "风萧萧兮易水寒"; //仅仅改变文本
+		document.getElementById("line2").innerHTML = "壮士一去兮不复还"; //改变内部的html文件
+
+		document.getElementsByTagName("p"); */
+
+		//获取标签的属性 line1.getAttribute("class")
+		//修改标签的属性 line1.serAttribute("class","")
+
+
+
+		//页面加载完成事件
+		function loadDo() {
+			document.getElementById("coundown1").style.display = "none";
+
+		}
+
+		document.getElementById("bt1").onclick = function(e) {
+			//如果class中  含有greenBak,才能点击倒计时,否则不进行倒计时动作
+			if (document.getElementById("bt1").getAttribute("class").indexOf("greenBak") >= 0) {
+				document.getElementById("bt1").setAttribute("class", "consoleButton redBak");
+				doCountDown();
+			} else {
+				console.info("正在倒计时，不能重复点");
+			}
+
+		}
+		//实现一个数字倒数画面
+		function doCountDown() {
+			// document.getElementById("coundown1").style.display = "block ";
+			document.getElementById("coundown1").style.display = "flex";
+			var counter01 = 5;
+			var kkk = setInterval(function() {
+				document.getElementById("coundown02").style.display = "none";
+				counter01 -= 1;
+				if (counter01 >= 0) {
+					document.getElementById("coundown02").innerHTML = counter01;
+
+				} else {
+					//倒计时结束后,清空计时器,同时还原按钮的class greenBak,才能开启下次倒数
+					document.getElementById("bt1").setAttribute("class", "consoleButton greenBak");
+					document.getElementById("coundown02").innerHTML = "开始~~~~~~";
+					clearInterval(kkk); //关闭定时器
+				}
+				//掩饰定时器
+				setTimeout(function() {
+					document.getElementById("coundown02").style.display = "block";
+				}, 600); //600毫秒之后再执行匿名函数
+
+			}, 1000);
+		};
+
+
+		//使用定时器,逐渐改变图片灰度
+		// 		for (var i = 0; i < document.images.length; i++) {
+		// 			document.images[i].style.filter = "grayscale(50%)";
+		// 		}
+		// 		var cpounter002 = 1;
+		// 		var timerForIma = setInterval(function() {
+		// 			if (cpounter002 <= 10) {
+		// 				for (var i = 0; i < document.images.length; i++) {
+		// 					document.images[i].style.filter = "grayscale(" + cpounter002 + "0%)";
+		// 				}
+		// 				cpounter002 += 1;
+		// 			} else {
+		// 				clearInterval(timerForIma);
+		// 			}
+		// 
+		// 
+		// 		}, 400);
+     document.getElementById("bt2").onclick = function(e){
+		  offLight();
+	 }
+
+		function offLight() {
+			var cpounter003 = 10;
+			var timerForImg = setInterval(function() {
+				if (cpounter003 >= 0) {
+					for (var i = 0; i < document.images.length; i++) {
+						document.images[i].style.filter = "grayscale(" + cpounter003+"0%)"; // 逐渐改变图片灰度
+					}
+					cpounter003 -= 1;
+				} else {
+					document.getElementById("bt2").setAttribute("class", "consoleButton greenBak");
+					// document.images.style.filter = "grayscale(100%)";
+					window.location.reload();
+					clearInterval(timerForImg);
+				}
+			}, 400);
+		}
+		document.getElementById("bt2").onclick = function(e) {
+			//如果class中  含有greenBak,才能点击倒计时,否则不进行倒计时动作
+			if (document.getElementById("bt2").getAttribute("class").indexOf("greenBak") >= 0) {
+				document.getElementById("bt2").setAttribute("class", "consoleButton redBak");
+				offLight();
+			} else {
+				console.info("正在倒计时，不能重复点");
+			}
+		
+		}
+	</script>
+</html>

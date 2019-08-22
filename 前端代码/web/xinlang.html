@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新浪</title>
+</head>
+<body>
+<div class="box">
+    <div class="smallbox1">
+        <div>
+            <div><a href="">新闻</a></div>
+            <div><a href="">军事</a></div>
+            <div><a href="">国内</a></div>
+            <div><a href="">国际</a></div>
+        </div>
+        <div>
+            <div><a href="">财经</a></div>
+            <div><a href="">股票</a></div>
+            <div><a href="">基金</a></div>
+            <div><a href="">外汇</a></div>
+        </div>
+        <div>
+            <div><a href="">科技</a></div>
+            <div><a href="">手机</a></div>
+            <div><a href="">探索</a></div>
+            <div><a href="">众测</a></div>
+        </div>
+    </div>
+    <div class="smallbox2">
+        <div>
+            <div><a href="">体育</a></div>
+            <div><a href="">NBA</a></div>
+            <div><a href="">英超</a></div>
+            <div><a href="">中超</a></div>
+        </div>
+        <div>
+            <div><a href="">娱乐</a></div>
+            <div><a href="">明星</a></div>
+            <div><a href="">电影</a></div>
+            <div><a href="">星座</a></div>
+        </div>
+        <div>
+            <div><a href="">汽车</a></div>
+            <div><a href="">报价</a></div>
+            <div><a href="">买车</a></div>
+            <div><a href="">新车</a></div>
+        </div>
+    </div>
+    <div class="smallbox3">
+        <div>
+            <div><a href="">博客</a></div>
+            <div><a href="">专栏</a></div>
+            <div><a href="">历史</a></div>
+            <div><a href="">天气</a></div>
+        </div>
+        <div>
+            <div><a href="">视频</a></div>
+            <div><a href="">综艺</a></div>
+            <div><a href="">VR</a></div>
+            <div><a href="">直播</a></div>
+        </div>
+        <div>
+            <div><a href="">房产</a></div>
+            <div><a href="">二手房</a></div>
+            <div><a href="">家居</a></div>
+            <div><a href="">收藏</a></div>
+        </div>
+    </div>
+    <div class="smallbox4">
+        <div>
+            <div><a href="">时尚</a></div>
+            <div><a href="">女性</a></div>
+            <div><a href="">医药</a></div>
+            <div><a href="">育儿</a></div>
+        </div>
+        <div>
+            <div><a href="">教育</a></div>
+            <div class="zc"><a href="">高考</a></div>
+            <div><a href="">公益</a></div>
+            <div><a href="">佛学</a></div>
+        </div>
+        <div>
+            <div><a href="">图片</a></div>
+            <div><a href="">读书</a></div>
+            <div><a href="">黑猫</a></div>
+            <div><a href="">司法</a></div>
+        </div>
+    </div>
+    <div class="smallbox5">
+    <div>
+        <div><a href="">微博</a></div>
+        <div><a href="">城市</a></div>
+        <div><a href="">广西</a></div>
+        <div><a href="">学投资</a></div>
+    </div>
+    <div>
+        <div><a href="">旅游</a></div>
+        <div><a href="">文化</a></div>
+        <div><a href="">彩票</a></div>
+        <div><a href="">高尔夫</a></div>
+    </div>
+    <div>
+        <div><a href="">游戏</a></div>
+        <div><a href="">手游</a></div>
+        <div><a href="">邮箱</a></div>
+        <div><a href="">English</a></div>
+    </div>
+    </div>
+    <div class="smallbox6">
+        <div>
+            <div><a href="">交易</a></div>
+        </div>
+        <div>
+            <div><a href="">理财</a></div>
+        </div>
+        <div>
+            <div><a href="">更多</a></div>
+
+        </div>
+
+    </div>
+</div>
+
+</body>
+<style>
+.box{
+    width: 1100px;
+    height: 100px;
+    /*background-color:blue;*/
+    display: flex;
+    flex-flow: wrap;
+    justify-content: flex-start;
+    position: relative;
+}
+
+    .box>div{
+        width: 180px;
+        height: 100px;
+        border-left: 1px solid #9a6e3a;
+        /*background-color: #9a6e3a;*/
+        display: flex;
+        flex-flow: wrap;
+        align-content: space-between;
+    }
+    .box>div:nth-of-type(1){
+        border-left: none;
+    }
+    .box>div:nth-of-type(6){
+        width: 65px;
+    }
+    .box>div>div{
+        width: 180px;
+        height: 25px;
+        /*border: 1px solid #000;*/
+        margin-left: 10px;
+        margin-right: 10px;
+        display: flex;
+        flex-flow: wrap;
+        justify-content: space-between;
+    }
+    .box>div>div>div{
+        width: 40px;
+        height: 26px;
+        /*background-color: #de4440;*/
+        /*border: 1px solid #000;*/
+        font-size: 5px;
+    }
+    .box>div>div>div:nth-of-type(1){
+        font-weight: bold;
+    }
+
+    .smallbox6>div{
+        display: flex;
+        justify-content: space-between;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    a:hover{
+        color: #bd2c00;
+    }
+    .zc>a{
+        color: #bd2c00;
+    }
+
+
+</style>
+</html>

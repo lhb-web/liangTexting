@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变形</title>
+</head>
+<body>
+<div>translateX水平方向的平移</div>
+<div>translateY垂直方向的平移</div>
+<div>translate（x,y）的位移</div>
+<div>scaleX水平方向的缩放</div>
+<div>scaleY水平方向的缩放</div>
+<div>scale垂直缩放</div>
+<div>rotateX绕着X轴旋转</div>
+<div>rotateY绕着Y轴旋转</div>
+<div>rotate绕着几何中心旋转</div>
+<div>skew绕着X轴的扭曲</div>
+<div>skew绕着Y轴的扭曲</div>
+<div>skew绕着XY轴的夹角扭曲</div>
+<div></div>
+
+
+</body>
+<style>
+body{
+    background-color:black;
+}
+    div{
+        width: 150px;
+        height: 150px;
+        float: left;
+        margin: 150px;
+        background-color:orangered;
+        transition: 2s;/*过渡*/
+    }
+    div:nth-child(9){
+        transform-origin: 0  0
+    }
+    div:nth-child(1):hover{
+         transform: translateX(80px);
+     }
+    div:nth-child(2):hover{
+         transform: translateY(-80px);
+     }
+    div:nth-child(3):hover{
+         transform: translate(-80px,50px);
+     }
+    div:nth-child(4):hover{
+         transform: scaleX(4);
+     }
+    div:nth-child(5):hover{
+         transform: scaleY(4);
+     }
+    div:nth-child(6):hover{
+         transform: scale(4);
+     }
+    div:nth-child(7):hover{
+          transform: rotateX(30000deg);
+    }
+    div:nth-child(8):hover{
+          transform: rotateY(30000deg);
+    }
+    div:nth-child(9):hover{
+
+          transform: rotate(99999deg);
+    }
+    div:nth-child(10):hover{
+        transform: skewX(20deg);
+    }
+    div:nth-child(11):hover{
+        transform: skewY(20deg);
+    }
+    div:nth-child(12):hover{
+        transform: skew(20deg,30deg);
+    }
+
+
+
+</style>
+</html>Y

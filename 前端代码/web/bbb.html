@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  /*.a>div:first-child{!*匹配到第一个元素是不是div*!*/
+      /*border: 1px solid #000;*/
+  /*}*/
+  /*.a>div:last-child{!*匹配到最后一个元素是不是div*!*/
+      /*border: 1px solid #000;*/
+  /*}*/
+  /*.a>div:nth-child(3){!*匹配到第三个元素是不是div*!*/
+      /*background-color: #000000;*/
+  /*}*/
+  /*.a>div:nth-last-child(2){!*匹配到倒数第二个元素是不是div*!*/
+      /*background-color: red;*/
+  /*}*/
+  /*.a>div:first-of-type{!*匹配div类型的第一个*!*/
+      /*background-color: greenyellow;*/
+  /*}*/
+  /*.a>div:last-of-type{!*匹配div类型的最后一个*!*/
+      /*background-color: #df5000;*/
+   /*}*/
+  /*.a>div:nth-of-type(){!*匹配div类型顺数第二个*!*/
+      /*background-color: #969896;*/
+   /*}*/
+  /*.a>div:nth-last-of-type(){!*匹配div类型倒数数第二个*!*/
+      /*background-color: #969896;*/
+  /*}*/
+    body>div:first-child>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(1){
+        border: 2px solid red;
+        width: 600px;
+        height: 20px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        box-shadow: 5px 5px 5px 5px black;
+    }
+  body>div:first-child>div:nth-of-type(4)>div:first-child>div:first-child{
+      width: 600px;
+      height: 20px;
+      border-bottom: 3px solid black;
+      background-color: #795da3;
+  }
+
+</style>
+<body>
+    <div>
+        <span>asdasda</span>
+        <div>1</div>
+        <div>2
+            <div>222222</div>
+            <div>66666
+                <h1>333</h1>
+                <div>目标一：给我添加宽高，左上圆角和左下圆角，盒子阴影，边框</div>
+                <p>77777</p>
+            </div>
+            <div>33333</div>
+        </div>
+        <div>3</div>
+        <div>4
+            <div>44444
+                <div>目标二：给我加上宽高和下边框，背景颜色</div>
+            </div>
+            <span>99999</span>
+            <i>55555</i>
+        </div>
+        <div>5</div>
+    </div>
+</body>
+</html>

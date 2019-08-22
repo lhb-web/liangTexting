@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	var counter = 0;
+	var numLength = 10;
+	var num01 = [];
+	var num02 = [];
+	var timer = setInterval(function() {
+		// numLength --;
+		if (numLength % 2 == 1) {
+				counter++;
+				if (counter % 2 == 1) {
+					num01.push(counter);
+					console.info(num01);
+
+				} 
+				if(counter==10){
+					counter = 0;
+					numLength --;
+					
+				}
+				
+		}
+		
+	}, 100)
+
+// 	for (var i = 0; i < 5; i++) {
+// 		numLength--;
+// 		for (var j = 0; j < numLength; j++) {
+// 			if (numLength % 2 == 1) {
+// 				counter++;
+// 				if (counter % 2 == 1) {
+// 					num01.push(counter);
+// 				}
+// 				if (counter == 10) {
+// 					console.info(num01);
+// 				}
+// 
+// 			}
+// 			if (numLength % 2 == 0) {
+// 				num02.push(counter);
+// 				// console.info(num02);
+// 			}
+// 		}
+// 	}
+</script>

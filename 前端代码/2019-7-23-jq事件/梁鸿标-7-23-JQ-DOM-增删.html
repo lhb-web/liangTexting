@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>jq-对Dom的增删操作</title>
+		<script src="jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			body{
+				text-align: center;
+			}
+			.main{
+				width: 700px;
+				height: 200px;
+				background-color: red;
+			}
+			.card{
+				float: left;
+				height: 180px;
+				width: 90px;
+				background-color: skyblue;
+				margin-left: 10px;
+			}
+			img{
+				height: 180px;
+				width: 90px;
+			}
+			.content{
+				
+				width: 600px;
+				height: 300px;
+				background-color: #e6e6e6;
+				margin-top: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main" class="main">
+			<div id="card1" class="card jo1">
+				<img src="timg.jpg" >
+			</div>
+			<div id="card2" class="card jo2">
+				<img src="02.jpg" >
+			</div>
+			<div id="card3" class="card jo3">
+				<img src="03.jpg" >
+			</div>
+			<div id="card4" class="card jo4">
+				<img src="04.jpg" >
+			</div>
+			
+		</div>
+		<div id="content" class="content">
+			
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+		$("#content").append($("#card1"));
+		$("#content").prepend($("#card2"));
+		$("#content").after($("#card3"));
+		$("#content").before($("#card4"));
+		
+	});
+</script>

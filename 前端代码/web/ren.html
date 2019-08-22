@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>人</title>
+</head>
+<body>
+    <div class="human">
+        <div class="head">
+            <div class="cap">
+                <div></div>
+                <div></div>
+            </div>
+            <div class="tou"></div>
+        </div>
+
+            <div class="lshou"></div>
+            <div class="rshou"></div>
+            <div class="main"></div>
+            <div class="lfoot"></div>
+            <div class="rfoot"></div>
+
+
+    </div>
+</body>
+<style>
+    body{
+        background-color:#1d1f20;
+    }
+    .human{
+        width: 500px;
+        height: 600px;
+        /*border: 1px solid #000;*/
+        position: relative;
+        left: 0;
+        animation: ren 5s linear infinite;
+    }
+    .head{
+        width: 200px;
+        height: 200px;
+        /*border: 1px solid #000;*/
+        margin: 0 auto;
+        position: relative;
+        animation: tou 0.5s linear infinite alternate;
+        transform-origin: 50% 50%;
+    }
+    .cap{
+        position: relative;
+    }
+    /*帽檐*/
+    .cap>div:nth-child(1){
+        width: 100px;
+        height: 30px;
+        background-color: #fff;
+        border-radius: 10px;
+        position: absolute;
+        left: 50px ;
+        top: 60px;
+    }
+    /*头顶*/
+    .cap>div:nth-child(2){
+        width: 30px;
+        height: 30px;
+        border-radius: 10px;
+        background-color: #fff;
+        position: absolute;
+        left: 85px;
+        top: 40px;
+    }
+    /*脑袋*/
+    .tou{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #fff;
+        position: absolute;
+        left: 75px;
+        top: 75px;
+
+    }
+    /*躯干*/
+    .main{
+        width: 10px;
+        height: 100px;
+        background-color: #fff;
+        border-radius: 5px;
+        position: absolute;
+        left: 245px;
+        top: 125px;
+
+    }
+    /*左手*/
+    .lshou{
+        width: 50px;
+        height: 50px;
+        border-left:5px solid white ;
+        border-bottom:5px solid white ;
+        position: absolute;
+        left: 245px;
+        top: 125px;
+        transform: rotate(-60deg);
+        transform-origin: 0 0;
+        animation: lshou 0.5s ease-in infinite;
+    }
+    /*右手*/
+    .rshou{
+        width: 50px;
+        height: 50px;
+        border-left:5px solid white ;
+        border-bottom:5px solid white ;
+        position: absolute;
+        left: 245px;
+        top: 125px;
+        transform: rotate(60deg);
+        transform-origin: 0 0;
+        animation: rshou 0.5s ease-in infinite;
+    }
+    /*右脚*/
+    .rfoot{
+        width: 50px;
+        height: 50px;
+        border-right:5px solid white ;
+        border-bottom:5px solid white ;
+        position: absolute;
+        left: 195px;
+        top: 222px;
+        transform: rotate(-90deg);
+        transform-origin: 100% 0;
+        animation: rfoot 0.5s ease-in infinite;
+    }
+    /*左脚*/
+    .lfoot{
+        width: 50px;
+        height: 50px;
+        border-right:5px solid white ;
+        border-bottom:5px solid white ;
+        position: absolute;
+        left: 195px;
+        top: 222px;
+        transform: rotate(50deg);
+        transform-origin: 100% 0;
+        animation: lfoot 0.5s ease-in infinite;
+    }
+    /*人移动的动画*/
+    @keyframes ren {
+        0%{
+            left: 0;
+        }
+        100%{
+            left: 1000px;
+        }
+    }
+    /*左手的动画*/
+    @keyframes lshou {
+        0%{
+            transform: rotate(-60deg);
+        }
+        100%{
+            transform: rotate(60deg);
+        }
+    }
+    /*右手的动画*/
+    @keyframes rshou {
+        0%{
+            transform: rotate(60deg);
+        }
+        100%{
+            transform: rotate(-60deg);
+        }
+    }
+    /*右脚的动画*/
+    @keyframes rfoot {
+        0%{
+            transform: rotate(-90deg);
+        }
+        100%{
+            transform: rotate(60deg);
+        }
+    }
+    /*左脚的动画*/
+    @keyframes lfoot {
+        0%{
+            transform: rotate(60deg);
+        }
+        100%{
+            transform: rotate(-90deg);
+        }
+    }
+    /*头动画*/
+    @keyframes tou {
+        0%{
+            transform: rotate(-10deg);
+        }
+        100%{
+            transform: rotate(30deg);
+
+        }
+    }
+
+
+</style>
+</html>

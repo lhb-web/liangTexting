@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>window相关2</title>
+	</head>
+	<body>
+		我是页面3
+		<input type="button" id="bt001" value="关闭" />
+		<input id="goBack" type="button" value="回上一页">
+	</body>
+</html>
+<script type="text/javascript">
+	window.name = "window333";
+
+	document.getElementById("bt001").onclick = function(e) {
+		window.opener.close();
+	}
+	document.getElementById("goBack").onclick = function(e) {
+		// window.history.go(-1); // 返回上一页
+		window.history.back(); // 返回上一页 方法二
+	}
+
+	function getUrlIp() {
+		var parObj = {};
+		var parmaeters = window.location.search;
+		if (!parmaeters) {
+			return parObj;
+		}
+		parmaeters = parmaeters.replace("?", "");
+		var pars = [];
+		pars = parmaeters.split("&");
+	
+	
+		for (var i = 0; i < pars.length; i++) {
+			var temp = pars[i].split("=");
+			parObj[temp[0]] = temp[1];
+		}
+		console.info(parObj);
+		return parObj;
+	}
+	
+	var parametersFromURL = getUrlIp();
+	console.info(parametersFromURL.name);
+	document.write("<br>欢迎你" + parametersFromURL.name);
+</script>

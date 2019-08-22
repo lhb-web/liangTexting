@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>input</title>
+</head>
+<body>
+<!--输入控件-->
+<!--autofocus 页面加载时自动获取焦点-->
+<input type="text" placeholder="提示信息" value="默认值" class="aa" autofocus>
+<hr>
+<!--hr分割线-->
+<br>
+<!--br 换行标签-->
+密码：<input type="password">
+禁用:<input type="text" disabled value="这里禁用里的内容可复制">
+只读：<input type="text" readonly value="这里是只读的内容">
+搜索：<input type="search">
+日期：<input type="date">
+数据列表：<input list="foodlist">
+
+  <datalist id="foodlist">
+      <option value="1">苹果</option>
+      <option value="2">香蕉</option>
+      <option value="3">哈密瓜</option>
+      <option value="4">樱桃</option>
+  </datalist>
+输入控件长度： <input type="text" maxlength="8">
+<!--输入的最大长度-->
+<br>
+颜色： <input type="color">
+邮箱： <input type="email">
+手机： <input type="tel">
+链接： <input type="url">
+上传文件： <input type="file">
+数字： <input type="number">
+<br>
+<input type="range">
+
+复选框   爱好：
+<label for="sing">唱:</label>
+<input type="checkbox" id="sing">
+<label for="dance">跳:</label>
+<input type="checkbox" id="dance">
+<label for="rap">rap:</label>
+<input type="checkbox" id="rap">
+<label for="basegetball">篮球:</label>
+<input type="checkbox" id="basegetball"><br>
+
+单选框  性别：
+男：<input type="radio" name="sex" checked>
+<!--checked  页面加载完成时的选择-->
+女：<input type="radio" name="sex"><br>
+
+按钮： <input type="button" value="这是个普通的按钮">
+提交： <input type="submit" value="登录">
+重置： <input type="reset" value="重置">
+<br>
+
+
+<button disabled>禁用按钮</button>
+<button type="reset">重置</button>
+<button type="submit">提交按钮</button>
+<button type="button">普通按钮</button>
+<br>
+
+<select name="" id="">
+    <option value="N">南宁</option>
+    <option value="L">柳州</option>
+    <option value="G">桂林</option>
+</select>
+<select name="" id="">
+    <optgroup label="广西">
+        <option value="北海">北海</option>
+        <option value="桂林">桂林</option>
+        <option value="柳州">柳州</option>
+        <option value="南宁">南宁</option>
+        <option value="防城港">防城港</option>
+    </optgroup>
+    <optgroup label="广东">
+        <option value="广州">广州</option>
+        <option value="潮州">潮州</option>
+        <option value="汕头">汕头</option>
+        <option value="珠海">珠海</option>
+        <option value="深圳">深圳</option>
+    </optgroup>
+</select><br>
+
+<textarea name="" id="" cols="30" rows="10">
+    文本框
+</textarea>
+
+
+</body>
+<style>
+    .aa{
+        color: yellow;
+    }
+    ::-webkit-input-placeholder{/*更改提示信息的字体颜色*/
+        color: red;
+    }
+
+</style>
+</html>

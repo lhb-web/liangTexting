@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>canvers</title>
+		<style type="text/css">
+			#cavsElem {
+				background-color: skyblue;
+				/* background-image: -webkit-linear-gradient(left, #321545 20%, #333333 50%, #a33d4a 100%); */
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="cavsElem" width="600" height="600">
+			您的浏览器不支持canvas
+		</canvas>
+	</body>
+</html>
+<script type="text/javascript">
+	var canvas = document.getElementById("cavsElem");
+	var context = canvas.getContext('2d');
+	// context.beginPath();
+	// context.moveTo(10,40);// 移动画笔到当前坐标
+	// context.lineTo(100,200);// 拟画一条线,从画笔的位置到目标位置
+	// context.lineTo(200,100);
+	// context.lineTo(300,200);
+	// context.lineTo(300,100);
+	// context.lineTo(200,100);
+	// context.closePath();
+	// context.fillStyle = "#008000";
+	// context.stroke();// 执行绘制
+	// context.fill();
+
+	function drowSteps(stepCount) {
+		var canvas = document.getElementById("cavsElem");
+		var context = canvas.getContext('2d');
+		var all = stepCount;
+		var baseX = 0;
+		var baseY = 0;
+		context.beginPath();
+		context.moveTo(baseX, baseY);
+		var counter = 0;
+		// while (counter < (all * 2)) {
+		// 	if (counter % 2 == 0) {
+		// 		baseX += 50;
+		// 	} else {
+		// 		baseY += 50;
+		// 	}
+		// 	context.lineTo(baseX, baseY);
+		// 	counter++;
+		// }
+		// context.lineTo(0, baseY);
+		// context.closePath();
+		// context.fillStyle = "#008000";
+		// context.fill();
+		// context.stroke();
+
+		var thisTimer = setInterval(function() {
+			if (counter >= all * 2) {
+				context.lineTo(0, baseY);
+				context.fill();
+				clearInterval(thisTimer);
+
+			}
+			if (counter % 2 == 0) {
+				baseX += 50;
+			} else {
+				baseY += 50;
+			}
+			context.lineTo(baseX, baseY);
+			// context.closePath();
+			// context.fillStyle = "#008000";
+			// context.fill();
+			// context.stroke();
+			counter++;
+
+
+		}, 400)
+
+
+	}
+	// drowSteps(5);
+
+	// 矩形
+	// 1、 fillRect(x, y, width, height)： 绘制一个填充的矩形。// fillRect(0,0,120,120)
+	// 2、 strokeRect(x, y, width, height)： 绘制一个矩形的边框。
+	// 3、 clearRect(x, y, widh, height)： 清除指定的矩形区域， 然后这块区域会变的完全透明。
+	// 圆弧
+	// 1、 arc(x, y, r, startAngle, endAngle, anticlockwise): 以(x, y) 为圆心， 以r为半径， 从 startAngle弧度开始到endAngle弧度结束。 anticlosewise是布尔值， true表示逆时针， false表示顺时针(
+	// 	默认是顺时针)。
+	// 2、 arcTo(x1, y1, x2, y2, radius): 根据给定的控制点和半径画一段圆弧， 最后再以直线连接两个控制点。
+	function draw() {
+		var canvas = document.getElementById('cavsElem');
+		if (!canvas.getContext) return;
+		var ctx = canvas.getContext("2d");
+		ctx.beginPath();
+		ctx.arc(50, 50, 40, 0, (Math.PI / 180) * 90, false);
+		ctx.stroke();
+	}
+	draw();
+</script>

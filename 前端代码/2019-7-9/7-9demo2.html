@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>DOM-2</title>
+	</head>
+	<style type="text/css">
+		body {
+			text-align: center;
+		}
+
+		.monster {
+			width: 160px;
+			height: 160px;
+			border: 1px solid red;
+			border-radius: 50%;
+			background-color: red;
+		}
+	</style>
+	<body>
+		<p>//appendChild() <br>//使用这个函数,需要去找父元素</p>
+		<!-- <div class="monster"></div> -->
+	</body>
+</html>
+<script>
+	var divE = document.createElement("div"); //创建div
+	//设置这个div的class 属性
+	// var divClass = document.createAttribute("class"); //创建属性
+	// divClass.value = "monster";
+	// divE.setAttributeNode(divClass);
+	
+	divE.setAttribute("class","monster");
+	divE.setAttribute("id","liang");
+	divE.innerText = "我是猪";//innerText表示标签里的文本
+	divE.style.fontSize = "24px";
+	
+	document.body.appendChild(divE);
+	document.getElementsByClassName("monster")[0].innerText = "我是驴";
+	//innerHTML 表示标签里的html文本
+	document.getElementById("liang").innerHTML = "我<br>是<br>驴";
+	// document.getElementById("liang").innerText = "我<br>是<br>驴";
+	
+	//删除节点 remove();
+	// document.getElementById("liang").remove();
+	
+	//父节点
+	var bodyNode = document.body;
+	bodyNode.removeChild(bodyNode.childNodes[0]);
+	
+</script>

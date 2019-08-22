@@ -1,0 +1,206 @@
+*{
+    padding: 0;/*清除浏览器自带的内边距*/
+    margin: 0;/*清除浏览器自带的外边距*/
+}
+body{
+
+}
+li{
+    list-style:none;
+}
+a{
+    text-decoration: none;
+}
+@font-face {/*嵌入字体图标*/
+    font-family: 'iconfont';
+    src: url('../iconfont/iconfont.eot');
+    src: url('../iconfont/iconfont.eot?#iefix') format('embedded-opentype'),
+    url('../iconfont/iconfont.woff2') format('woff2'),
+    url('../iconfont/iconfont.woff') format('woff'),
+    url('../iconfont/iconfont.ttf') format('truetype'),
+    url('../iconfont/iconfont.svg#iconfont') format('svg');
+}
+.header{
+    width: 1200px;
+    height: 54px;
+    /*background: yellow;*/
+    margin: 20px auto;/*水平居中 上下20  左右自动*/
+}
+.logo{
+    width: 155px;
+    height: 57px;
+    margin-left: 55px;/*距离左边55px*/
+    float: left;
+}
+.search{
+    float: left;
+    margin-left: 160px;
+    width: 636px;
+    height: 50px;
+    border: 2px solid #f84c48;/*边框  大小2px 直线 颜色*/
+    border-radius: 27px;/*设计圆角边框*/
+}
+input[type=text]{
+    height: 45px;
+    width: 500px;
+    border: none;/*去掉边框*/
+    margin-left: 30px;
+    outline: none;/*去掉文本框的外部蓝色边框*/
+}
+.search-btn{
+    font-family: 'iconfont';/*引用字体图标*/
+    width: 100px;
+    height: 52px;
+    float: right;
+    margin-right: -2px;
+    background: #f84c48;
+    border-radius: 27px;/*设置圆角边框*/
+    display: inline-block;/*把a转成行块标签  设置的宽度和高度才有效*/
+    color: #fff;
+    text-decoration: none;/*去掉文字下划线*/
+    text-align: center;/*文字水平居中*/
+    line-height: 50px;/*文字垂直居中*/
+}
+.information{
+    width: 100px;
+    height: 54px;
+    float: right;
+    line-height: 54px;
+    font-family: 'iconfont'
+}
+.information a {
+    font-size: 32px;
+    text-decoration: none;
+    color: #f84c48;
+    margin-left: 10px;
+
+}
+.information a:hover{
+    color:#de4440 ;
+}
+/*头部header样式结束*/
+.nav{
+    width: 1200px;
+    height: 60px;
+    /*background: #9a6e3a;*/
+    margin: 0 auto;
+    position: relative;/*相对定位*/
+}
+.classification{
+    width: 285px;
+    height: 60px;
+    background: #f84c48;
+    color: #fff;
+    text-align: center;/*文字水平居中*/
+    line-height: 60px;/*文字垂直居中*/
+    font-size: 18px;/*字体大小*/
+    float: left;
+}
+.menu{
+    float: left;
+    line-height: 60px;/*文字垂直居中*/
+    font-size: 18px;/*字体大小*/
+    color: #282828;
+}
+.menu li{
+    float: left;
+    margin-left: 80px;
+    list-style:none;/*去掉li的列表样式*/
+}
+.menu li a {
+    color: #282828;
+    text-decoration: none;/*去掉字体下划线*/
+}
+.menu li a:hover{
+    color: #f84c48;
+}
+.sub_menu{
+    width: 285px;
+    height: 598px;
+    background: rgba(40,40,40,0.7);
+    position: absolute;/*绝对定位*/
+    top: 60px;
+    font-family: 'iconfont';
+    z-index: 999999999;/*设置定位层级关系*/
+
+}
+.sub_menu li{
+    width: 285px;
+    height: 72px;
+    line-height: 72px;
+    color: #ffffff;
+
+
+
+}
+.sub_menu li a{
+    color: #ffffff;
+
+    float: left;
+
+
+}
+.sub_menu  em{
+    margin-right: 20px;
+    float: right;
+    font-size: 26px;
+    font-style: normal;
+}
+.sub_menu span{
+    float: left;
+
+    font-size: 26px;
+    margin: 0 20px 0 30px;
+}
+.sub_menu li:hover{
+    background: #ffffff;
+}
+.sub_menu li:hover a{
+    color: #282828;
+}
+.sub_menu li:hover span,.sub_menu li:hover em{
+    color: #f84c48;
+}
+.sub_menu_box{
+    position: absolute;
+    top: 0;
+    left: 285px;
+    width: 915px;
+    height: 598px;
+    background: rgba(255,255,255,0.9);
+    padding: 60px;
+    display: none;
+}
+.menu_small{
+    float: left;
+    width: 230px;
+    height: 500px;
+    border-right: 1px solid #f84c48;
+    margin-right: 50px;
+}
+.sub_menu ul li:hover .sub_menu_box{
+    display: block;
+}
+.menu_list{
+    width: 100%;
+    height: 140px;
+    margin-bottom: 50px;
+}
+.menu_list h4{
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #282828;
+    font-weight: normal;
+}
+.menu_list a{
+    color: #656565;
+    font-size: 14px;
+    line-height: 30px;
+    margin-right: 12px;
+}
+.menu_list a:hover{
+    color: #f84c48;
+}
+.list_fenlei a:hover{
+    color: #f84c48!important;  /*!important 优先级别最高*/
+}

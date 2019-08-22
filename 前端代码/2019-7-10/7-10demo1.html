@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				position: relative;
+				background-color: skyblue;
+			}
+
+			.rain {
+				position: absolute;
+				/* background-color: white; */
+				/* border: 1px solid white; */
+				border-radius: 50%;
+				width: 80px;
+				height: 80px;
+
+			}
+
+			.myButton {
+				width: 100px;
+			}
+
+			.plan {
+				position: absolute;
+				width: 40px;
+				height: 40px;
+				background-color: black;
+				left: 200px;
+				top: 500px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="plan" id="plan"></div>
+		<!-- 事件
+		<ul>
+			<li>当用户点击鼠标时 onclick / ondblclick</li>
+			<li>当网页已加载时 onload</li>
+			<li>当图片已加载时 *</li>
+			<li>当鼠标移动到元素上时 onmouseover</li>
+			<li>当输入字段被改变时 onchange</li>
+			<li>当 HTML 表单被提交时 onsubmit</li>
+			<li>当用户触发按键时 onkeydown / onkeypress / onkeyup</li>
+		</ul>
+		<br>
+		<span>课堂作业1.速度和数量可调</span>
+		<br>
+		<span>课堂作业2.每个雪花被点击的时候都销毁</span>
+		<br> -->
+		下落速度:<input id="text1" type="text" style="width: 200px" />
+		<br>
+		产生频率:<input id="text2" type="text" style="width: 200px" />
+		<br>
+		<input class="myButton" id="button1" type="button" value="开始" onclick="getTextValue()" />//这里的onclick后面的函数必须是全局函数,不然会失效
+		<input class="myButton" id="button2" type="button" value="清空" onclick="off()" />
+		<div id="fs" style="font-size: 48px;">
+			分数:0
+		</div>
+		<div id="djs" style="font-size: 48px;">
+			时间：30S
+		</div>
+		<div style="font-size: 48px;">
+			目标:20
+		</div>
+
+	</body>
+</html>
+
+
+<!-- <script type="text/javascript">
+	//当鼠标移动到元素上时onmouseover
+	// 	document.getElementById("button1").onmouseover = function(e) {
+	// 		console.info(e);
+	// 		//就是这个按钮本身 - 事件源
+	// 		e.target.style.color = "red";
+	// 		e.target.value = "我被划过了";
+	// 		// alert(1)
+	// 	}
+	// 	//onmouseout
+	// 
+	// 	document.getElementById("button1").onmouseout = function(e) {
+	// 		console.info(e);
+	// 		//就是这个按钮本身 - 事件源
+	// 		e.target.style.color = "";
+	// 		e.target.value = "按钮1";
+	// 	}
+
+	document.getElementById("text1").onchange = function(e) {
+		console.info(e.target.value);
+		if (e.target.value.indexOf("shit") >= 0) {
+			e.target.value = "";
+		}
+	}
+	//失去焦点的时候触发
+	document.getElementById("text1").onblur = function(e) {}
+	//得到焦点的时候触发
+	document.getElementById("text2").onfocus = function(e) {
+		console.info("onfocus");
+		console.info(e.target.value);
+	}
+</script> -->
+
+
+<script type="text/javascript">
+	var rainCount = 0; //当前雨滴数
+	var rainMax = 200; //雨滴总数量
+
+
+	var fraction = 0;
+
+	function doRainFall(fallingSpeed) {
+		if (rainCount >= rainMax) {
+			return;
+		}
+		if (!fallingSpeed) {
+			fallingSpeed = 100;
+		}
+		//创建div
+
+		var rainFall = document.createElement("div");
+		rainFall.setAttribute("class", "rain");
+		rainFall.id = "rain001";
+		//点击消除
+		rainFall.onclick = function() {
+			rainFall.remove();
+			fraction++;
+			document.getElementById("fs").innerText = "分数:" + fraction;
+		};
+		if (fraction == 20) {
+			alert("过关!!!!!!!");
+			off();
+		}
+
+		var img = document.createElement("img");
+		img.setAttribute("id", "xue");
+		var photo1 = "xuehua.png";
+		var photo2 = "xuehua2.png";
+		var photo3 = "xuehua3.png";
+		var photo4 = "xuehua4.png";
+		var temp = [photo1, photo2, photo3, photo4];
+		var nub = Math.floor(Math.random() * 4); //产生随机下标
+		img.src = temp[nub];
+		rainFall.appendChild(img);
+		img.style.width = "80px";
+		img.style.height = "80px";
+
+		document.body.appendChild(rainFall);
+
+
+
+		rainFall.style.top = "0px";
+		rainFall.style.left = Math.random() * 800 + "px";
+		rainCount += 1;
+		var rainTimer = setInterval(function() {
+			var newTop = rainFall.style.top.replace("px", "");
+			newTop = parseFloat(newTop);
+			newTop += Math.floor(Math.random() * 15 + 5); //下落速度
+			rainFall.style.top = newTop + "px";
+
+			// 取下落物体的X
+			var newLeft = rainFall.style.left.replace("px", "");
+			newLeft = parseFloat(newLeft);
+			// 碰撞测试
+			var planX = document.getElementById("plan").style.left;
+			planX = planX.replace("px", "");
+			planX = parseInt(planX);
+
+			var planY = document.getElementById("plan").style.top;
+			planY = planY.replace("px", "");
+			planY = parseInt(planY);
+
+			if (Math.abs(newLeft - planX) < 40) {
+				if (Math.abs(newTop - planY) < 40) {
+					alert("被击中");
+					location.reload();
+				}
+			}
+
+
+			//限制高度
+			if (newTop >= 800) {
+				rainFall.remove();
+				rainCount -= 1;
+				clearInterval(rainTimer);
+			}
+
+		}, fallingSpeed)
+	}
+	var shu = 30
+
+	function getTextValue() {
+		var fallSpeed = document.getElementById("text1").value;
+		fallSpeed = parseInt(fallSpeed);
+		var createHz = document.getElementById("text2").value;
+		createHz = parseInt(createHz);
+		if (!fallSpeed || isNaN(fallSpeed) || !createHz || isNaN(createHz)) {
+			console.info("输入的参数不是数字");
+			return;
+		}
+
+		var x = setInterval(function() {
+			doRainFall(fallSpeed);
+			// rainX = document.getElementById("rain001").style.left;
+			// console.info(rainX);
+		}, createHz);
+
+		var daoshu = setInterval(function() {
+			shu--;
+			if (shu < 0) {
+				alert("时间到")
+				clearInterval(daoshu);
+				off();
+			}
+			document.getElementById("djs").innerText = "时间:" + shu + "S";
+
+		}, 1000)
+
+	}
+
+	function off() {
+		window.location.reload();
+	}
+
+
+
+	document.getElementById("plan").style.left = "200px";
+	document.getElementById("plan").style.top = "500px";
+	window.onkeypress = function(e) {
+		var planX = document.getElementById("plan").style.left;
+		planX = planX.replace("px", "");
+		planX = parseInt(planX);
+
+		var planY = document.getElementById("plan").style.top;
+		planY = planY.replace("px", "");
+		planY = parseInt(planY);
+
+		if (e.key == "w") {
+			planY -= 20;
+		}
+		if (e.key == "s") {
+			planY += 20;
+		}
+		if (e.key == "a") {
+			planX -= 20;
+		}
+		if (e.key == "d") {
+			planX += 20;
+		}
+		document.getElementById("plan").style.top = planY + "px";
+		document.getElementById("plan").style.left = planX + "px";
+	}
+</script>

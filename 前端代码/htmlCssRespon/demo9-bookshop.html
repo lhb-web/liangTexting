@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.body {
+				position: absolute;
+			}
+
+
+			.rainbow {
+				width: 300px;
+				height: 300px;
+				position: relative;
+				top: 100px;
+				left: 200px;
+				border-radius: 50%;
+				background-image: -webkit-radial-gradient(150px, #ffb151 5%, #ffe07b 30%, #16104b 50%);
+				box-shadow: yellow 0 0 400px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" id="stratAni" class="on" value="开灯" />
+		<input type="button" id="stopAni" class="off" value="关灯" />
+		<div class="rainbow" id="rainbow"></div>
+	</body>
+</html>
+<script type="text/javascript">
+	banjing = 10;
+	newflag = false
+	function NowTime(flag) {
+		
+		timer = setInterval(function() {
+			if (flag) {
+				if (banjing < 200) {
+					banjing += 10;
+				console.info(banjing);
+				document.getElementById("rainbow").style.boxShadow = "yellow 0px 0px 400px " + banjing + "px";
+				}else{
+					clearInterval(timer);
+					document.getElementById("stratAni").setAttribute("class", "on");
+				}
+				
+			} else {
+				if (banjing > 10) {
+				console.info(banjing);
+				banjing -= 10;
+				document.getElementById("rainbow").style.boxShadow = "yellow 0px 0px 400px " + banjing + "px";
+				}else{
+					clearInterval(timer);
+					document.getElementById("stratAni").setAttribute("class", "on");
+				}
+				
+
+			}
+		}, 100)
+	}
+	document.getElementById("stratAni").onclick = function(e) {
+		if (document.getElementById("stratAni").getAttribute("class").indexOf("on") >= 0) {
+			document.getElementById("stratAni").setAttribute("class", "off");
+			NowTime(true);
+		} else {
+			console.info("正在倒计时，不能重复点");
+		}
+	
+	}
+	document.getElementById("stopAni").onclick = function(e) {
+		if (document.getElementById("stopAni").getAttribute("class").indexOf("off") >= 0) {
+			document.getElementById("stopAni").setAttribute("class", "on");
+			NowTime(false);
+		} else {
+			console.info("正在倒计时，不能重复点");
+		}
+	
+	}
+</script>

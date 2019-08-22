@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>图标库的使用1</title>
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.css" />
+		<script src="jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.list-group-item {
+				font-size: 40px;
+				color: sandybrown;
+			}
+
+			.controlB {
+				width: 260px;
+				height: 30px;
+				text-align: center;
+				min-width: 320px;
+				position: absolute;
+				top: 360px;
+			}
+
+			.controlB button {
+				margin-top: 4px;
+				margin-left: 12px;
+				color: pink;
+				margin-right: 12px;
+
+			}
+
+			.playerContent {
+				width: 100%;
+				height: 400px;
+				border: 4px solid skyblue;
+
+			}
+
+			.audioPlayer {
+				position: relative;
+				float: left;
+				margin-left: 20px;
+				width: 320px;
+				min-width: 320px;
+				height: 400px;
+				background: rgba(205, 20, 0, 0.6);
+			}
+
+			#faceImg {
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				top: 70px;
+				left: 60px;
+				border-radius: 50%;
+				border: 1px solid #FFC0CB;
+				background: url(images/001.jpg)no-repeat;
+				background-size: 120%;
+			}
+
+
+			#playList {
+				width: 300px;
+				min-width: 30px;
+				height: 100%;
+				background-color: pink;
+				float: left;
+				margin-left: 10px;
+			}
+
+			#playList li {
+				color: greenyellow;
+				margin-top: 15px;
+			}
+
+			.selectedSong {
+				color: azure !important;
+				font-size: 24px;
+				font-weight: 500;
+			}
+		</style>
+	</head>
+	<body>
+		<i class="fa fa-camera-retro"></i>
+		<i class="fa fa-camera-retro fa-2x"></i>
+		<i class="fa fa-camera-retro fa-3x"></i>
+		<i class="fa fa-camera-retro fa-4x"></i>
+		<hr>
+		<div class="list-group">
+			<a class="list-group-item" href="#"><i class="fa fa-home fa-fw"></i>&nbsp; Home</a>
+			<a class="list-group-item" href="#"><i class="fa fa-book fa-fw"></i>&nbsp; Library</a>
+			<a class="list-group-item" href="#"><i class="fa fa-pencil fa-fw"></i>&nbsp; Applications</a>
+			<a class="list-group-item" href="#"><i class="fa fa-cog fa-fw"></i>&nbsp; Settings</a>
+		</div>
+		<hr>
+		<ul class="fa-ul">
+			<li><i class="fa-li fa fa-check-square"></i>List icons</li>
+			<li><i class="fa-li fa fa-check-square"></i>can be used</li>
+			<li><i class="fa-li fa fa-spinner fa-spin"></i>as bullets</li>
+			<li><i class="fa-li fa fa-square"></i>in lists</li>
+		</ul>
+		<hr>
+		<i class="fa fa-spinner fa-spin"></i>
+		<i class="fa fa-circle-o-notch fa-spin"></i>
+		<i class="fa fa-refresh fa-spin"></i>
+		<i class="fa fa-cog fa-spin"></i>
+		<i class="fa fa-spinner fa-pulse"></i>
+
+		<hr>
+		<div class="playerContent">
+			<div class="audioPlayer">
+				<div id="faceImg">
+					<div id="faceImg-center"></div>
+				</div>
+				<div class="controlB">
+					<button type="button" onclick="changeSong(-1)"><i class="fa fa-backward"></i></button>
+					<button type="button" id="playMusic"><i class="fa fa-play"></i></button>
+					<button type="button" id="pauseMusic"><i class="fa fa-pause"></i></button>
+					<button type="button" onclick="changeSong(1)"><i class="fa fa-forward"></i></button>
+				</div>
+			</div>
+			<div id="playList">
+				<ul class="fa-ul" id="playList_ul">
+				</ul>
+			</div>
+		</div>
+		<audio id="audioPlayer01" controls="controls">
+
+		</audio>
+	</body>
+</html>
+<script type="text/javascript">
+	$(function() {
+		initPage();
+
+
+		// 注册事件
+		// 点击开始按钮
+		$("#playMusic").click(function() {
+			// 1.播放当前列表的音乐
+			if (_currSong && _currSong.songUrl) {
+				var player = document.getElementById("audioPlayer01");
+				if (!player.newID) {
+					player.src = _currSong.songUrl;
+					player.newID = _currSong.songId;
+				}
+				player.play();
+			}
+
+			// 2.开始旋转图片
+			faceRoll(true);
+		});
+
+		// 点击暂停按钮
+		$("#pauseMusic").click(function() {
+			// 1.停止播放
+			var player = document.getElementById("audioPlayer01");
+			player.pause();
+
+			// 2.停止旋转图片
+			faceRoll(false);
+		});
+
+	});
+
+	// 页面初始化
+	function initPage() {
+		// 声明全局变量
+		_currSong = null;
+		_allSongs = null;
+		// 异步加载音乐列表 (默认加载第一页)
+		loadMusicList(0);
+
+	}
+
+	// 点击列表播放
+	function clickToplay(songId) {
+		// alert(songId);
+		var currSongIndex = null;
+		for (var i = 0; i < _allSongs.length; i++) {
+			if (songId == _allSongs[i].songId) {
+				currSongIndex = i;
+				break;
+			}
+		}
+		_currSong = _allSongs[currSongIndex];
+		changeFace(_currSong.songImg);
+		var player = document.getElementById("audioPlayer01");
+		player.src = _currSong.songUrl;
+		player.play();
+		// 高亮当前歌曲
+		$(".selectedSong").removeClass("selectedSong");
+		$("#" + songId).addClass("selectedSong");
+		faceRoll(true);
+	}
+	// 未来元素
+	$("#playList_ul").delegate("li", "click", function(e) {
+		clickToplay($(this)[0].id);
+	})
+
+	// 切歌
+	function changeSong(parm) {
+		var currSongIndex = null; // 当前播放的歌曲在列表的下标
+		for (var i = 0; i < _allSongs.length; i++) {
+			if (_currSong.songId == _allSongs[i].songId) {
+				currSongIndex = i;
+				break;
+			}
+		}
+		if (currSongIndex == null) {
+			return; // 当前歌曲不在歌曲列表中,说明发生了异常,直接退出
+		}
+		if (parm > 0) {
+			// 下一首
+			currSongIndex += 1;
+			if (currSongIndex > _allSongs.length - 1) {
+				currSongIndex = 0;
+			}
+		} else {
+			// 上一首
+			currSongIndex -= 1;
+			if (currSongIndex < 0) {
+				currSongIndex = _allSongs.length - 1;
+			}
+		}
+		// 修改全局变量,记录当前的歌曲发生了变化
+		// 执行一个动画
+		changeFace(_currSong.songImg);
+		// 开始播放
+		_currSong = _allSongs[currSongIndex];
+		var player = document.getElementById("audioPlayer01");
+		player.src = _currSong.songUrl;
+		player.play();
+		// 高亮当前歌曲
+		$(".selectedSong").removeClass("selectedSong");
+		$("#" + _currSong.songId).addClass("selectedSong");
+		faceRoll(true);
+	}
+
+	// 切歌动画
+	function changeFace(toImg) {
+		$("#faceImg").stop();
+		$("#faceImg").animate({
+			width: "50px",
+			height: "50px",
+			left: "140px"
+		}, "normal", function() {
+			$("#faceImg").animate({
+				top: "-10px",
+				opacity: "0"
+			}, "normal", function() {
+				$("#faceImg").css({
+					width: "200px",
+					height: "200px",
+					top: "70px",
+					left: "60px",
+					opacity: "1",
+					background: "url(" + toImg + ")no-repeat",
+					backgroundSize: "120%",
+				});
+			})
+		});
+
+
+	}
+
+	function loadMusicList(page) {
+		// 先不要page参数,只是想说明扩展的逻辑,而我只有三首歌
+		$.ajax({
+			url: "myData/musicList.json",
+			data: {},
+			type: "GET",
+			dataType: "json",
+			success: function(res) {
+				if (res.currList) {
+					fillMusicList(res.currList);
+				}
+			},
+			error: function(a, b) {
+				console.info("error");
+				console.info(a);
+				console.info(b);
+			},
+			conplete: function() {
+
+			}
+		});
+	}
+
+	// 显示音乐列表
+	function fillMusicList(currList) {
+		// 将第一首歌放到全局变量中
+		_allSongs = currList;
+		_currSong = currList[0];
+
+		for (var i = 0; i < currList.length; i++) {
+			var newLi = $('<li id="' + currList[i].songId + '"><i class="fa-li fa fa-hand-peace-o"></i>' + currList[i].songName +
+				'</li>');
+			// 默认选中当前的第一首歌
+			if (i == 0) {
+				$(newLi).addClass("selectedSong");
+			}
+			$("#playList ul").append(newLi);
+		}
+	}
+
+
+	// 让中央图片旋转/停止旋转 parm == false
+	var _timerface = null;
+
+	function faceRoll(parm, toParm) {
+		if (_timerface) {
+			clearInterval(_timerface);
+		}
+		if (parm) {
+				var deg = $("#faceImg")[0].style.transform;
+				deg = deg.replace("rotate(", "");
+				deg = deg.replace("deg)", "");
+				deg = parseInt(deg) || 0;
+				_timerface = setInterval(function() {
+					deg += 1;
+					// 防止整形溢出,超出范围,这个数字不能无限自增
+					if (deg > 360) {
+						deg = 0;
+					}
+					$("#faceImg").css({
+						transform: "rotate(" + deg + "deg)"
+					});
+
+				}, 40);
+			}
+	}
+</script>

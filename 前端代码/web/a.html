@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="aaa">
+    <p>段落标签</p>
+    <div>1</div>
+    <div>2</div>
+    <div>3
+        <div></div>
+        <p></p>
+        <div>
+            <div>
+                <div></div>
+                <p></p>
+                <div>目标一：加上宽高边框 盒子阴影</div>
+            </div>
+        </div>
+    </div>
+    <span>空白标签</span>
+    <div>4</div>
+    <div>5
+        <div></div>
+        <p></p>
+        <div>
+            <div></div>
+            <div>
+                <p>目标2：给我加上宽高边框 圆角50%</p>
+            </div>
+            <div></div>
+        </div>
+    </div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <h1>标题标签</h1>
+</div>
+</body>
+<style>
+body>div>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2){
+    width: 200px;
+    height: 300px;
+    border: 1px solid #000;
+    box-shadow: 1px 1px 1px 1px black;
+}
+    body>div>div:nth-of-type(5)>div:nth-of-type(2)>div:nth-of-type(2)>p{
+        width: 300px;
+        height: 300px;
+        border: 1px solid #000;
+        border-radius: 50%;
+    }
+</style>
+</html>

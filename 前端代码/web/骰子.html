@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>touzi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+</head>
+<body>
+<div class="box1">
+    <div></div>
+</div>
+<div class="box2">
+    <div>
+        <div></div>
+    </div>
+    <div>
+        <div></div>
+    </div>
+</div>
+<div class="box3">
+    <div>
+        <div></div>
+    </div>
+    <div>
+        <div></div>
+    </div>
+    <div>
+        <div></div>
+    </div>
+    <!--<div>-->
+        <!--<div></div>-->
+    <!--</div>-->
+    <!--<div>-->
+        <!--<div></div>-->
+    <!--</div>-->
+
+</div>
+<div class="box4">
+    <div>
+        <div></div>
+    </div>
+    <div>
+        <div></div>
+    </div>
+    <div>
+        <div></div>
+    </div>
+    <div>
+        <div></div>
+    </div>
+</div>
+<div class="box5">
+    <div>
+        <div></div>
+    </div>
+    <div>
+        <div></div>
+    </div>
+    <div>
+        <div></div>
+    </div>
+    <div>
+        <div></div>
+    </div>
+    <div>
+        <div></div>
+    </div>
+</div>
+
+</body>
+<style>
+.box3{
+    width: 300px;
+    height: 300px;
+    border: 3px solid #000;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+    justify-content: space-evenly;
+    /*!*align-items: center;*!*/
+    border-radius: 50px;
+}
+    .box3>div {
+        width: 200px;
+        height: 50px;
+        border: 1px solid #000;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+.box3>div:nth-of-type(1){
+    /*width: 250px;*/
+    /*display: flex;*/
+    justify-content: flex-start;
+    display: flex;
+    /*justify-content: center;*/
+}
+
+.box3>div:nth-of-type(2){
+        /*width: 300px;*/
+        /*align-self: center;*/
+        align-self: center;
+}
+
+    .box3>div:nth-of-type(3){
+        /*flex-direction: column;*/
+        /*align-self: flex-end;*/
+        /*align-self: flex-end;*/
+        justify-content:flex-end;
+    }
+    .box3>div>div{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: red;
+
+
+    }
+    .box1{
+        width: 300px;
+        height: 300px;
+        border: 3px solid #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50px;
+
+    }
+    .box1>div{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .box2{
+         width: 300px;
+         height: 300px;
+         border: 3px solid #000;
+         display: flex;
+         flex-wrap: wrap;
+         align-items: center;
+         justify-content: center;
+         border-radius: 50px;
+
+     }
+    .box2>div{
+        width: 300px;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .box2>div>div{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: red;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+    .box4{
+    width: 300px;
+    height: 300px;
+    border: 3px solid #000;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+
+    }
+    .box4>div{
+        width: 150px;
+        height: 150px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+    }
+    .box4>div>div{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: red;
+    }
+    .box5{
+        width: 300px;
+        height: 300px;
+        border: 3px solid #000;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50px;
+    }
+    .box5>div{
+        width: 145px;
+        height: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+    }
+    .box5>div:nth-child(3){
+        width: 300px;
+    }
+    .box5>div>div{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: red;
+    }
+
+</style>
+</html>

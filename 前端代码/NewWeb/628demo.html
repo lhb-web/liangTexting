@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	var a = [3, 5, 7, 8, 9, 33, 44, 55];
+	for (var i = 0; i < a.length - 1; i++) {
+		for (var j = 0; j < a.length - 1 - i; j++) {
+			if (a[j] < a[j + 1]) {
+				var temp = a[j];
+				a[j] = a[j + 1];
+				a[j + 1] = temp;
+			}
+		}
+	}
+	console.info(a);
+
+
+	//例程：5 一个student 数组， 对分数进行排序， 并且将自己的排名加入到属性中。 编写一个函数， 输入姓名,返回其排名信息。
+	function Student(name, total) {
+		this.name = name;
+		this.total = total;
+	}
+	var students = [];
+	students.push(new Student("fang", 80));//4
+	students.push(new Student("liang", 85));//3
+	students.push(new Student("li", 70));//6
+	students.push(new Student("wang", 75));//5
+	students.push(new Student("huang", 66));//7
+	students.push(new Student("zhang", 89));//2
+	students.push(new Student("lu", 90));//1
+	
+	for (var i = 0; i < students.length - 1; i++) {
+		for (var j = 0; j < students.length - 1 - i; j++) {
+			if (students[j].total < students[j + 1].total) {
+				var temp = students[j];
+				students[j] = students[j + 1];
+				students[j + 1] = temp;
+			}
+		}
+	}
+	for( var k = 0;k<students.length;k++){
+		students[k].index=k+1;
+	}
+	function ranking(name){
+		if(!name){
+			console.info("请输入参数");
+			return;
+		}
+		for(var l=0;l<students.length;l++){
+			if(name==students[l].name){
+				console.info(name+"的排名是：    第"+students[l].index+"名");
+				return students[l].index;
+			}
+		}
+		return "没有找到";
+	}
+	
+	
+	// Student.prototype.index=null;
+	
+	
+	
+	
+</script>

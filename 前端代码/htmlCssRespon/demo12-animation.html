@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>动画演示</title>
+		<style type="text/css">
+			#div1 {
+				width: 200px;
+				height: 300px;
+				background: skyblue;
+				position: absolute;
+ */			}
+
+			.opChange {
+				animation: opChange 1s linear 1s infinite;
+
+			}
+			.posiChange {
+				animation: posiChange 3s linear infinite;
+			
+			}
+
+			@keyframes opChange {
+				from {
+					opacity: 1;
+				}
+
+				to {
+					opacity: 0;
+				}
+			}
+
+			@keyframes posiChange {
+				0% {
+					left: 0%;
+					transform: rotate(0deg);
+				}
+				50%{
+					left: 30%;
+					transform: rotate(360deg) ;
+				}
+				100%{
+					left: 0%;
+					transform: rotate(0deg);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" id="bt1" value="动画1" />
+		<input type="button" id="bt2" value="动画2" />
+		<div id="div1" class=""></div>
+	</body>
+</html>
+<script type="text/javascript">
+	document.getElementById("bt1").onclick = function() {
+		document.getElementById("div1").setAttribute("class","opChange");
+	}
+	document.getElementById("bt2").onclick = function() {
+		document.getElementById("div1").setAttribute("class","posiChange");
+	}
+</script>

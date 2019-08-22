@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="a1">阿桑大事大阿斯顿
+    <div>阿斯顿狗娃</div>
+</div>
+</body>
+<style>
+    html,body{
+        font-size: 16px;/*默认字体大小*/
+    }
+    .a1{
+        width: 200px;
+        height: 200px;
+        font-size: 50px;
+        border: 1px solid #000;
+    }
+    .a1>div{
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        /*font-size: 2em;!*相对长度单位  默认情况下1em=16px 当改变夫容器的单位时 子容器的em单位也发生改变 1em=50px*!*/
+        /*font-size: 2rem;!*root是根的意思 一根元素(html标签)为相对*!*/
+        font-size: 2vw;/*view width 1vw是视窗的1%  1vh是视窗高度的1% */
+    }
+</style>
+</html>

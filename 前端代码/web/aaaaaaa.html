@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    /*.aa{*/
+        /*width: 500px;*/
+        /*height: 500px;*/
+        /*!*clip-path: circle(10% at 50% 50%);!*圆形裁剪  裁剪半径 at 后面是圆心坐标*!*!*/
+        /*!*clip-path: ellipse(40% 20% at 50% 50%);!*椭圆裁剪*!*!*/
+        /*!*-webkit-clip-path: polygon(50% 0,100% 100%,0 100%);!*多边形裁剪,坐标点的依次连接形成的闭合路径就是裁剪区域*!*!*/
+        /*!*background-color: #b3d4fc;*!*/
+    /*}*/
+    .l1{
+        width: 500px;
+        height: 500px;
+        -webkit-clip-path:polygon(25% 0,75% 0,100% 100%,0 100%);
+        background-color: #0086b3;
+    }
+    .l2{
+        width: 500px;
+        height: 500px;
+        -webkit-clip-path:polygon(50% 0%,100% 0%,50% 50%,0 50%);
+        background-color: #DD4A68;
+    }
+    .l3{
+        width: 500px;
+        height: 500px;
+        -webkit-clip-path:circle(40% at 100% 50%);
+        background-color: #DD4A68;
+    }
+    .l4{
+        width: 500px;
+        height: 500px;
+        -webkit-clip-path:polygon(10% 25%,90% 25%,25% 75%,50% 0,75% 75%);
+        background-color: #DD4A68;
+    }
+    .l5{
+        width: 500px;
+        height: 500px;
+        -webkit-clip-path:polygon(0 25%,50% 25%,50% 0,100% 50%,50% 100%,50% 75%,0 75%);
+        background-color: #DD4A68;
+    }
+    .l6{
+        width: 50px;
+        height: 50px;
+        -webkit-clip-path:circle(40% at 50% 100%);
+        background-color: #ee9900;
+
+    }
+
+</style>
+<body>
+<div class="aa"></div>
+<div class="l1"></div>
+<p></p>
+<div class="l2"></div>
+<div class="l3"></div>
+<div class="l4"></div>
+<div class="l5"></div>
+<div class="l6"></div>
+
+</body>
+</html>

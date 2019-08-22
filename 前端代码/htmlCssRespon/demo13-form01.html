@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>表单的前导知识</title>
+		<!-- <script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"> -->
+		<style type="text/css">
+			body {
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="https://www.baidu.com/s" method="get" name="form01" autocomplete="on">
+			<p>
+				密码框:<input type="password" name="密码框"/>
+			</p>
+			<p>
+				<!-- name一致的话就只能选一个 -->
+				性别: <br>
+				男:<input type="radio" name="性别" checked="checked"/>
+				女:<input type="radio" name="性别"/>
+				不详:<input type="radio" name="性别"/>
+			</p>
+			<p>
+				兴趣爱好:&nbsp; &nbsp;
+				唱<input type="checkbox" name="复选框" id="" value="A" />
+				跳<input type="checkbox" name="复选框" id="" value="A" />
+				rap<input type="checkbox" name="复选框" id="" value="A" />
+				篮球<input type="checkbox" name="复选框" id="" value="A" />
+			</p>
+			<p>
+				<input type="hidden" name="隐藏域" id="" value="隐藏域" />
+			</p>
+			<p>
+				<input type="range" name="range" id="" value="range" />
+			</p>
+			
+			textarea:<textarea rows="10" cols="60">
+				type的其他类型: url ,email, number, image, file, hideen,range
+			</textarea>
+						
+			
+			<p>
+				<input type="text" name="wd" value="梁鸿标"/>
+			</p>
+			<p>
+				<input type="submit" value="提交" />
+				<input type="reset" value="重置" />
+			</p>
+
+		</form>
+	</body>
+</html>
+<!-- <script type="text/javascript">
+		setInterval(function(){
+		var xsx = $.ajax({
+			url: "https://www.baidu.com/s",
+			data:{
+				wd: new Date().getTime() 
+			},
+			dataType:'json',//服务器返回json格式数据
+			type:'get',//HTTP请求类型
+			timeout:10000,//超时时间设置为10秒；
+			success:function(data){
+				
+			},
+			error:function(xhr,type,errorThrown){
+				
+			}
+		});
+	}, 1000);
+</script> -->

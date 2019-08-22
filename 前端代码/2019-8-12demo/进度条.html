@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.frame {
+				width: 300px;
+				height: 50px;
+				border: 2px solid #fac833;
+				border-radius: 25px;
+				position: relative;
+				top: 100px;
+				left: 500px;
+				text-align: center;
+				line-height: 50px;
+				z-index: 9999;
+			}
+
+			.main {
+				width: 300px;
+				height: 50px;
+				border-radius: 25px;
+				position: absolute;
+				top: 110px;
+				left: 509px;
+				overflow: hidden;
+				z-index: 999;
+			}
+
+			.circle {
+				width: 55px;
+				height: 55px;
+				background-color: red;
+				border-radius: 50%;
+				position: relative;
+				left: 765px;
+				top: 45px;
+				z-index: 99999;
+				border: 1px solid red;
+			}
+
+			.progress {
+				position: relative;
+				top: 150px;
+				left: 610px;
+			}
+
+			.progressBar {
+				width: 0px;
+				height: 50px;
+				background-color: orangered;
+				border-radius: 25px;
+			}
+
+			.img01 {
+				width: 55px;
+				height: 55px;
+				border-radius: 50%;
+			}
+
+			.energy01 {
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background-color: skyblue;
+				position: absolute;
+				left: 785px;
+				top: 130px;
+				animation: displacement 1s linear;
+				z-index: 99;
+			}
+
+			@keyframes displacement {
+				from {
+					left: 785px;
+				}
+
+				to {
+					left: 508px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="number01">
+		</div>
+		<div class="frame">0%
+		</div>
+		<div class="main">
+			<div class="progressBar"></div>
+		</div>
+		<div class="circle">
+			<img src="001.jpg" class="img01">
+		</div>
+		<div id="energy">
+		</div>
+		<input type="button" id="bt1" class="progress" value="增加10%进度" />
+	</body>
+</html>
+<script type="text/javascript">
+	$(function() {
+		_Counter = 0;
+		_Length = 0;
+		_Angle = 0;
+		$("#bt1").click(function() {
+			var counter001 = 0;
+			$("#energy").empty();
+			_Length += 30;
+			var timer01 = setInterval(function() {
+				if (_Counter == 100) {
+					clearInterval(timer01);
+				} else {
+					counter001++;
+					_Counter++;
+					_Angle += 10;
+					$("#energy").append("<div class='energy01'></div>");
+					var energyX = $(".energy01").offset().left;
+					var progressBarX = $(".progressBar").offset().left + $(".progressBar").width();
+					if (Math.abs(energyX - progressBarX) < 32) {
+						if (_Length <= 300) {
+							$(".progressBar").animate({
+								width: _Length + "px"
+							},1000,function(){});
+						}
+					}
+					$(".frame").text(_Counter + "%");
+					$(".img01").css({
+						"transform": "rotate(" + _Angle + "deg)"
+					});
+					if (counter001 == 10) {
+						clearInterval(timer01);
+					}
+				}
+			}, 100)
+		});
+	});
+</script>

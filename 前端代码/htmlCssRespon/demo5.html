@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>浮动和定位</title>
+		<style type="text/css">
+			.header,
+			.aside,
+			.main,
+			.footer {
+				background-color: pink;
+				border: 1px solid yellow;
+			}
+
+			.header {
+				height: 100px;
+
+			}
+
+			.aside,
+			.main {
+				height: 200px;
+			}
+
+			.aside {
+				width: 200px;
+				float: left;
+			}
+
+			.main {
+				margin-left: 202px;
+			}
+
+			.footer {
+				height: 50px;
+			}
+			.float-div{
+				background-color: palegoldenrod;
+				border: 1px solid yellow;
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				top: 160px;
+				left: 500px;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="header">header</header>
+		<aside class="aside">aside</aside>
+		<section class="main">section</section>
+		<footer class="footer">footer</footer>
+		<div class="float-div">floatdiv</div>
+	</body>
+</html>

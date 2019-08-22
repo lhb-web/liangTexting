@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>排版</title>
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"/>
+	</head>
+	<body>
+		<!-- h1~h6标签 -->
+		<div class="hLabel">
+			<h1>这是h1</h1><!-- h1字体大小为36px -->
+			<h2>这是h2</h2><!-- h2字体大小为30px -->
+			<h3>这是h3</h3><!-- h3字体大小为24px -->
+			<h4>这是h4</h4><!-- h4字体大小为18px -->
+			<h5>这是h5</h5><!-- h5字体大小为14px -->
+			<h6>这是h6</h6><!-- h6字体大小为12px -->
+		</div>
+		
+		<!-- small标签标记副标题 -->
+		<div class="hSmall">
+			<h1>这是h1 <small>这是h1的副标题</small></h1>
+			<h2>这是h2 <small>这是h2的副标题</small></h2>
+			<h3>这是h3 <small>这是h3的副标题</small></h3>
+			<h4>这是h4 <small>这是h4的副标题</small></h4>
+			<h5>这是h5 <small>这是h5的副标题</small></h5>
+			<h6>这是h6 <small>这是h6的副标题</small></h6>
+		</div>
+		<br>
+		<!-- Bootstrap 将全局 font-size 设置为 14px，line-height 设置为 1.428。这些属性直接赋予 <body> 元素和所有段落元素 -->
+		<!-- 另外，<p> （段落）元素还被设置了等于 1/2 行高（即 10px）的底部外边距（margin）。 -->
+		<p>记得西楼凝醉眼，昔年风物似如今。只无人与共登临 </p>
+		<br>
+		
+		<!-- .lead类可以用来突出段落 -->
+		<p class="lead">记得西楼凝醉眼，昔年风物似如今。只无人与共登临 </p>
+		<br>
+		
+		<!-- 要突出显示在另一个上下文中相关的文本使用<mark>标签 -->
+		茅檐低小，溪上<mark>青青草</mark>。醉里吴音相媚好，白发谁家翁媪。
+		<br>
+		
+		<!-- 对于被删除的文本使用 <del> 标签。 -->
+		<del>应怜屐齿印苍苔，小扣柴扉久不开。 春色满园关不住，一枝红杏出墙来。</del>
+		<br>
+		
+		<!-- 对于没用的文本使用 <s> 标签。 -->
+		<s>与君歌一曲，请君为我倾耳听。</s>
+		<br>
+		
+		<!-- 额外插入的文本使用 <ins> 标签。 -->
+		<ins>钟鼓馔玉不足贵，但愿长醉不复醒。</ins>
+		<br>
+		
+		<!-- 为文本添加下划线，使用 <u> 标签。 -->
+		<u>古来圣贤皆寂寞，惟有饮者留其名。</u>
+		<br>
+		
+		<!-- 使用 <small> 标签包裹，其内的文本将被设置为父容器字体大小的 85%。 -->
+		<!-- 你还可以为行内元素赋予 .small 类以代替任何 <small> 元素。 -->
+		<div style="font-size: 36px;">
+			烹羊宰牛且为乐，会须一饮三百杯。<br>
+			<small>烹羊宰牛且为乐，会须一饮三百杯。</small>
+		</div>
+		<br>
+		
+		<!-- <strong>标签通过font-weight值强调文本 -->
+		江山如此多娇，引无数英雄<strong>竞折腰</strong>。
+		<br>
+		
+		<!-- em标签 用斜体强调一段文本 -->
+		<em>莫等闲，白了少年头，空悲切！</em>
+		<br>
+		
+		<!-- 文本对齐类,可以简单方便的将文字重新对齐 -->
+		<p class="text-left">左对齐.</p>
+		<p class="text-center">居中.</p>
+		<p class="text-right">右对齐.</p>
+		<p class="text-justify">合理的文本.</p>
+		<p class="text-nowrap">文本不换行.阿萨德瓦大厦达瓦达瓦大师大规范的公司的发生大法师的法师打我打谁发的发货方钢结构黄金矿工海景房集团业务惹我</p>
+		<br>
+		
+		<!-- 通过这几个类可以改变文本的大小写。 -->
+		<p class="text-lowercase">Lowercased text.小写的文本.</p>
+		<p class="text-uppercase">Uppercased text.大写的文本.</p>
+		<p class="text-capitalize">Capitalized text.首字母大写的文本.</p>
+		<br>
+		
+		<!-- 缩略语元素带有 title 属性，外观表现为带有较浅的虚线框，鼠标移至上面时会变成带有“问号”的指针。 -->
+		<!-- 如想看完整的内容可把鼠标悬停在缩略语上（对使用辅助技术的用户也可见）, 但需要包含 title 属性。 -->
+		<abbr title="attribute">attr</abbr>
+		<br>
+		
+		<!-- 为缩略语添加 .initialism 类，可以让 font-size 变得稍微小些。 -->
+		<abbr title="HyperText Markup Language" class="initialism">HTML</abbr>
+		<br>
+		<br>
+		
+		<!-- 让联系信息以最接近日常使用的格式呈现。在每行结尾添加 <br> 可以保留需要的样式。 -->
+		<address>
+		  <strong>Twitter, Inc.</strong><br>
+		  1355 Market Street, Suite 900<br>
+		  San Francisco, CA 94103<br>
+		  <abbr title="Phone">P:</abbr> (123) 456-7890
+		</address>
+		
+		<address>
+		  <strong>Full Name</strong><br>
+		  <a href="mailto:#">first.last@example.com</a>
+		</address>
+		<br>
+		
+		<!-- 将任何 HTML 元素包裹在 <blockquote> 中即可表现为引用样式 -->
+		<blockquote>
+		  <p>关关雎鸠，在河之洲。窈窕淑女，君子好逑。</p>
+		</blockquote>
+		<p>关关雎鸠，在河之洲。窈窕淑女，君子好逑。</p>
+		<br>
+		
+		<!-- 添加 <footer> 用于标明引用来源。来源的名称可以包裹进 <cite>标签中。 -->
+		<blockquote>
+		  <p>枯藤老树昏鸦，小桥流水人家，古道西风瘦马。夕阳西下，断肠人在天涯。</p>
+		  <footer>元代：<cite title="马致远">马致远</cite></footer>
+		</blockquote>
+		<br>
+		
+		<!-- 通过赋予 .blockquote-reverse 类可以让引用呈现内容右对齐的效果 -->
+		<blockquote  class="blockquote-reverse">
+		  <p>枯藤老树昏鸦，小桥流水人家，古道西风瘦马。夕阳西下，断肠人在天涯。</p>
+		  <footer>元代：<cite title="马致远">马致远</cite></footer>
+		</blockquote>
+		<br>
+		
+		<!-- 移除了默认的 list-style 样式和左侧外边距的一组元素（只针对直接子元素）。 -->
+		<ul class="list-unstyled">
+		  <li>春花秋月何时了？往事知多少。</li>
+		  <li>小楼昨夜又东风，故国不堪回首月明中。</li>
+		  <li>雕栏玉砌应犹在，只是朱颜改。</li>
+		  <li>问君能有几多愁？恰似一江春水向东流。</li>
+		</ul>
+		<ul >
+		  <li>春花秋月何时了？往事知多少。</li>
+		  <li>小楼昨夜又东风，故国不堪回首月明中。</li>
+		  <li>雕栏玉砌应犹在，只是朱颜改。</li>
+		  <li>问君能有几多愁？恰似一江春水向东流。</li>
+		</ul>
+		<br>
+		
+		<!-- 通过设置 display: inline-block; 并添加少量的内补（padding），将所有元素放置于同一行。 -->
+		<ul  class="list-inline">
+		  <li>春花秋月何时了？往事知多少。</li>
+		  <li>小楼昨夜又东风，故国不堪回首月明中。</li>
+		  <li>雕栏玉砌应犹在，只是朱颜改。</li>
+		  <li>问君能有几多愁？恰似一江春水向东流。</li>
+		</ul>
+		<br>
+		
+		<!-- 带有描述的短语列表。 -->
+		<dl>
+		  <dt>寻寻觅觅</dt>
+		  <dd>冷冷清清</dd>
+		</dl>
+		<br>
+		
+		<!-- .dl-horizontal 可以让 <dl> 内的短语及其描述排在一行。开始是像 <dl> 的默认样式堆叠在一起，随着导航条逐渐展开而排列在一行。 -->
+		<dl class="dl-horizontal">
+		  <dt>寻寻觅觅</dt>
+		  <dd>冷冷清清</dd>
+		</dl>
+		<br>
+		
+		<table class="table">
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">First Name</th>
+				<th scope="col">Last Name</th>
+				<th scope="col">Username</th>
+			</tr>
+		</table>
+		
+	</body>
+</html>
+<script src="jquery-2.js" type="text/javascript" charset="utf-8"></script>
+<script src="bootstrap/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>

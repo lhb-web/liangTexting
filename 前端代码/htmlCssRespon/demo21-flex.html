@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			header{
+				margin: 5px;
+				width: 100%;
+				height: 60px;
+				background-color: orange;
+				border-radius: 10px;
+			}
+			.main{
+				width: 100%;
+				height: 300px;
+				/* background-color: greenyellow; */
+				display: flex;
+				flex-flow: row;
+			}
+			.main>div{
+				margin: 5px;
+				border-radius: 10px;
+			}
+			.nav{
+				flex: 1;
+				background-color: #EEE8AA;
+			}
+			.article{
+				flex: 3;
+				background-color: #0099E5;
+			}
+			.aside{
+				flex: 1;
+				background-color: #EEE8AA;
+			}
+			footer{
+				margin: 5px;
+				width: 100%;
+				height: 60px;
+				background-color: skyblue;
+				border-radius: 10px;
+			}
+			@media (max-width:660px) {
+				.main{
+					width: 100%;
+					height: 300px;
+					/* background-color: greenyellow; */
+					display: flex;
+					flex-flow: column;
+				}
+				.nav .aside{
+					min-height: 50px;
+					max-height: 50px;
+				}
+				.article{
+					order: 1;
+				}
+				.nav{
+					order: 2;
+				}
+				.aside{
+					order: 3;
+				}
+				
+			}
+		</style>
+	</head>
+	<body>
+		<header>header</header>
+		<div class="main">
+			<div class="nav">nav</div>
+			<div class="article">article</div>
+			<div class="aside">aside</div>
+		</div>
+		<footer>footer</footer>
+	</body>
+</html>

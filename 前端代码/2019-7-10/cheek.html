@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="div1">
+<p id="p1">这是一个段落。</p>
+<p id="p2">这是另一个段落。</p>
+</div>
+
+<script>
+/*找到父元素*/
+var parent=document.getElementById("div1");
+/*找到子元素*/
+var child=document.getElementById("p1");
+/*将子元素从父元素中删除*/
+parent.removeChild(child);
+</script>
+
+</body>
+</html>

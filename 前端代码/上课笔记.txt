@@ -1,0 +1,266 @@
+//字符串与数字的真相
+=：赋值
+==：比较字面上的值
+===；比较它的类型（a===b就相当于 typeof（a）==typeof（b） //typeof（）检查它的类型）
+
+//布尔与数字的真相
+有些时候true和false等于1和0
+
+//没有var修饰的变量，会被系统认为是一个全局变量，所以要严格校验自己的变量名，否则拼写错误很难排查
+
+//javascript特点
+弱类型： 1.变量的定义，类型不限制，大小（长度）也不限制
+脚本，翻译
+解释器运行（v8引擎）
+
+//程序员交流的时候不能用变量
+//常用的数据类型： number  string object boolean function
+//0 , null , "" , false
+
+//parseInt() 函数可解析一个字符串，并返回一个整数。
+/*注释：1.只有字符串中的第一个数字会被返回 2.开头和结尾的空格是允许的。3.如果字符串的第一个字符不能被转换为数字，那么 parseFloat() 会返回 NaN。*/
+
+//容错,不确定的就是不可靠的.
+
+方老师邮箱:lingchen991@163.com
+
+
+
+//object 超级类
+
+//isNaN()
+isNaN函数，全称是is not a number（） 参数不是一个数字？ 返回false说明是一个数字
+NaN是 JavaScript 的特殊值，表示“非数字”（Not a Number），主要出现在将字符串解析成数字出错的场合。
+
+//描述问题的能力等于解决问题的能力   解决问题的时候， 定位问题=解决问题！
+
+
+//作业：查看Math函数的API
+Math.abs()函数返回指定数字的绝对值
+Math.cbrt() 函数返回任意数字的立方根
+Math.ceil() 向上取整
+Math.exp() 函数返回 ex，x 表示参数，e 是欧拉常数（Euler's constant），自然对数的底数
+Math.floor() 向下取整
+Math.fround() 可以将任意的数字转换为离它最近的单精度浮点数形式的数字
+Math.hypot() 函数返回它的所有参数的平方和的平方根
+Math.log() 函数返回一个数的自然对数
+Math.log10() 函数返回一个数字以 10 为底的对数，如果传入的参数小于 0, 则返回 NaN
+Math.log1p() 函数返回一个数字加1后的自然对数 (底为 E), 既log(x+1)描述：如果参数的值小于 -1, 则返回 NaN.
+Math.max() 函数返回一组数中的最大值
+Math.min() 返回零个或更多个数值的最小值
+Math.random()在0和1之间随机取一个浮点数 在任意指定范围内取一个随机浮点数Math.random()*(max-min)+min
+Math.round() 函数返回一个数字四舍五入后最接近的整数
+Math.sign() 函数返回一个数字的符号 此函数共有5种返回值, 分别是 1, -1, 0, -0, NaN. 代表的各是正数, 负数, 正零, 负零, NaN
+Math.trunc() 方法会将数字的小数部分去掉，只保留整数部分传入该方法的参数会被隐式转换成数字类型
+
+
+//构造器函数本身只做声明, 如果想要使用,必先实例化一个对象, Math是一个全局对象,他不可以new,因为它不是一个构造器函数.
+全局对象,意思是直接就可以拿来用的对象,一般指工具类型(对象)
+
+//数组(也可以看作是对象)
+for（var x in arr）{console.info("它的下标"+x+"它的值"+arr[x])} 根据对象遍历输出数组
+
+a[a.length]=xxx   在数组中添加元素
+
+a.push(x)  x是想要添加的元素的值,在最后端添加
+
+a.pop()  括号里添加参数无效,删除数组最后一个元素
+
+a.splice(a,b,c,d) 从某个元素开始往后删除若干个元素,并替换上其他元素(a表示数组元素的下标,b表示往后删除多少个元素,c和d表示需要替换的元素)
+
+a2=a.splice(a,b,c,d)  a2接收了a替换下来的元素
+
+
+//字符串最常用的函数
+indexof()  字符在数组中的位置
+replace("aa","bb")  bb替换aa  
+lastindexof()  最后一个字符所在的位置  
+
+
+
+//数组和对象的区别:数组是有序的,对象是无序的
+
+//json对象  描述对象的格式,从文本上看,它与对象的结构没有任何区别
+
+//所有的键名都是字符串
+
+//delete 删除对象  in 验证属性是否存在,属性存在,则返回true,属性不存在,则返回false
+hasOwnProperty()和 in 操作一样,作为容错的重要手段
+
+//不要污染原数据
+
+//1.对象的属性也可以是对象  2.对象的属性也可以是函数(方法)
+
+
+//Date对象的方法
+Date()        返回当日的日期和时间。
+getDate()      从 Date 对象返回一个月中的某一天 (1 ~ 31)。
+getDay()       从 Date 对象返回一周中的某一天 (0 ~ 6)。
+getMonth()     从 Date 对象返回月份 (0 ~ 11)。
+getFullYear()  从 Date 对象以四位数字返回年份。
+getHours()     返回 Date 对象的小时 (0 ~ 23)。
+getMinutes()   返回 Date 对象的分钟 (0 ~ 59)。
+getSeconds()    返回 Date 对象的秒数 (0 ~ 59)。
+getMilliseconds() 返回 Date 对象的毫秒(0 ~ 999)。
+getTime()       返回 1970 年 1 月 1 日至今的毫秒数。
+getUTCDate()	根据世界时从 Date 对象返回月中的一天 (1 ~ 31)。
+getUTCDay()	根据世界时从 Date 对象返回周中的一天 (0 ~ 6)。
+getUTCMonth()	根据世界时从 Date 对象返回月份 (0 ~ 11)。
+getUTCFullYear()	根据世界时从 Date 对象返回四位数的年份。
+getUTCHours()	根据世界时返回 Date 对象的小时 (0 ~ 23)。
+getUTCMinutes()	根据世界时返回 Date 对象的分钟 (0 ~ 59)。
+getUTCSeconds()	根据世界时返回 Date 对象的秒钟 (0 ~ 59)。
+getUTCMilliseconds()	根据世界时返回 Date 对象的毫秒(0 ~ 999)。
+setDate()	设置 Date 对象中月的某一天 (1 ~ 31)。
+setMonth()	设置 Date 对象中月份 (0 ~ 11)。
+setFullYear()	设置 Date 对象中的年份（四位数字）。
+setYear()	请使用 setFullYear() 方法代替。
+setHours()	设置 Date 对象中的小时 (0 ~ 23)。
+setMinutes()	设置 Date 对象中的分钟 (0 ~ 59)。
+setSeconds()	设置 Date 对象中的秒钟 (0 ~ 59)。
+setMilliseconds()	设置 Date 对象中的毫秒 (0 ~ 999)。
+setTime()	以毫秒设置 Date 对象。
+setUTCDate()	根据世界时设置 Date 对象中月份的一天 (1 ~ 31)。
+setUTCMonth()	根据世界时设置 Date 对象中的月份 (0 ~ 11)。
+setUTCFullYear()	根据世界时设置 Date 对象中的年份（四位数字）。
+setUTCHours()	根据世界时设置 Date 对象中的小时 (0 ~ 23)。
+setUTCMinutes()	根据世界时设置 Date 对象中的分钟 (0 ~ 59)。
+setUTCSeconds()	根据世界时设置 Date 对象中的秒钟 (0 ~ 59)。
+setUTCMilliseconds()	根据世界时设置 Date 对象中的毫秒 (0 ~ 999)。
+toSource()	返回该对象的源代码。
+toString()	把 Date 对象转换为字符串。
+toTimeString()	把 Date 对象的时间部分转换为字符串。
+toDateString()	把 Date 对象的日期部分转换为字符串。
+toGMTString()	请使用 toUTCString() 方法代替。
+toUTCString()	根据世界时，把 Date 对象转换为字符串。
+toLocaleString()	根据本地时间格式，把 Date 对象转换为字符串。
+toLocaleTimeString()	根据本地时间格式，把 Date 对象的时间部分转换为字符串。
+toLocaleDateString()	根据本地时间格式，把 Date 对象的日期部分转换为字符串。
+UTC()	根据世界时返回 1970 年 1 月 1 日 到指定日期的毫秒数。
+valueOf()	返回 Date 对象的原始值。
+
+
+
+//排序
+a.sort()  冒泡排序,两两对比小的在前
+a.sort(function(a,b){renturn a-b}); a-b 从小到大排序, b-a从大到小排序  这个函数只适用于数字,非数字无效
+a.reverse()  反转 a 数组
+
+
+//对象的属性名是确定的,不能是变量
+
+
+
+
+//定时器 setInterval();
+	是一个函数  他接受两个参数
+	参数1:一个函数体(要做的事情)
+	参数2:int 值,表示毫秒,即间隔多少毫秒,去执行一次参数1函数
+
+
+//dom文档对象模型--元素,属性,方法,事件   (浏览器翻译过来的)
+
+//对象.addEventListenner(没有on的事件类型,命名函数,flase);--绑定事件
+
+// 鼠标事件
+
+onmouserwheel 鼠标滚轮事件
+1.WheelEvent.deltaX: 数值,表示鼠标的水平滚动
+2.WheelEvent.deltaY: 数值,表示滚轮的垂直滚动量,像素
+3.WheelEvent.deltaZ: 数值,表示滚轮的Z轴滚动量
+
+
+
+script 元素 // 原则 -Js对dom的操作,一定要等待dom渲染完毕
+
+script 元素加载外部脚本:如果脚本文件使用了非英语字符，还应该注明字符的编码。
+<script charset="utf-8" src="https://www.example.com/script.js"></script>
+
+defer属性: 延迟脚本的执行,等到DOM加载完成后,再执行脚本// 这个属性不推荐使用 它无法控制多个标签的延迟后的执行顺序
+
+
+
+网页由两个核心部分组成 1.渲染引擎 2.JavaScript解释器(又称JavaScript引擎)
+渲染引擎的主要作用是，将网页代码渲染为用户视觉可以感知的平面文档。不同的浏览器有不同的渲染引擎。
+渲染引擎处理网页，通常分成四个阶段。
+1.解析代码：HTML 代码解析为 DOM，CSS 代码解析为 CSSOM（CSS Object Model）。
+2.对象合成：将 DOM 和 CSSOM 合成一棵渲染树（render tree）。
+3.布局：计算出渲染树的布局（layout）。
+4.绘制：将渲染树绘制到屏幕。
+以上四步并非严格按顺序执行，往往第一步还没完成，第二步和第三步就已经开始了。所以，会看到这种情况：网页的 HTML 代码还没下载完，但浏览器已经显示出内容了。
+
+--------阻塞效应:渲染过程被JS加载过程阻塞,JS加载抢夺了渲染引擎的控制权,长时间不释放
+阻塞的产生  1.解释器夺取控制权(渲染停止)  2.下载/加载js资源  3.  逐行翻译 4. 立即执行  -->交还控制权
+
+
+window.location.search  // 获取页面url信息
+
+
+
+
+
+*{
+	/* 禁止选择 */
+	-moz-user-select:none; /*火狐*/
+	-webkit-user-select:none; /*webkit浏览器*/
+	-ms-user-select:none; /*IE10*/
+	-khtml-user-select:none; /*早期浏览器*/
+	user-select:none;
+	/* 禁止手机点击出现蓝条 */
+	-webkit-tap-highlight-color: rgba(255,0,0,0);
+	-webkit-appearance:none;
+}
+
+
+
+https://www.runoob.com/jquery/jquery-ref-html.html        jQuery HTML / CSS 方法
+
+
+----------------------------------------------------------------------
+css
+1.使用position:absolute;将div转化成浮动元素,此时top属性,left属性才会生效,div的位置相对于body的上,左边距定位
+
+2.使用transform:skew()指定对象skew transformation（斜切扭曲）。第一个参数对应X轴，第二个参数对应Y轴。如果第二个参数未提供，则默认值为0
+
+3.overflow: hidden/ scroll/ 表示div中的内容超出边框后的处理方法,hidden表示溢出的部分隐藏,scroll/表示溢出的部分使用滚动条浏览
+
+4.html5 - 语义化标签
+<div> <p> <ul><li>  <span> <a>
+
+语义化 - 见名知意
+<header> -- 页面的头部
+<section> -- 内容模块的头,页眉等
+<article> -- 独立的文本区域,例如文章
+<aside> -- 跟article相关的边角内容,或辅助信息
+<hgroup> -- 标题组合
+<figure> -- 独立的流内容
+<nav> -- 导航相关
+<footer> -- 脚注
+
+5.css中的选择器
+----------------------------------------------------------------------
+选择器 - 用来定位标签(元素)
+
+通用选择器 --------- * { } --------------- 选择所有元素
+标签选择器 --------- a { } / div{} ------- 选择所有该标签
+类选择器 ----------- .className{} -------- 根据类名选择
+id选择器 ----------- #id{} --------------- 根据id选择
+属性选择器 --------- [herf]/[attr=""] ---- 属性符合的元素
+并集合(选择器拼接) - div,.className ------ 条件拼接
+后代选择器 --------- .className li{} ----- 选择后代所有li元素
+子代选择器 --------- .className>li ------- 仅限于选择儿子元素
+兄弟选择器 --------- p+a {} -------------- 跟p同级别的a
+伪选择器 ----------- p::first{}----------- 第一个p标签
+
+
+
+// 当网页出现兼容性问题时,可以引用下面地址,使网页能够兼容video标签和audio标签
+<script src="//api.html5media.info/1.2.2/html5media.min.js"></script>
+
+
+
+
+
+1.this 用来指定他的上层对象,但是他不能滥用 如果在多处运用this的时候,会很难分清每个this所代表的含义
+2.多层结构不要用 this ,因为他只找上一层
+

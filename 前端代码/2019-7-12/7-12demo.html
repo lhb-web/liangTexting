@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			body{
+				background-color: #000000;
+			}
+			.heightConbtrol{
+				margin-top: 300px;
+				transform: rotate(-90deg);
+			}
+			.mask{
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background-color: black;
+				opacity: 1;
+			} 
+			.countDown{
+				width: 200px;
+				height: 200px;
+				border-radius: 50%;
+				background-color: #fff;
+				position: absolute;
+				top: 400px;
+				left: 800px;
+				text-align: center;
+				line-height: 200px;
+				font-size: 48px;
+			}
+			.light{
+				width: 200px;
+				height: 200px;
+				border-radius: 50%;
+				background-color: red;
+				position: absolute;
+				top: 400px;
+				left: 800px;
+				text-align: center;
+				line-height: 200px;
+				font-size: 48px;
+				filter: grayscale(100%);
+				visibility: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="range" class="heightConbtrol" />
+		<div class="mask" id="Mask">
+			<div class="countDown" id="CountDown">5</div>
+		</div>
+		<input type="button" class="myButton" id="bt1" value="点亮" />
+		<input type="button" class="myButton" id="bt2" value="关灯" />
+		<div class="light" id="light01"></div>
+	</body>
+</html>
+<script type="text/javascript">
+		var counter = 5;
+		var ticking = setInterval(function() {
+			counter--;
+			if (counter > 0) {
+				document.getElementById("CountDown").innerText = counter;
+			} else {
+				document.getElementById("Mask").style.display = "none";
+				clearInterval(ticking);
+			}
+		}, 1000)
+	var timmer;
+	document.getElementById("bt1").onclick = function(e) {
+		document.getElementById("light01").style.visibility = "visible";
+		var grayscale01 = 100
+		var timmer = setInterval(function() {
+			grayscale01 -= 5;
+			document.getElementsByClassName("light")[0].style.filter = "grayscale(" + grayscale01 + "%)";
+			if (grayscale01 <= 0) {
+				document.body.style.background = "yellow";
+				// document.getElementById("light01").style.visibility = "hidden";
+				clearInterval(timmer);
+			}
+		}, 100);
+	};
+	document.getElementById("bt2").onclick = function(e) {
+		clearInterval(timmer);
+		document.getElementsByClassName("light")[0].style.filter = "grayscale(100%)";
+		document.getElementById("light01").style.visibility = "visible";
+		
+		// 关闭定时器clearTimeout();
+		setTimeout(function(){
+			document.body.style.background = "black";
+			document.getElementById("light01").style.visibility = "hidden";
+		},1000);
+	};
+</script>

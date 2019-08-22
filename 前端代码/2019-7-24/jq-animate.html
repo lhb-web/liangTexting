@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>jq-动画</title>
+		<script src="jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			.body{
+				position: absolute;
+			}
+			.light{
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				position: absolute;
+				background-color: skyblue;
+				opacity: 0;
+				left: 50%;
+				margin-left: -5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="light" id="light1"> </div>
+		<input type="button" id="stratAni" value="开灯" />
+		<input type="button" id="stopAni" value="关灯" />
+	</body>
+</html>
+<script type="text/javascript">
+	// animate()方法  css名称为驼峰 两个样式用逗号分隔  speed默认值为"normal" speed可以为毫秒数
+	$(function(){
+		$("#stratAni").click(function on(){
+			$(".light").stop();
+			$(".light").animate({
+				opacity:1,
+				width: "500px",
+				height: "500px",
+				marginLeft: "-250px"
+				
+			},2000,function off(){
+				// $(".light").stop();
+				// $(".light").animate({
+				// 	opacity:0,
+				// 	width: "10px",
+				// 	height: "10px",
+				// 	marginLeft: "-5px"
+				// },2000,function(){
+				// 	// on();
+				// });
+			});
+		});
+		// 动画是异步执行
+		$("#stopAni").click(function(){
+			$(".light").stop();
+			$(".light").animate({
+				opacity:0,
+				width: "10px",
+				height: "10px",
+				marginLeft: "-5px"
+			},2000,function(){});
+		});
+	});
+	
+</script>

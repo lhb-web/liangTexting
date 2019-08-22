@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="menu">
+    <div class="jieshao">摄影社区热门小镇</div>
+    <div class="box">
+        <div>
+            <div><img src="images/pic_01.jpg" ></div>
+            <div class="wenzi">
+                <a href="">风景狙击手</a>
+                <div>成员：80</div>
+                <div>作品：276</div>
+            </div>
+        </div>
+        <div>
+            <div><img src="images/pic_02.jpg" ></div>
+
+        </div>
+        <div>
+            <div><img src="images/pic_03.jpg" ></div>
+
+        </div>
+        <div>
+            <div><img src="images/pic_04.jpg" ></div>
+        </div>
+        <div>
+            <div><img src="images/pic_05.jpg" ></div>
+        </div>
+        <div>
+            <div><img src="images/pic_06.jpg" ></div>
+        </div>
+
+
+    </div>
+</div>
+
+</body>
+<style>
+    
+    .box{
+        width: 650px;
+        height: 300px;
+        /*border: 1px solid #000;*/
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+
+    }
+    .box>div{
+        width: 200px;
+        height: 150px;
+        /*border: 1px solid #000;*/
+        border-right: 1px dashed #666666;
+        border-bottom: 1px dashed #666666;
+        display: flex;
+        justify-content: space-around;
+
+
+    }
+    .box>div:nth-of-type(3){
+        border-right: none;
+    }
+    .box>div:nth-of-type(6){
+         border-right: none;
+     }
+    .box>div>div:nth-of-type(1){
+        width: 70px;
+        height: 70px;
+        border: 1px solid #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin:10px;
+    }
+    .box>div>div:nth-of-type(2){
+         width: 90px;
+         height: 80px;
+         border: 1px solid #000;
+         display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+         /*justify-content: center;*/
+         /*align-items: center;*/
+        /*align-content: flex-start;*/
+         margin:10px;
+        line-height: 1px;
+        font-size: 5px;
+     }
+    .box>div>div:nth-of-type(2)>div{
+        /*display: flex;*/
+        /*flex-wrap: wrap;*/
+        /*align-items: center;*/
+
+        border: 1px solid #000;
+    }
+
+
+</style>
+</html>

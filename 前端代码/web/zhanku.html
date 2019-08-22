@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>站酷</title>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1243343_3wqfvm904ru.css">
+</head>
+<body>
+<div class="box">
+    <div class="head"><img src="https://img.zcool.cn/community/0101515d084208a801213ec201921e.jpg@260w_195h_1c_1e_1o_100sh.jpg" alt="" title="天局"></div>
+    <div class="main">
+        <div class="biaoti"><a href="" title="天局">天局</a></div>
+        <div title="插画—绘本">插画-绘本</div>
+        <div>
+            <i class="iconfont icon-liulan" title="共8557人气">8557</i>
+            <i class="iconfont icon-pinglun" title="共42评论">42</i>
+            <i class="iconfont icon-chakandianzan" title="共568推荐">568</i>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="touxiang">
+            <a href=""><img src="https://img.zcool.cn/community/00a2195a5890eea80120121ff6f663.jpg@80w_80h_1c_1e_1o_100sh.jpg" alt="">
+            </a>
+            <a href="">尧立</a>
+            <div class="data">
+                <div class="tx"><a href=""><img src="https://img.zcool.cn/community/00a2195a5890eea80120121ff6f663.jpg@80w_80h_1c_1e_1o_100sh.jpg" alt=""></a></div>
+                <div class="name"><a href="">尧立</a><a href="" class="iconfont icon-zuanshi2"></a></div>
+                <div class="zhiye">
+                    <div>北京</div>
+                    <div>插画师</div>
+                </div>
+                <div class="xinxi">
+                <div class="cz">
+                    <div>创作 <a href="">1333</a></div>
+                    <div></div>
+                </div>
+                <div class="fans">
+                    <div>粉丝 <a href="">12936</a></div>
+                </div>
+                </div>
+                <div class="guanzhu">
+                  <div><a href="" class="gz">关注</a></div>
+                  <div><a href="" class="sx">私信</a></div>
+                </div>
+            </div>
+        </div>
+        <span>1天前</span>
+    </div>
+</div>
+</body>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background-color: #f4f4f4;
+    }
+    .data{
+        width: 210px;
+        height: 260px;
+        background-color: #fff;
+        position: relative;
+        top: -305px;
+        left: -12px;
+        display: none;
+    }
+    .data:after{
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        bottom: -10px;
+        left: 19px;
+        box-sizing: border-box;
+        border: 6px solid #ffffff;
+        transform-origin: 0 0;
+        transform: rotate(-46deg);
+        box-shadow: -3px 2px 2px rgba(255,255,255,.05);
+    }
+    .touxiang:hover>.data{
+        display: block;
+    }
+    .tx{
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        /*margin: 0 auto;*/
+        position: absolute;
+        top: 10px;
+        left: 65px;
+    }
+    .name{
+        width: 210px;
+        height: 30px;
+        text-align: center;
+        position: absolute;
+        top: 100px;
+
+    }
+    .name>a{
+        text-decoration: none;
+        margin-right: 10px;
+        font-size: 16px;
+        color: #000;
+    }
+    .name>a:hover{
+        color: #ee9900;
+    }
+    .zhiye{
+        width: 210px;
+        height: 30px;
+        /*background-color: #ffe300;*/
+        position: absolute;
+        top: 135px;
+        display: flex;
+        justify-content: center;
+    }
+    .zhiye>div{
+        width: 100px;
+        height: 15px;
+        border-right: 1px solid #999999;
+        padding: 0 15px;
+        font-size: 12px;
+        color: #999999;
+    }
+    .zhiye>div:nth-of-type(1){
+        text-align: end;
+    }
+    .zhiye>div:nth-of-type(2){
+        border-right: none;
+    }
+    .xinxi{
+        width: 210px;
+        height: 50px;
+        position: absolute;
+        top: 165px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .xinxi>div{
+        width: 60px;
+        height: 25px;
+        float: left;
+        border-left: 1px solid #999999;
+        padding: 0 15px 8px;
+        font-size: 14px;
+        text-align: center;
+        color: #999999;
+
+    }
+    .xinxi>div:nth-of-type(1){
+        border-left: none;
+    }
+    .xinxi>div>div>a{
+        color: black;
+        text-decoration: none;
+    }
+    .xinxi>div>div>a:hover{
+        color: #ee9900;
+    }
+    .guanzhu{
+        width: 210px;
+        height: 50px;
+        /*background-color: #ffe300;*/
+        position: absolute;
+        top: 210px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .guanzhu>div{
+        width: 80px;
+        height: 25px;
+        margin: 0  5px;
+        border-radius: 5px;
+        border: 1px solid #999999;
+        text-align: center;
+        padding-top: 5px;
+
+
+    }
+    .guanzhu>div:nth-of-type(1){
+        background-color: #ffe300;
+        border: none;
+    }
+    .guanzhu>div>a{
+        color: #999999;
+        text-decoration: none;
+        font-size: 14px;
+    }
+    .guanzhu>div:nth-of-type(1)>a{
+        color: black;
+    }
+    .guanzhu>div:nth-of-type(1):hover{
+        background-color: #ffd100;
+    }
+    .guanzhu>div:nth-of-type(2):hover{
+        border: 1px solid #000;
+    }
+    .guanzhu>div:nth-of-type(2):hover>a{
+        color: black;
+    }
+
+
+
+
+.box{
+    width: 210px;
+    height: 310px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 15px;
+}
+    .head>img{
+    width: 210px;
+    height: 173px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    }
+    .head{
+        height: 0;
+        width: 210px;
+        flex-grow: 2;
+        background-color: #fff;
+        border-top-left-radius: 15px;
+    }
+    .main{
+        height: 0;
+        width: 210px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        border-bottom: 1px solid #f4f4f4;
+        margin-left: 10px;
+
+
+    }
+    .bottom{
+        height: 50px;
+        width: 210px;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .main>div:nth-child(1){
+        width: 210px;
+        flex-grow: 1;
+    }
+    .main>div:nth-child(2){
+        width: 210px;
+         flex-grow: 2;
+     }
+    .main>div:nth-child(3){
+        width: 210px;
+        height: 20px;
+    }
+    /**/
+    .touxiang>a:nth-child(2){
+        margin: 0 0 10px 10px;
+        font-size: 12px;
+        position: absolute;
+        top: 17px;
+        left: 32px;
+        text-decoration: none;
+        color: black;
+
+    }
+    .touxiang{
+        width: 120px;
+        height: 50px;
+        position: relative;
+    }
+    .touxiang>a>img{
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        margin: 15px 0 0 0;
+    }
+    span{
+        text-align: center;
+        margin: 20px 0 10px 10px;
+        font-size: 10px;
+        color: #969896;
+    }
+    .biaoti>a{
+        text-decoration: none;
+        color: black;
+    }
+    .main>div:nth-child(2){
+        font-size: 10px;
+        color: #969896;
+    }
+    .main>div:nth-child(3){
+        font-size: 10px;
+        color: #969896;
+    }
+    i{
+        margin-right: 12px;
+    }
+    .iconfont{
+        font-size: 13px;
+    }
+    a:hover{
+        color: #df5000;
+    }
+    .touxiang>a:nth-child(2):hover{
+        color: #df5000;
+    }
+
+
+
+
+</style>
+</html>

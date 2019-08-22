@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>jq-增删续</title>
+		<script src="jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<input type="text" id="text1">
+		<input type="button" id="bt1" value="输入-追加">
+		<input type="button" id="bt2" value="输入-插队">
+		<br>
+		<br>
+		<hr>
+		<br>
+		<br>
+		<textarea rows="4" cols="90" id="text2"></textarea>
+	</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+		$("#bt1").click(function(){
+			var text1 = $("#text1").val();
+			text1 = text1.trim();
+			if(!text1){
+				alert("请输入~~~");
+			}else{
+				$("#text2").append( text1 + "\r\n" );
+				$("#text1").val("");
+			};
+		});
+		$("#bt2").click(function(){
+			var text2 = $("#text1").val();
+			text2 = text2.trim();
+			if(!text2){
+				alert("请输入");
+			}else{
+				$("#text2").prepend( text2 + "\r\n" );
+				$("#text1").val("");
+			}
+		});
+		// 敲回车自动输入
+		window.onkeydown = function(e){
+			if( e.key == "Enter"){
+				$("#bt1").click();
+			}
+		}
+	});
+</script>

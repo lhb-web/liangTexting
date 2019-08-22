@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				position: relative;
+				background-color: skyblue;
+			}
+
+			.rain {
+				position: absolute;
+				/* background-color: white; */
+				/* border: 1px solid white; */
+				border-radius: 50%;
+				width: 80px;
+				height: 80px;
+
+			}
+
+			.myButton {
+				width: 100px;
+			}
+		</style>
+	</head>
+	<body>
+
+		下落速度:<input id="text1" type="text" style="width: 200px" />
+		<br>
+		产生频率:<input id="text2" type="text" style="width: 200px" />
+		<br>
+		<input class="myButton" id="button1" type="button" value="开始" onclick="getTextValue()" />
+		<input class="myButton" id="button2" type="button" value="清空" onclick="off()" />
+		<div id="fs" style="font-size: 48px;">
+			分数:0
+		</div>
+		<div id="djs" style="font-size: 48px;">
+			时间：30S
+		</div>
+		<div style="font-size: 48px;">
+			目标:20
+		</div>
+
+	</body>
+</html>
+
+</script> 
+
+
+<script type="text/javascript">
+	var rainCount = 0; //当前雨滴数
+	var rainMax = 200; //雨滴总数量
+
+
+	var fraction = 0;
+
+	function doRainFall(fallingSpeed) {
+		if (rainCount >= rainMax) {
+			return;
+		}
+		if (!fallingSpeed) {
+			fallingSpeed = 100;
+		}
+		//创建div
+
+		var rainFall = document.createElement("div");
+		rainFall.setAttribute("class", "rain");
+		//点击消除
+		rainFall.onclick = function() {
+			rainFall.remove();
+			fraction++;
+			document.getElementById("fs").innerText = "分数:" + fraction;
+		};
+		if (fraction == 20) {
+			alert("过关!!!!!!!");
+			off();
+		}
+
+		var img = document.createElement("img");
+		img.setAttribute("id", "xue");
+		var photo1 = "xuehua.png";
+		var photo2 = "xuehua2.png";
+		var photo3 = "xuehua3.png";
+		var photo4 = "xuehua4.png";
+		var temp = [photo1, photo2, photo3, photo4];
+		var nub = Math.floor(Math.random() * 4); //产生随机下标
+		img.src = temp[nub];
+		rainFall.appendChild(img);
+		img.style.width = "80px";
+		img.style.height = "80px";
+
+		document.body.appendChild(rainFall);
+
+
+
+		rainFall.style.top = "0px";
+		rainFall.style.left = Math.random() * 100 + "%";
+		rainCount += 1;
+		var rainTimer = setInterval(function() {
+			var newTop = rainFall.style.top.replace("px", "");
+			newTop = parseFloat(newTop);
+			newTop += Math.floor(Math.random() * 15 + 5); //下落速度
+			//限制高度
+			if (newTop >= 800) {
+				rainFall.remove();
+				rainCount -= 1;
+				clearInterval(rainTimer);
+			}
+			rainFall.style.top = newTop + "px";
+
+		}, fallingSpeed)
+	}
+	var shu = 30
+
+	function getTextValue() {
+		var fallSpeed = document.getElementById("text1").value;
+		fallSpeed = parseInt(fallSpeed);
+		var createHz = document.getElementById("text2").value;
+		createHz = parseInt(createHz);
+		if (!fallSpeed || isNaN(fallSpeed) || !createHz || isNaN(createHz)) {
+			console.info("输入的参数不是数字");
+			return;
+		}
+
+		var x = setInterval(function() {
+			doRainFall(fallSpeed);
+		}, createHz);
+
+		var daoshu = setInterval(function() {
+			shu--;
+			if (shu < 0) {
+				alert("时间到")
+				clearInterval(daoshu);
+				off();
+			}
+			document.getElementById("djs").innerText = "时间:" + shu + "S";
+		}, 1000)
+
+	}
+
+	function off() {
+		window.location.reload();
+	}
+
+
+
+
+</script>
+

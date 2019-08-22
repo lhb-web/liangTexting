@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		1 3 5 7 9
+		2 4 6 8
+		3 5 7
+		4 6
+		5
+	</body>
+</html>
+<script type="text/javascript">
+	function countDown(rows) {
+		rows = rows || 5;
+		for (var i = 1; i <= rows; i++) {
+			var string01 = "" + i;
+			for (var j = 1; j < rows - i + 1; j++) {
+				string01 += (j * 2 + i);
+			}
+			console.info(string01);
+		}
+	}
+	countDown(20);
+</script>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>DOM续1</title>
+	</head>
+	<body onmousedown="whichButton(event)">
+		<p>请在文档中点击鼠标。一个消息框会提示出您点击了哪个鼠标按键。</p>
+		<div class="main">
+			33
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	//课堂练习1:对body写一个鼠标监听事件,控制台输出按下鼠标的哪个按键
+	function whichButton(event){
+		var btnNum = event.button;
+		if(btnNum==0){
+			alert("你按了鼠标左键");
+		}
+		else if(btnNum==1){
+			alert("你按了鼠标中键");
+		}
+		else if(btnNum==2){
+			alert("你按了鼠标右键");
+		}else{
+			alert("你按了"+btnNum+"键");
+		}
+	}
+	
+	// document.getElementsByClassName("main")[0].style.width = window.innerWidth + "px";
+	// document.getElementsByClassName("main")[0].style.height = window.innerHeight + "px";
+	
+	//对整个窗口执行事件注册
+	//document.oncontextmenu  页面上右键事件
+	// document.oncontextmenu = function(e){
+	// 	return false;//禁用右键菜单
+	// 	return true;//启用右键菜单
+	// }
+	
+	// window.onmousedown = function(e){
+	// 	// whichButton(e);
+	// 	console.info(onmousedown);
+	// }
+	// window.onmouseup = function(e){
+	// 	// whichButton(e);
+	// 	console.info(onmouseup);
+	// }
+	// window.onclick =function(e){
+	// 	console.info(onclick);
+	// }
+	window.onmousemove = function(e){
+		// console.info(e);
+		// if(e.movementX<0){
+		// 	console.info("左移");
+		// }else{
+		// 	console.info("右移");
+		// }
+		if(e.movementY<0){
+			console.info("上移------");
+		}else{
+			console.info("下移---------");
+		}
+	}
+	
+</script>

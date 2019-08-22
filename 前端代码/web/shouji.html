@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滤镜</title>
+</head>
+<body>
+<div class="phonePage">
+    <div class="head"></div>
+    <div class="content">
+        <div class="msg"></div>
+    </div>
+    <div class="tab"></div>
+</div>
+</body>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body,html{
+        height: 100%;
+    }
+    .phonePage{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .content{
+        height: 0;
+        flex-grow: 1;
+        border: 1px solid #000;
+        overflow: auto;
+    }
+    .head{
+        height: 200px;
+        border: 1px solid #000;
+    }
+    .tab{
+        height: 200px;
+        border: 1px solid #000;
+    }
+    .msg{
+        height: 9000px;
+        width: 20%;
+        background-color: #969896;
+    }
+</style>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#ca1 {
+				/* background: skyblue; */
+				border: 2px solid #000000;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="ca1" width="600" height="600"></canvas>
+	</body>
+</html>
+<script type="text/javascript">
+	// 	function drowColors() {
+	// 		var canvas1 = document.getElementById("ca1");
+	// 		var context = canvas1.getContext('2d');
+	// 		// context.fillStyle = "rgb(225,0,0)";
+	// 		// context.fillRect(0,0,100,100);
+	// 		// context.fillStyle = "#0000FF";
+	// 		// context.fillRect(100,0,100,100);
+	// 		for (var i = 0; i < 6; i++) {
+	// 			for (var j = 0; j < 6; j++) {
+	// 				// 随机颜色
+	// 				var red = parseInt(Math.random() * 255);
+	// 				var yellow = parseInt(Math.random() * 255);
+	// 				var blue = parseInt(Math.random() * 255);
+	// 				context.strokeStyle = "rgb(" + red + "," + yellow + "," + blue + ")";
+	// 				context.strokeRect(j * 100, i * 100, 100, 100);
+	// 				context.lineWidth = 10;// 线宽
+	// 			};
+	// 		};
+	// 
+	// 	};
+	// 	drowColors();
+
+	// // 渐变颜色
+	// function draw() {
+	// 	var canvas = document.getElementById('ca1');
+	// 	var ctx = canvas.getContext("2d");
+	// 	for (var i = 0; i < 6; i++) {
+	// 		for (var j = 0; j < 6; j++) {
+	// 			// 行向红渐变, 列向绿渐变
+	// 			ctx.fillStyle = 'rgb(' + Math.floor(255 - 255/6 * i) + ',' +
+	// 				Math.floor(255 - 255/6 * j) + ',0)';
+	// 			ctx.fillRect(j * 100, i * 100, 100, 100);
+	// 		}
+	// 	}
+	// }
+	// draw();
+
+
+	// function drowLine(lineCapP){
+	// 	var canvas1 = document.getElementById("ca1");
+	// 	var context = canvas1.getContext('2d');
+	// 	context.moveTo(50,40);
+	// 	context.lineTo(50,200);
+	// 	context.lineWidth = 20;
+	// 	if(!lineCapP){
+	// 		lineCapP = "butt"
+	// 	}
+	// 	context.lineCap = lineCapP;
+	// 	
+	// 	context.stroke();
+	// }
+	// drowLine("round");
+
+	// 文字
+	(function() {
+		var canvas1 = document.getElementById("ca1");
+		var ctx = canvas1.getContext('2d');
+		ctx.font = "100px sans-serif"
+		ctx.fillText("天若有情", 10, 100);
+		ctx.strokeText("天若有情", 10, 200)
+	})();
+
+	(function() {
+		var canvas1 = document.getElementById("ca1");
+		var ctx = canvas1.getContext('2d');
+		var img = new Image(); // 创建img元素
+		img.onload = function() {
+			ctx.drawImage(img, 200, 250, 100, 100)
+		}
+		img.src = 'duorou (2).jpg'; // 设置图片源地址
+	})();
+</script>

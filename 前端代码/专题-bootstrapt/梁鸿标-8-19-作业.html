@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
+		<style type="text/css">
+			.father {
+				min-height: 520px;
+				background-color: #f2f2f2;
+			}
+
+			h1 {
+				text-align: center;
+			}
+
+			.mainBox {
+				background-color: white;
+				min-height: 270px;
+			}
+			.mainBox2{
+				background-color: white;
+				min-height: 320px;
+				border: 1px solid black;
+			}
+			.navBox{
+				/* background-color: yellowgreen; */
+				min-height: 90px;
+				/* border: 1px solid black; */
+			}
+			.navBox2{
+				background-color: orange;
+				min-height: 70px;
+				text-align: center;
+				margin-top: 20px;
+			}
+			.navBox2>h4{
+				line-height: 70px;
+				color: white;
+			}
+			.smallBox{
+				height: 40px;
+				border: 1px solid black;
+				margin-top: 30px;
+			}
+			.smallBox2{
+				height: 40px;
+				border: 1px solid black;
+			}
+			.information{
+				height: 230px;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+			}
+			.portrait{
+				width: 150px;
+				height: 150px;
+				border-radius: 50%;
+				border: 2px solid orangered;
+				
+			}
+			.petName{
+				width: 200px;
+				height: 50px;
+				text-align: center;
+				line-height: 50px;
+				color: orangered;
+			}
+			.portrait>img{
+				width: 145px;
+				height: 145px;
+				border-radius: 50%;
+			}
+			.degreeOfHeat{
+				width: 200px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>个人信息</h1>
+		<div class="container father">
+			<div class="row">
+				<div class="col-md-4 ">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-3 mainBox">
+							<div class="row">
+								<div class="col-md-10 col-md-offset-1 navBox">
+									<div class="row smallBox">
+									</div>
+								</div>
+								<div class="col-md-10 col-md-offset-1 navBox">
+									<div class="row smallBox2">
+									</div>
+								</div>
+								<div class="col-md-12 navBox2">
+									<h4>修改密码</h4>
+								</div>
+							</div>
+							<div class="row"></div>
+							<div class="row"></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 ">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 mainBox2">
+							<div class="information">
+								<div class="portrait"><img src="images/b1.jpg"></div>
+								<div class="petName">
+									科学怪人
+								</div>
+							</div>
+							<div class="degreeOfHeat">
+								<div></div>
+								<div></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 ">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-1 mainBox">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="jquery-2.js" type="text/javascript" charset="utf-8"></script>
+<script src="bootstrap/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>

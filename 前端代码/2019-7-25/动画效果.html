@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JQ-动画+效果</title>
+		<script src="jquery-3.1.1.min.js" type="text/javascript"></script>
+		<style type="text/css">
+			#target01 {
+				width: 120px;
+				height: 220px;
+				border: 100px gold solid;
+				border-radius: 100% 100% 80% 80%;
+				background-color: yellow;
+				/* display: none; */
+				position: absolute;
+				left: 60%;
+			}
+
+			#menu1 input {
+				width: 160px;
+
+			}
+
+			#menu1 li {
+				margin-bottom: 10px;
+			}
+
+			.Mystudents {
+				background-color: yellow;
+			}
+			.students:hover{
+				background-color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="menu1">
+			<ul>
+				<li><input type="button" id="bt1" value="hide" /></li>
+				<li><input type="button" id="bt2" value="show" /></li>
+				<li><input type="button" id="bt3" value="toggle" /></li>
+				<li>
+					<input type="button" id="bt4" value="blink" />
+					<input type="txt" id="text1" />
+				</li>
+				<li><input type="button" id="bt5" value="stop" /></li>
+				<li><input type="button" id="bt6" value="slideDown" /></li>
+				<li><input type="button" id="bt7" value="slideUp" /></li>
+				<li><input type="button" id="bt8" value="slideToggle" /></li>
+				<li><input type="button" id="bt9" value="相对动画" /></li>
+				<li><input type="button" id="bt10" value="ajax" /></li>
+			</ul>
+		</div>
+		<div id="div1"></div>
+		<div class="target" id="target01"></div>
+	</body>
+</html>
+<script type="text/javascript">
+	$(function() {
+
+		// jQuery hide()  toggle() 和 show() 可以带参数,表示执行这个动画的毫秒数
+		// hide()隐藏
+		// $("#bt1").click(function(){
+		// 	$("#target01").hide();
+		// });
+		// 
+		// // show()显示
+		// $("#bt2").click(function(){
+		// 	$("#target01").show();
+		// });
+		// 
+		// // toggle()显示或隐藏
+		// $("#bt3").click(function(){
+		// 	$("#target01").toggle(8000);
+		// });
+
+		// 课堂练习 - 实现闪烁 - -在hide 和show 之间切换,产生一个闪烁效果
+		// 计时器 - 至少有三种方法
+		var timer01 = null;
+		$("#bt4").click(function() {
+			if (timer01) {
+				clearInterval(timer01);
+			}
+			var HZ = $("#text1").val();
+			HZ = parseInt(HZ);
+			if (!HZ) {
+				HZ = 500;
+			}
+			// 方法1
+			var counter = 0;
+			timer01 = setInterval(function() {
+				if (counter > 1) {
+					counter -= 1;
+					$("#target01").show();
+				} else {
+					counter += 1;
+					$("#target01").hide();
+				}
+			}, HZ);
+
+			// 方法2
+			//  timer01 = setInterval(function() {
+			// 	$("#target01").toggle(8000);
+			// }, HZ);
+		});
+		$("#bt5").click(function() {
+			if (timer01) {
+				clearInterval(timer01);
+			};
+		});
+
+
+		// 滑动效果 可以带参数,参数表示毫秒
+		// 向下展开  -针对隐藏的元素
+		$("#bt6").click(function() {
+			$("#target01").slideDown();
+		});
+
+		// 向上收起  -针对非隐藏的元素
+		$("#bt7").click(function() {
+			$("#target01").slideUp();
+		});
+
+		// 收起或展开
+		$("#bt8").click(function() {
+			$("#target01").stop(); // 容错
+			$("#target01").slideToggle();
+		});
+
+		// 关于动画的补充  - 使用相对值
+		$("#bt9").click(function() {
+			$("#target01").animate({
+				left: "-=300px",
+				top: "+=100px"
+			}, 2000, function() {});
+		});
+		
+		//淡入淡出 fadeIn() fadeUp() fadeToggle() // 接收参数
+
+		// AJAX-异步  异步陷阱   
+		// xml html是xml的衍生 
+		// json 结构与对象相似
+		// ajax() 方法 参数是对象
+
+
+
+		// 要求,数据正确请回完毕,在页面上显示出一下内容:
+		// 姓名 :xxx 编号: xxx // 点中以后高亮
+		// 你自己的名字高亮
+		$("#bt10").click(function() {
+			$.ajax({
+				url: "student.json", //请求地址
+				data: {}, // 向后台传送的数据
+				type: "get", // 请求方法 *  get:获取数据/post/put/delete/
+				fataType: "json", // text/html/xml...
+				//timeout:     // 让浏览器决定等待时间
+
+				// 操作成功时  调用这个函数
+				success: function(res) {
+					alert("Y");
+					getStundent(res);
+					// $("#div1").load("student.json")
+
+				},
+				// 操作失败时,调用这个函数
+				error: function(res) {
+					alert("!");
+					console.info(res);
+				},
+				// 无论成功失败,都调用函数 //不常用
+				// complete:function(){
+				// 	
+				// }
+
+			});
+			function getStundent(res) {
+				var Student = res.all;
+				for (var x in Student) {
+
+					if (Student[x].id == 22) {
+						$("#div1").append("<div class='Mystudents'>" + Student[x].name + "-----" + Student[x].id + "</div>");
+					} else {
+						$("#div1").append("<div class='students'>" + Student[x].name + "-----" + Student[x].id + "</div>");
+					};
+				};
+				// $(".students").click(function() {
+				// 	$(this).css({
+				// 		color: "red",
+				// 	});
+				// });
+			};
+		});
+
+	});
+</script>

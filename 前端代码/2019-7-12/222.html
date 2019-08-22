@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" id="bt3" value="停止报时" />
+		<input type="button" id="bt4" value="继续报时" />
+
+	</body>
+</html>
+<script type="text/javascript">
+	
+	
+	
+	var timmer= 0;
+	NowTime(true);
+	
+	function NowTime(flag) {
+		if (timmer) {
+				clearInterval(timmer);
+		}
+		if (flag) {
+			 timmer = setInterval(function(){
+				var myDate=new Date();
+				console.info(myDate.getTime());
+			},1000);
+			};
+	}
+	document.getElementById("bt3").onclick = function(e) {
+		NowTime(false);
+	}
+	document.getElementById("bt4").onclick = function(e) {
+		NowTime(true);
+	}
+</script>

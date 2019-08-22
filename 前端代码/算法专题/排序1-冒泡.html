@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>冒泡排序</title>
+		<script src="jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			body {
+				text-align: center;
+			}
+
+			.studentsTable {
+				width: 400px;
+				/* min-height: 200px; */
+
+			}
+
+			.studentsTable th {
+				color: red;
+				height: 24px;
+			}
+
+			.studentsTable tr {
+				color: skyblue;
+				height: 24px;
+			}
+			.police{
+				width: 200px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="studentList">
+			<table id="table1" class="studentsTable" border="" cellspacing="" cellpadding="">
+				<tr>
+					<th onclick="studentSort('name')">姓名</th>
+					<th onclick="studentSort('age')">年龄</th>
+					<th onclick="studentSort('grade')">级别</th>
+					<th>排序</th>
+				</tr>
+				<!-- <tr>
+					<td>liang</td>
+					<td>18</td>
+					<td>prof</td>
+					<td>1</td>
+				</tr> -->
+			</table>
+		</div>
+		<br>
+		<br>
+		<hr>
+		<p>
+			请选择一个警员,查看其信息
+		</p>
+		<select class="police" id="police">
+		</select>
+		警衔+警号:
+		<input id="information" type="text" value=""/>
+
+
+	</body>
+</html>
+<script type="text/javascript">
+	$(function() {
+		loadData();
+		_allPolice = [];
+	});
+
+	// 使用ajax请求data.Jason文件的所有数据,并将其保存到全局中
+	function loadData() {
+		$.ajax({
+			url: "data.json",
+			data: {},
+			type: "GET",
+			dataType: "json",
+			success: function(res) {
+				_data = res;
+				fillStudents(_data.allStudents);
+				// ergodic(_data.department);
+				countPoliceFronArray(_data.department);
+				fillPoliceSelete();
+			},
+			error: function(a, b) {
+				console.info("error");
+				console.info(a);
+				console.info(b );
+			},
+			conplete: function() {
+
+			}
+		});
+	}
+
+	function studentSort(newString) {
+		sortArrByParm(_data.allStudents, newString);
+	}
+
+	// 对某个对象数组进行排序 - 依据某个属性 , 返回值 - 排序后的数组
+	function sortArrByParm(arr, attr) {
+		arr = arr || _data.allStudents;
+		attr = attr || "age";
+		for (var i = 0; i < arr.length - 1; i++) {
+			for (var j = 0; j < arr.length - i - 1; j++) {
+				if (arr[j][attr] > arr[j + 1][attr]) {
+					var temp = arr[j];
+					arr[j] = arr[j + 1];
+					arr[j + 1] = temp;
+				}
+			}
+		}
+		fillStudents(arr);
+	}
+	// 将排序后的数据,呈现到页面上
+	function fillStudents(students) {
+		$(".newTr").remove();
+		for (var i = 0; i < students.length; i++) {
+			var trString = "<tr class='newTr'><td>" + students[i].name + "</td><td>" + students[i].age +
+				"</td><td>" + students[i].grade + "</td><td>" + (i + 1) + "</td></tr>";
+			$("#table1").append($(trString));
+		}
+	}
+
+	// function ergodic(newarr) {
+	// 	var counter = 0;
+	// 	for (var i = 0; i < newarr.length; i++) {
+	// 		// console.info(newarr[i])
+	// 		for( var x in newarr[i]){
+	// 			// console.info(x);
+	// 			if( x == "leader"){
+	// 				for(var y in newarr[i][x]){
+	// 					// console.info(y);
+	// 					if(y == "id"){
+	// 						counter++;
+	// 					}
+	// 				}
+	// 			}
+	// 			if( x == "members"){
+	// 				for( var y in newarr[i][x]){
+	// 					for( var z in newarr[i][x][y] ){
+	// 						if(z == "id"){
+	// 							counter++;
+	// 						}
+	// 					}
+	// 					
+	// 				}
+	// 			}
+	// 		}
+	// 		
+	// 	}
+	// 	console.info(counter);
+	// }
+
+
+	// 笔记1: 判断一个对象是否具有属性  hansOwnProperty(atte) --true/false
+	// 笔记2: 判断一个对象是否是数组 变量名 instanceof Array -- true/false
+	// 笔记3:
+	
+	// var allPolice = [];
+	// 这就是递归函数
+	function countPoliceFronArray( policArr){
+		for(var x in policArr){
+			if( policArr[x].hasOwnProperty("id")){
+				_allPolice.push(policArr[x]);
+			}
+			if( typeof(policArr[x]) == 'object'){
+				countPoliceFronArray(policArr[x]);
+			}
+		}
+		console.info(_allPolice.length);
+	}
+	
+	// 将警员数据填充到select标签中
+	function fillPoliceSelete(){
+		for( var i = 0;i<_allPolice.length;i++){
+			document.getElementById("police").innerHTML += '<option value ="'+ _allPolice[i].id +'">'+ _allPolice[i].name +'</option>'
+		}
+		
+	}
+	
+	// 课堂练习 - 点选selece标签,在右边的input中显示该警员的警衔和警号
+	$("#police").change(function(e){
+		var choiceid = $(this).val();
+		for(var i = 0;i<_allPolice.length;i++){
+			if( _allPolice[i].id == choiceid){
+				$("#information").val(_allPolice[i].rank+"/:"+_allPolice[i].id);
+			}
+		}
+	})
+</script>

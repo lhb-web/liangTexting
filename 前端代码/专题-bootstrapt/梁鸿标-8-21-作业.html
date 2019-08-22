@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>梁鸿标-8-20-作业</title>
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
+		<style type="text/css">
+			.father {
+				width: 1200px;
+				min-height: 500px;
+			}
+
+			.boxBorder {
+				border-bottom: 1px solid orangered;
+			}
+
+			.bdBotton {
+				border-bottom: 1px dashed orange;
+				border-left: 2px solid red;
+			}
+
+			.btmarginT {
+				margin-top: 5px;
+			}
+
+			.fontC {
+				color: skyblue;
+				font-size: 28px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container father">
+			<div class="theTitle">
+				<div class="row">
+					<div class="col-lg-12 boxBorder">
+						<h1>标题</h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 bdBotton">
+						<!-- h1~h6标签 -->
+						<div class="hLabel">
+							<h1>这是h1</h1><!-- h1字体大小为36px -->
+							<h2>这是h2</h2><!-- h2字体大小为30px -->
+							<h3>这是h3</h3><!-- h3字体大小为24px -->
+							<h4>这是h4</h4><!-- h4字体大小为18px -->
+							<h5>这是h5</h5><!-- h5字体大小为14px -->
+							<h6>这是h6</h6><!-- h6字体大小为12px -->
+						</div>
+						<!-- small标签标记副标题 -->
+						<div class="hSmall">
+							<h3>这是h3 <small>这是h3的副标题</small></h3>
+						</div>
+						<!-- .lead类可以用来突出段落 -->
+						<p class="lead">记得西楼凝醉眼，昔年风物似如今。只无人与共登临 </p>
+						<br>
+					</div>
+					<div class="col-lg-4 bdBotton">
+						<div class="markedText">
+							<!-- 要突出显示在另一个上下文中相关的文本使用<mark>标签 -->
+							茅檐低小，溪上<mark>青青草</mark>。醉里吴音相媚好，白发谁家翁媪。
+							<br>
+							<!-- 对于被删除的文本使用 <del> 标签。 -->
+							<del>应怜屐齿印苍苔，小扣柴扉久不开。 春色满园关不住，一枝红杏出墙来。</del>
+							<br>
+							<!-- 对于没用的文本使用 <s> 标签。 -->
+							<s>与君歌一曲，请君为我倾耳听。</s>
+							<br>
+							<!-- 额外插入的文本使用 <ins> 标签。 -->
+							<ins>钟鼓馔玉不足贵，但愿长醉不复醒。</ins>
+							<br>
+							<!-- 为文本添加下划线，使用 <u> 标签。 -->
+							<u>古来圣贤皆寂寞，惟有饮者留其名。</u>
+							<br>
+							<!-- 使用 <small> 标签包裹，其内的文本将被设置为父容器字体大小的 85%。 -->
+							<!-- 你还可以为行内元素赋予 .small 类以代替任何 <small> 元素。 -->
+							<div style="font-size: 36px;">
+								烹羊宰牛且为乐，会须一饮三 百杯。<br>
+								<small>烹羊宰牛且为乐，会须一饮三百杯。</small>
+							</div>
+							<br>
+							<!-- <strong>标签通过font-weight值强调文本 -->
+							江山如此多娇，引无数英雄<strong>竞折腰</strong>。
+							<br>
+							<!-- em标签 用斜体强调一段文本 -->
+							<em>莫等闲，白了少年头，空悲切！</em>
+							<br>
+							<!-- 如想看完整的内容可把鼠标悬停在缩略语上（对使用辅助技术的用户也可见）, 但需要包含 title 属性。 -->
+							<abbr title="attribute">attr</abbr>
+							<br>
+							<!-- 为缩略语添加 .initialism 类，可以让 font-size 变得稍微小些。 -->
+							<abbr title="HyperText Markup Language" class="initialism">HTML</abbr>
+							<br>
+							<br>
+						</div>
+					</div>
+					<div class="col-lg-4 bdBotton">
+						<div class="textCss">
+							<h3>对齐</h3>
+							<p class="text-left">左对齐.</p>
+							<p class="text-center">居中.</p>
+							<p class="text-right">右对齐.</p>
+							<p class="text-justify">合理的文本.</p>
+							<p class="text-nowrap">文本不换行.</p>
+							<br>
+							<h3>改变大小写</h3>
+							<!-- 通过这几个类可以改变文本的大小写。 -->
+							<p class="text-lowercase">Lowercased text.小写的文本.</p>
+							<p class="text-uppercase">Uppercased text.大写的文本.</p>
+							<p class="text-capitalize">Capitalized text.首字母大写的文本.</p>
+							<br>
+
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 boxBorder">
+						<h1>引用</h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 bdBotton">
+						<!-- 将任何 HTML 元素包裹在 <blockquote> 中即可表现为引用样式 -->
+						<blockquote>
+							<p>关关雎鸠，在河之洲。窈窕淑女，君子好逑。</p>
+						</blockquote>
+						<br>
+					</div>
+					<div class="col-lg-4 bdBotton">
+						<!-- 添加 <footer> 用于标明引用来源。来源的名称可以包裹进 <cite>标签中。 -->
+						<blockquote>
+							<p>枯藤老树昏鸦，小桥流水人家，古道西风瘦马。夕阳西下，断肠人在天涯。</p>
+							<footer>元代：<cite title="马致远">马致远</cite></footer>
+						</blockquote>
+						<br>
+					</div>
+					<div class="col-lg-4 bdBotton">
+						<!-- 通过赋予 .blockquote-reverse 类可以让引用呈现内容右对齐的效果 -->
+						<blockquote class="blockquote-reverse">
+							<p>枯藤老树昏鸦，小桥流水人家，古道西风瘦马。夕阳西下，断肠人在天涯。</p>
+							<footer>元代：<cite title="马致远">马致远</cite></footer>
+						</blockquote>
+						<br>
+					</div>
+				</div>
+			</div>
+			<div class="theTables">
+				<div class="row">
+					<div class="col-lg-4">
+						<div class="tables01">
+							<h1>基本表格</h1>
+							<table class="table">
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">First Name</th>
+									<th scope="col">Last Name</th>
+									<th scope="col">Username</th>
+								</tr>
+								<tr>
+									<th scope="row">1</th>
+									<td>梁</td>
+									<td>鸿标</td>
+									<td>哈哈哈</td>
+								</tr>
+								<tr>
+									<th scope="row">2</th>
+									<td>马</td>
+									<td>云</td>
+									<td>嘿嘿嘿</td>
+								</tr>
+								<tr>
+									<th scope="row">3</th>
+									<td>马</td>
+									<td>化腾</td>
+									<td>呵呵呵</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="tables02">
+							<h1>条纹表格</h1>
+							<table class="table table-striped">
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">First Name</th>
+									<th scope="col">Last Name</th>
+									<th scope="col">Username</th>
+								</tr>
+								<tr>
+									<th scope="row">1</th>
+									<td>梁</td>
+									<td>鸿标</td>
+									<td>哈哈哈</td>
+								</tr>
+								<tr>
+									<th scope="row">2</th>
+									<td>马</td>
+									<td>云</td>
+									<td>嘿嘿嘿</td>
+								</tr>
+								<tr>
+									<th scope="row">3</th>
+									<td>马</td>
+									<td>化腾</td>
+									<td>呵呵呵</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="tables03">
+							<h1>带边框的表格</h1>
+							<table class="table table-bordered">
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">First Name</th>
+									<th scope="col">Last Name</th>
+									<th scope="col">Username</th>
+								</tr>
+								<tr>
+									<th scope="row">1</th>
+									<td>梁</td>
+									<td>鸿标</td>
+									<td>哈哈哈</td>
+								</tr>
+								<tr>
+									<th scope="row">2</th>
+									<td>马</td>
+									<td>云</td>
+									<td>嘿嘿嘿</td>
+								</tr>
+								<tr>
+									<th scope="row">3</th>
+									<td>马</td>
+									<td>化腾</td>
+									<td>呵呵呵</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4">
+						<div class="tables04">
+							<h1>鼠标悬停</h1>
+							<table class="table table-hover">
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">First Name</th>
+									<th scope="col">Last Name</th>
+									<th scope="col">Username</th>
+								</tr>
+								<tr>
+									<th scope="row">1</th>
+									<td>梁</td>
+									<td>鸿标</td>
+									<td>哈哈哈</td>
+								</tr>
+								<tr>
+									<th scope="row">2</th>
+									<td>马</td>
+									<td>云</td>
+									<td>嘿嘿嘿</td>
+								</tr>
+								<tr>
+									<th scope="row">3</th>
+									<td>马</td>
+									<td>化腾</td>
+									<td>呵呵呵</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="tables05">
+							<h1>紧缩表格</h1>
+							<table class="table table-condensed">
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">First Name</th>
+									<th scope="col">Last Name</th>
+									<th scope="col">Username</th>
+								</tr>
+								<tr>
+									<th scope="row">1</th>
+									<td>梁</td>
+									<td>鸿标</td>
+									<td>哈哈哈</td>
+								</tr>
+								<tr>
+									<th scope="row">2</th>
+									<td>马</td>
+									<td>云</td>
+									<td>嘿嘿嘿</td>
+								</tr>
+								<tr>
+									<th scope="row">3</th>
+									<td>马</td>
+									<td>化腾</td>
+									<td>呵呵呵</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="tables06">
+							<h1>状态类</h1>
+							<table class="table table-hover">
+								<tr>
+									<th scope="col">Type</th>
+									<th scope="col">Column heading</th>
+									<th scope="col">Column heading</th>
+									<th scope="col">Column heading</th>
+								</tr>
+								<tr class="active">
+									<th scope="row">Active</th>
+									<td>Column content</td>
+									<td>Column content</td>
+									<td>Column content</td>
+								</tr>
+								<tr class="success">
+									<th scope="row">Success</th>
+									<td>Column content</td>
+									<td>Column content</td>
+									<td>Column content</td>
+								</tr>
+								<tr class="danger">
+									<th scope="row">Danger</th>
+									<td>Column content</td>
+									<td>Column content</td>
+									<td>Column content</td>
+								</tr>
+								<tr class="warning">
+									<th scope="row">Warning</th>
+									<td>Column content</td>
+									<td>Column content</td>
+									<td>Column content</td>
+								</tr>
+								<tr class="info">
+									<th scope="row">Info</th>
+									<td>Column content</td>
+									<td>Column content</td>
+									<td>Column content</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="theForm">
+				<div class="row">
+					<div class="col-lg-12">
+						<h1>表单</h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="formInstance">
+							<form>
+								<div class="form-group">
+									<label for="inputEmail01">邮箱地址</label>
+									<input type="email" id="inputEmail01" class="form-control" placeholder="Email" />
+								</div>
+								<div class="form-group">
+									<label for="inputPassword01">密码</label>
+									<input type="password" id="inputPassword01" class="form-control" placeholder="password" />
+								</div>
+								<div class="form-group">
+									<label for="inputFile1">文件</label>
+									<input type="file" id="inputFile1" />
+								</div>
+								<div class="checkbox">
+									<label>
+										<input type="checkbox"> 选我
+									</label>
+								</div>
+								<button type="submit" class="btn btn-primary">Submit</button>
+							</form>
+							<br>
+							<!-- 内联表单 -->
+							<h4>内联表单</h4>
+							<form class="form-inline">
+								<div class="form-group btmarginT">
+									<label for="inputName01">名字</label>
+									<input type="text" class="form-control" id="inputName01" placeholder="梁鸿标">
+								</div>
+								<div class="form-group btmarginT">
+									<label for="inputEmail02">邮箱</label>
+									<input type="email" class="form-control" id="inputEmail02" placeholder="www.123456@qq.com">
+								</div>
+								<button type="submit" class="btn btn-primary btmarginT">发送邀请</button>
+							</form>
+
+							<form class="form-inline">
+								<div class="form-group btmarginT">
+									<label class="sr-only" for="inputEmail03">邮件 地址</label>
+									<input type="email" class="form-control" id="inputEmail03" placeholder="Email">
+								</div>
+								<div class="form-group btmarginT">
+									<label class="sr-only" for="inputPassword03">密码</label>
+									<input type="password" class="form-control" id="inputPassword03" placeholder="Password">
+								</div>
+								<div class="checkbox btmarginT">
+									<label>
+										<input type="checkbox"> 记住我
+									</label>
+								</div>
+								<button type="submit" class="btn btn-primary btmarginT">登录</button>
+							</form>
+
+							<form class="form-inline">
+								<div class="form-group btmarginT">
+									<label class="sr-only" for="inputAmount">金额 (人民币)</label>
+									<div class="input-group">
+										<div class="input-group-addon">￥</div>
+										<input type="text" class="form-control" id="inputAmount" placeholder="金额">
+										<div class="input-group-addon">.00</div>
+									</div>
+								</div>
+								<button type="submit" class="btn btn-primary btmarginT">转账</button>
+							</form>
+							<!-- 水平排列的表单 -->
+							<h4>水平排列的表单</h4>
+							<form class="form-horizontal">
+								<div class="form-group">
+									<label for="inputEmail3" class="col-sm-2 control-label">邮箱</label>
+									<div class="col-sm-10">
+										<input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+									<div class="col-sm-10">
+										<input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox"> 选我
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+										<button type="submit" class="btn btn-primary">登录</button>
+									</div>
+								</div>
+							</form>
+							<!-- 多选和单选框 -->
+							<h4>多选和单选框</h4>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" value="">1
+								</label>
+							</div>
+							<div class="checkbox disabled ">
+								<label>
+									<input type="checkbox" value="" disabled>2
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>3
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">4
+								</label>
+							</div>
+							<div class="radio disabled">
+								<label>
+									<input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>5
+								</label>
+							</div>
+							<!-- 内联单选和多选框 -->
+							<h4>内联单选和多选框</h4>
+							<label class="checkbox-inline">
+								<input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+							</label>
+							<label class="checkbox-inline">
+								<input type="checkbox" id="inlineCheckbox2" value="option2"> 2
+							</label>
+							<label class="checkbox-inline">
+								<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+							</label>
+
+							<label class="radio-inline">
+								<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3
+							</label>
+							<!-- 不带label文本的Checkbox 和 radio -->
+							<h4>不带label文本的Checkbox 和 radio</h4>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="...">
+								</label>
+							</div>
+							<!-- 下拉列表 -->
+							<h4>下拉列表</h4>
+							<select class="form-control">
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+							</select>
+							<br>
+							<select multiple class="form-control">
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+							</select>
+
+
+						</div>
+					</div>
+					<div class="col-lg-4 col-lg-offset-1">
+						<div class="formInstance02">
+
+							<input class="form-control" id="disabledInput" type="text" placeholder="禁止输入" disabled>
+							<!-- 为<fieldset> 设置 disabled 属性,可以禁用 <fieldset> 中包含的所有控件。 -->
+							<form>
+								<fieldset disabled>
+									<div class="form-group">
+										<label for="disabledTextInput">禁用输入</label>
+										<input type="text" id="disabledTextInput" class="form-control" placeholder="禁用输入">
+									</div>
+									<div class="form-group">
+										<label for="disabledSelect">禁用选择菜单</label>
+										<select id="disabledSelect" class="form-control">
+											<option>禁用选择</option>
+										</select>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox"> 不能选择这个
+										</label>
+									</div>
+									<button type="submit" class="btn btn-primary">登录</button>
+								</fieldset>
+							</form>
+							<input class="form-control" type="text" placeholder="只读" readonly>
+
+							<!-- 校验状态 -->
+							<h4>校验状态</h4>
+							<div class="form-group has-success">
+								<label class="control-label" for="inputSuccess1">输入成功</label>
+								<input type="text" class="form-control" id="inputSuccess1" aria-describedby="helpBlock2">
+							</div>
+							<div class="form-group has-warning">
+								<label class="control-label" for="inputWarning1">输入警告</label>
+								<input type="text" class="form-control" id="inputWarning1">
+							</div>
+							<div class="form-group has-error">
+								<label class="control-label" for="inputError1">输入有错误</label>
+								<input type="text" class="form-control" id="inputError1">
+							</div>
+							<div class="has-success">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" id="checkboxSuccess" value="option1">
+										复选框成功
+									</label>
+								</div>
+							</div>
+							<div class="has-warning">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" id="checkboxWarning" value="option1">
+										复选框警告
+									</label>
+								</div>
+							</div>
+							<div class="has-error">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" id="checkboxError" value="option1">
+										复选框有错误
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="theButtonLabels">
+				<div class="row">
+					<div class="col-lg-12">
+						<h1>按钮</h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="theButtons01">
+							<a class="btn btn-default" href="#" role="button">Link</a>
+							<button class="btn btn-default" type="submit">Button</button>
+							<input class="btn btn-default" type="button" value="Input">
+							<input class="btn btn-default" type="submit" value="Submit">
+							<br>
+							<button type="button" class="btn btn-default btmarginT">（默认样式）Default</button>
+							<button type="button" class="btn btn-primary btmarginT">（首选项）Primary</button>
+							<button type="button" class="btn btn-success btmarginT">（成功）Success</button>
+							<button type="button" class="btn btn-info btmarginT">（一般信息）Info</button>
+							<button type="button" class="btn btn-warning btmarginT">（警告）Warning</button>
+							<button type="button" class="btn btn-danger btmarginT ">（危险）Danger</button>
+							<button type="button" class="btn btn-link btmarginT">（链接）Link</button>
+							<br>
+							<br>
+							<p>
+								<button type="button" class="btn btn-primary btn-lg">（大按钮）Large button</button>
+								<button type="button" class="btn btn-default btn-lg">（大按钮）Large button</button>
+							</p>
+							<p>
+								<button type="button" class="btn btn-primary">（默认尺寸）Default button</button>
+								<button type="button" class="btn btn-default">（默认尺寸）Default button</button>
+							</p>
+							<p>
+								<button type="button" class="btn btn-primary btn-sm">（小按钮）Small button</button>
+								<button type="button" class="btn btn-default btn-sm">（小按钮）Small button</button>
+							</p>
+							<p>
+								<button type="button" class="btn btn-primary btn-xs">（超小尺寸）Extra small button</button>
+								<button type="button" class="btn btn-default btn-xs">（超小尺寸）Extra small button</button>
+							</p>
+						</div>
+					</div>
+					<div class="col-lg-4 col-lg-offset-1">
+						<div class="theButtons02">
+							<button type="button" class="btn btn-primary btn-lg btn-block">（块级元素）Block level button</button>
+							<button type="button" class="btn btn-default btn-lg btn-block">（块级元素）Block level button</button>
+							<br>
+							<!-- 激活状态 -->
+							<h4>激活状态</h4>
+							<button type="button" class="btn btn-primary btn-lg active btmarginT">Primary button</button>
+							<button type="button" class="btn btn-default btn-lg active btmarginT">Button</button>
+							<a href="#" class="btn btn-primary btn-lg active btmarginT" role="button">Primary link</a>
+							<a href="#" class="btn btn-default btn-lg active btmarginT" role="button">Link</a>
+							<br>
+							<!-- 禁用状态 -->
+							<h4>禁用状态</h4>
+							<button type="button" class="btn  btn-primary" disabled="disabled">Primary button</button>
+							<button type="button" class="btn btn-default " disabled="disabled">Button</button>
+							<a href="#" class="btn btn-primary  disabled" role="button">Primary link</a>
+							<a href="#" class="btn btn-default  disabled" role="button">Link</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="theImgLabels">
+				<div class="row">
+					<div class="col-lg-12">
+						<h1>图片</h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12">
+						<img src="images/001.jpg" class="img-responsive" alt="Responsive image">
+						<img src="images/006.jpg" class="img-rounded" alt="Responsive image">
+						<img src="images/005.jpg" class="img-circle" alt="Responsive image">
+						<img src="images/002.jpg" class="img-thumbnail" alt="Responsive image">
+					</div>
+				</div>
+			</div>
+			<div class="theIcons">
+				<div class="row">
+					<div class="col-lg-12">
+						<h1>图标</h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="icons01">
+							<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+							<span class="glyphicon glyphicon-heart fontC" aria-hidden="true"></span>
+							<!-- 可以把它们应用到按钮、工具条中的按钮组、导航或输入框等地方。 -->
+							<button type="button" class="btn btn-primary" aria-label="Left Align">
+								<span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+							</button>
+							<button type="button" class="btn btn-primary btn-lg">
+								<span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
+							</button>
+							<br>
+							<div class="alert alert-danger" role="alert">
+								<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								<span class="sr-only">Error:</span>
+								输入一个有效的电子邮件地址
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="theDropDownMenu">
+				<div class="row">
+					<div class="col-lg-12">
+						<h1>下拉菜单</h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-lg-offset-1">
+						<div class="row">
+							<div class="col-xs-4">
+								<div class="dropdown ">
+									<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+									 aria-haspopup="true" aria-expanded="true">
+										下拉菜单
+										<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+										<li><a href="#">嘿嘿</a></li>
+										<li><a href="#">呵呵</a></li>
+										<li><a href="#">哈哈</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<div class="dropup">
+									<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+									 aria-haspopup="true" aria-expanded="false">
+										上拉菜单
+										<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+										<li><a href="#">嘿嘿</a></li>
+										<li><a href="#">呵呵</a></li>
+										<li><a href="#">哈哈</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<!-- 右对齐 -->
+								<div class="dropdown">
+									<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown"
+									 aria-haspopup="true" aria-expanded="true">
+										下拉菜单
+										<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+										<li><a href="#">嘿嘿</a></li>
+										<li><a href="#">呵呵</a></li>
+										<li><a href="#">哈哈</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-lg-offset-1">
+						<div class="row">
+							<div class="col-xs-4">
+								<!-- 下拉标题 -->
+								<div class="dropdown ">
+									<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown"
+									 aria-haspopup="true" aria-expanded="true">
+										下拉菜单
+										<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+										<li><a href="#">嘿嘿</a></li>
+										<li><a href="#">呵呵</a></li>
+										<li class="dropdown-header">下拉菜单标题</li>
+										<li><a href="#">哈哈</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<!-- 分割线 -->
+								<div class="dropdown ">
+									<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu5" data-toggle="dropdown"
+									 aria-haspopup="true" aria-expanded="true">
+										下拉菜单
+										<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+										<li><a href="#">嘿嘿</a></li>
+										<li><a href="#">呵呵</a></li>
+										<li role="separator" class="divider"></li>
+										<li><a href="#">哈哈</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<!-- 禁用的菜单项 -->
+								<div class="dropdown ">
+									<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu6" data-toggle="dropdown"
+									 aria-haspopup="true" aria-expanded="true">
+										下拉菜单
+										<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+										<li><a href="#">嘿嘿</a></li>
+										<li class="disabled"><a href="#">呵呵</a></li>
+										<li><a href="#">哈哈</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="theButtonGroup">
+				<div class="row">
+					<div class="col-lg-12">
+						<h1>按钮组</h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-lg-offset-1">
+						<div class="btn-group" role="group">
+							<button type="button" class="btn btn-primary">左边</button>
+							<button type="button" class="btn btn-primary">中间</button>
+							<button type="button" class="btn btn-primary">右边</button>
+						</div>
+						<br>
+						<br>
+						<div class="btn-toolbar" role="toolbar">
+							<div class="btn-group" role="group">
+								<button type="button" class="btn btn-primary">1</button>
+								<button type="button" class="btn btn-primary">2</button>
+								<button type="button" class="btn btn-primary">3</button>
+								<button type="button" class="btn btn-primary">4</button>
+							</div>
+							<div class="btn-group" role="group">
+								<button type="button" class="btn btn-primary">5</button>
+								<button type="button" class="btn btn-primary">6</button>
+								<button type="button" class="btn btn-primary">7</button>
+							</div>
+							<div class="btn-group" role="group">
+								<button type="button" class="btn btn-primary">8</button>
+							</div>
+						</div>
+						<br>
+						<h4>尺寸</h4>
+						<div class="btn-group btn-group-lg" role="group">
+							<button type="button" class="btn btn-primary">左边</button>
+							<button type="button" class="btn btn-primary">中间</button>
+							<button type="button" class="btn btn-primary">右边</button>
+						</div>
+						<br>
+						<br>
+						<div class="btn-group " role="group">
+							<button type="button" class="btn btn-primary">左边</button>
+							<button type="button" class="btn btn-primary">中间</button>
+							<button type="button" class="btn btn-primary">右边</button>
+						</div>
+						<br>
+						<br>
+						<div class="btn-group btn-group-sm" role="group">
+							<button type="button" class="btn btn-primary">左边</button>
+							<button type="button" class="btn btn-primary">中间</button>
+							<button type="button" class="btn btn-primary">右边</button>
+						</div>
+						<br>
+						<br>
+						<div class="btn-group btn-group-xs" role="group">
+							<button type="button" class="btn btn-primary">左边</button>
+							<button type="button" class="btn btn-primary">中间</button>
+							<button type="button" class="btn btn-primary">右边</button>
+						</div>
+					</div>
+					<div class="col-lg-4 col-lg-offset-1">
+						<h4>嵌套</h4>
+						<div class="btn-group" role="group">
+							<button type="button" class="btn btn-primary">1</button>
+							<button type="button" class="btn btn-primary">2</button>
+
+							<div class="btn-group" role="group">
+								<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+								 aria-expanded="false">
+									下拉菜单
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+								</ul>
+							</div>
+						</div>
+						<br>
+						<br>
+						<h4>垂直排列</h4>
+						<div class="btn-group-vertical" role="group">
+							<button type="button" class="btn btn-primary">1</button>
+							<button type="button" class="btn btn-primary">2</button>
+							<div class="btn-group" role="group">
+								<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+								 aria-expanded="false">
+									下拉菜单
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+								</ul>
+							</div>
+							<button type="button" class="btn btn-primary">3</button>
+							<button type="button" class="btn btn-primary">4</button>
+							<div class="btn-group" role="group">
+								<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+								 aria-expanded="false">
+									下拉菜单
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+								</ul>
+							</div>
+						</div>
+						<h4>两端对齐排列的按钮组</h4>
+						<br>
+						<div class="btn-group btn-group-justified" role="group">
+							<div class="btn-group">
+								<button type="button" class="btn btn-primary">左边</button>
+							</div>
+							<div class="btn-group">
+								<button type="button" class="btn btn-primary">中间</button>
+							</div>
+							<div class="btn-group">
+								<button type="button" class="btn btn-primary">右边</button>
+							</div>
+						</div>
+						<div class="btn-group btn-group-justified" role="group">
+							<div class="btn-group">
+								<button type="button" class="btn btn-primary">左边</button>
+							</div>
+							<div class="btn-group">
+								<button type="button" class="btn btn-primary">中间</button>
+							</div>
+							<div class="btn-group">
+								<div class="btn-group" role="group">
+									<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+									 aria-expanded="false">
+										下拉菜单
+										<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu">
+										<li><a href="#">1</a></li>
+										<li><a href="#">2</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="thePushDownMenu">
+				<div class="row">
+					<div class="col-lg-12">
+						<h1>按钮式下拉菜单</h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12">
+						<h4>单按钮下拉菜单</h4>
+						<div class="btn-group">
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+							 aria-expanded="false">
+								Action <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</div>
+						<div class="btn-group">
+							<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+							 aria-expanded="false">
+								Primary <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</div>
+						<div class="btn-group">
+							<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+							 aria-expanded="false">
+								Success <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</div>
+						<div class="btn-group">
+							<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+							 aria-expanded="false">
+								Info <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</div>
+						<div class="btn-group">
+							<button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+							 aria-expanded="false">
+								Warning <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</div>
+						<div class="btn-group">
+							<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+							 aria-expanded="false">
+								Danger <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</div>
+						<br>
+						<br>
+						<h4>分裂式按钮下拉菜单</h4>
+						<div class="btn-group">
+							<button type="button" class="btn btn-default">Default</button>
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+							 aria-expanded="false">
+								<span class="caret"></span>
+								<span class="sr-only">Toggle Default</span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</div>
+						<div class="btn-group">
+							<button type="button" class="btn btn-primary">Primary</button>
+							<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+							 aria-expanded="false">
+								<span class="caret"></span>
+								<span class="sr-only">Toggle Primary</span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</div>
+						<div class="btn-group">
+							<button type="button" class="btn btn-success">Success</button>
+							<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+							 aria-expanded="false">
+								<span class="caret"></span>
+								<span class="sr-only">Toggle Success</span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</div>
+						<div class="btn-group">
+							<button type="button" class="btn btn-info">Info</button>
+							<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+							 aria-expanded="false">
+								<span class="caret"></span>
+								<span class="sr-only">Toggle Info</span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</div>
+						<div class="btn-group">
+							<button type="button" class="btn btn-warning">Warning</button>
+							<button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+							 aria-expanded="false">
+								<span class="caret"></span>
+								<span class="sr-only">Toggle Warning</span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</div>
+						<div class="btn-group">
+							<button type="button" class="btn btn-danger">Danger</button>
+							<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+							 aria-expanded="false">
+								<span class="caret"></span>
+								<span class="sr-only">Toggle Danger</span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</div>
+						<h4>尺寸</h4>
+						<br>
+						<div class="btn-group">
+							<button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+							 aria-expanded="false">
+								Large button <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</div>
+						<br>
+						<br>
+						<div class="btn-group">
+							<button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+							 aria-expanded="false">
+								Small button <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</div>
+						<br>
+						<br>
+						<div class="btn-group">
+							<button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+							 aria-expanded="false">
+								Extra small button <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</div>
+						<h4>向上弹出式菜单</h4>
+						<div class="btn-group dropup">
+							<button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+							 aria-expanded="false">
+								Extra small button <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="theInputBoxSet">
+				<div class="row">
+					<div class="col-lg-12">
+						<h1>输入框组</h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-lg-offset-1">
+						<div class="input-group btmarginT">
+							<span class="input-group-addon" id="basic-addon1">@</span>
+							<input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+						</div>
+						<div class="input-group btmarginT">
+							<input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2">
+							<span class="input-group-addon" id="basic-addon2">@123456.com</span>
+						</div>
+						<div class="input-group btmarginT">
+							<span class="input-group-addon">$</span>
+							<input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+							<span class="input-group-addon">.00</span>
+						</div>
+						<br>
+						<label for="basic-url">你的网址</label>
+						<div class="input-group btmarginT">
+							<span class="input-group-addon" id="basic-addon3">https://123456.com/</span>
+							<input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+						</div>
+						<h3>尺寸</h3>
+						<br>
+						<div class="input-group input-group-lg btmarginT">
+							<span class="input-group-addon" id="sizing-addon1">@</span>
+							<input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1">
+						</div>
+						<div class="input-group btmarginT">
+							<span class="input-group-addon" id="sizing-addon2">@</span>
+							<input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">
+						</div>
+						<div class="input-group input-group-sm btmarginT">
+							<span class="input-group-addon" id="sizing-addon3">@</span>
+							<input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon3">
+						</div>
+						<h3>作为额外元素的多选框和单选框</h3>
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<input type="checkbox">
+									</span>
+									<input type="text" class="form-control">
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<input type="radio">
+									</span>
+									<input type="text" class="form-control">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-lg-offset-1">
+						<h4>作为额外元素的按钮</h4>
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="input-group">
+									<span class="input-group-btn">
+										<button class="btn btn-primary" type="button">Go!</button>
+									</span>
+									<input type="text" class="form-control" placeholder="输入">
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="input-group">
+									<input type="text" class="form-control" placeholder="输入">
+									<span class="input-group-btn">
+										<button class="btn btn-primary" type="button">Go!</button>
+									</span>
+								</div>
+							</div>
+						</div>
+						<h4>作为额外元素的按钮式下拉菜单</h4>
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="input-group">
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+										 aria-expanded="false">Action <span class="caret"></span></button>
+										<ul class="dropdown-menu">
+											<li><a href="#">Action</a></li>
+											<li><a href="#">Another action</a></li>
+											<li><a href="#">Something else here</a></li>
+											<li role="separator" class="divider"></li>
+											<li><a href="#">Separated link</a></li>
+										</ul>
+									</div>
+									<input type="text" class="form-control">
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="input-group">
+									<input type="text" class="form-control">
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+										 aria-expanded="false">Action <span class="caret"></span></button>
+										<ul class="dropdown-menu dropdown-menu-right">
+											<li><a href="#">Action</a></li>
+											<li><a href="#">Another action</a></li>
+											<li><a href="#">Something else here</a></li>
+											<li role="separator" class="divider"></li>
+											<li><a href="#">Separated link</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<h4>作为额外元素的分裂式按钮下拉菜单</h4>
+						<div class="input-group">
+							<div class="input-group-btn">
+								<button type="button" class="btn btn-primary">Action</button>
+								<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+								 aria-expanded="false"><span class="caret"></span></button>
+								<ul class="dropdown-menu dropdown-menu-right">
+									<li><a href="#">Action</a></li>
+									<li><a href="#">Another action</a></li>
+									<li><a href="#">Something else here</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="#">Separated link</a></li>
+								</ul>
+							</div>
+							<input type="text" class="form-control">
+						</div>
+						<br>
+						<div class="input-group">
+							<input type="text" class="form-control">
+							<div class="input-group-btn">
+								<button type="button" class="btn btn-primary">Action</button>
+								<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+								 aria-expanded="false"><span class="caret"></span></button>
+								<ul class="dropdown-menu dropdown-menu-right">
+									<li><a href="#">Action</a></li>
+									<li><a href="#">Another action</a></li>
+									<li><a href="#">Something else here</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="#">Separated link</a></li>
+								</ul>
+							</div>
+						</div>
+						<h4>多个按钮</h4>
+						<div class="input-group">
+						  <div class="input-group-btn">
+							  <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+							  <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span></button>
+						  </div>
+						  <input type="text" class="form-control">
+						</div>
+						
+						<div class="input-group">
+						  <input type="text" class="form-control">
+						  <div class="input-group-btn">
+						    <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span></button>
+						    <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span></button>
+						  </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</body>
+</html>
+<script src="jquery-2.js" type="text/javascript" charset="utf-8"></script>
+<script src="bootstrap/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>

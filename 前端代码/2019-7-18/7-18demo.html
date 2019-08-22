@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.heihei{
+				width: 100%;
+				height: 100px;
+			}
+			.beRed{
+				width: 100%;
+				height: 100px;
+				background-color: red;
+			}
+			.beBlue{
+				width: 100%;
+				height: 100px;
+				background-color: blue;
+			}
+			.bigFont{
+				font-size: 48px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="heihei">嘿嘿</div>
+		<br>
+		<input type="button" id="bt1" value="变化" />
+	</body>
+</html>
+<script src="jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#heihei").addClass("beRed");
+	});
+	$("#bt1").click(function(e){
+		// $("#heihei").removeClass("beRed");
+		// $("#heihei").addClass("beBlue");
+		
+		// 方法二
+			
+		if($("#heihei").hasClass("beRed")){
+			$("#heihei").attr("class","beBlue bigFont");
+		}else{
+			$("#heihei").attr("class","beRed");
+		}
+		
+	});
+</script>

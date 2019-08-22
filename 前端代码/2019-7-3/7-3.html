@@ -1,0 +1,127 @@
+<!doctype html >
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>抛物线运动</title>
+		<style>
+			.pwx_rect{
+				position:absolute;
+				left:35px;
+				top:500px;
+				background-color:#888;
+				height:50px;
+				width:50px;
+				border-radius: 50%;
+				}
+    .pwx_hr{
+			border-top:2px solid #ddd;
+			position:absolute;
+			width:98%;
+			left:0px;
+			top:550px;
+			}
+			.paoshen{
+				width: 300px;
+				height: 200px;
+				/* background-color: #FF0000; */
+				position: absolute;
+				left: 0;
+				top: 350px;
+				transform-origin: 60px 150px;
+			}
+			.wei{
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+				background-color: black;
+				position: absolute;
+				top:100px;
+				left:10px;
+			}
+			.shen{
+				width: 200px;
+				height: 200px;
+				background-color: black;
+				position: absolute;
+				left:50px;
+				clip-path: polygon(15px 100px,18px 199px,188px 170px,185px 115px);
+			}
+			.jia{
+				width: 50px;
+				height: 50px;
+				background-color: antiquewhite;
+				border-radius: 50%;
+			}
+			.jian{
+				width: 50px;
+				height: 50px;
+				background-color: antiquewhite;
+				border-radius: 50%;
+			}
+  </style>
+		<script>
+			window.onload = function(){
+			 
+			     current = 0;
+			 
+			    document.getElementById('pao').onclick = function(){
+			     
+			        current = (current+10)%60;
+			     
+			        this.style.transform = 'rotate(-'+current+'deg)';
+			    }
+			};
+			test = function(){
+      var rect = document.getElementById("rect");
+      pwx(rect,current+14,28); //参数2：抛物线角度，参数3：横向速度每次增加5
+    }
+    function pwx(rect,radian,step){
+      var animate = function(opt){
+        var cos = Math.cos(opt.radian*Math.PI/180);//邻边比斜边,60度的话等于1/2
+        var sin = Math.sin(opt.radian*Math.PI/180);//对边比斜边,30度的话等于1/2
+        var left = opt.rect.offsetLeft;
+        var top = opt.rect.offsetTop;
+        if(opt.radian>0){
+          left+=opt.step;
+          opt.radian-=1; //角度递减1
+          var a = left - opt.initLeft;
+          var c = (a/cos);
+          var b = (sin*c);
+          opt.rect.style.left = opt.initLeft+a+"px";
+          opt.rect.style.top = opt.initTop-b+"px";
+          setTimeout(function(){
+            animate(opt);
+          },10);
+        }else{
+          opt.rect.style.left = left+opt.step+"px";
+          opt.rect.style.top = opt.initTop+"px";
+					
+        }
+      }
+      animate({
+        step : step,
+        rect : rect,
+        radian : radian,
+        initTop : rect.offsetTop,
+        initLeft : rect.offsetLeft
+      });
+    }
+  </script>
+	</head>
+	<body>
+
+		<input type="button" value="发射" onclick="test()" />
+		<div class="pwx_rect" id="rect"></div>
+		<div class="pwx_hr"></div>
+		<div class="paoshen" id="pao">
+			<div class="wei"></div>
+			<div class="shen" id="shen"></div>
+
+		</div>
+		<div class="zhijia">
+			<div></div>
+		</div>
+		<div class="jia" id="jia"></div>
+		<div class="jian" id="jian"></div>
+	</body>
+</html>

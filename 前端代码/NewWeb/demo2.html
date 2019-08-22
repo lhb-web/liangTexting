@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<title></title>
+	</head>
+	<body>
+		当前时间：
+		<div class="clock" id="now">
+
+		</div>
+
+	</body>
+	<style type="text/css">
+		body {
+			text-align: center;
+			position: relative;
+		}
+
+		.clock {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: absolute;
+			top: 20%;
+			left: 50%;
+		}
+	</style>
+
+</html>
+<script>
+	// function foo(a){
+	// 	alert(a);
+	// 	console.info("22222222222");
+	// }
+	// // foo('hello');
+	// //立即执行函数  //第一个括号表示要执行的函数,第二个括号放参数列表
+	// (function foo(a){
+	// 	alert(a);
+	// 	console.info("22222222222");
+	// })();
+
+	// var timer001 = setInterval(function(){
+	// 	var now = new Date();
+	// 	console.info(now.toLocaleString());
+	// 	document.getElementById("now").innerText = now.toLocaleString();
+	// },1000); 
+
+	var kkk = setInterval(function() {
+		$("#now").animate({
+			top: "+=66px"
+		});
+		var nowTop = document.getElementById("now").style.top;
+		nowTop = nowTop.replace("px", "");
+		nowTop = parseInt(nowTop);
+
+		if (nowTop > 800) {
+			alert("你是不是忘记打卡了?");
+			$("#now").animate({
+				top: "20%"
+			}, 10, function() {});
+		}
+	}, 600);
+	document.getElementById("now").onclick = function() {
+		$("#now").animate({
+			top: "20%"
+		}, 10, function() {});
+	}
+</script>

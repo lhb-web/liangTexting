@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>认识布局容器</title>
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
+		<!-- 兼容IE9 -->
+		<!-- <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> -->
+		<!-- <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script> -->
+	</head>
+	<body>
+
+		<!-- <div class="container" style="height: 40px;background: #204D74;">
+			
+		</div>
+		<div class="container-fluid" style="height: 40px;background: red;">
+			
+		</div> -->
+
+
+
+		<nav class="navbar navbar-default" role="navigation">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#heihei" aria-expanded="false">
+				<span class="sr-only">汉堡</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+
+			<div class="navbar-header">
+				<a class="navbar-brand">首页</a>
+			</div>
+			
+			<div id="heihei" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">嘿嘿嘿</a></li>
+					<li><a href="#">xx</a></li>
+					<li><a href="#">asdasd</a></li>
+				</ul>
+			</div>
+
+
+		</nav>
+
+	</body>
+</html>
+<!-- bootstrap一定要在jq下面,因为bootstrap是依赖jq的 -->
+<script src="jquery-2.js" type="text/javascript" charset="utf-8"></script>
+<script src="bootstrap/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>

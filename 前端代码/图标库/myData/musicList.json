@@ -1,0 +1,24 @@
+{
+	"page": 2,
+	"pageCount": 40,
+	"currList": [
+		{
+			"songId": "001",
+			"songName": "第一首",
+			"songUrl": "myAudio/001.MP3",
+			"songImg": "images/001.jpg"
+		},
+		{
+			"songId": "002",
+			"songName": "第二首",
+			"songUrl": "myAudio/002.MP3",
+			"songImg": "images/002.jpg"
+		},
+		{
+			"songId": "003",
+			"songName": "第三首",
+			"songUrl": "myAudio/003.MP3",
+			"songImg": "images/003.jpg"
+		}
+	]
+}
