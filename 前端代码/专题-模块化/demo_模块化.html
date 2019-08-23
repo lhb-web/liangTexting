@@ -39,51 +39,51 @@
 
 	// 改进方法 - (其实也没用) - 写到对象里头 - 暴露属性
 
-	var module1 = new Object({
-
-		zriginalPassWord: 0,
-
-		赵: function() {
-			console.info("我是赵" + this.zriginalPassWord);
-		},
-
-		li: function() {
-			console.info("我是li" + this.zriginalPassWord);
-		}
-
-	});
+// 	var module1 = new Object({
+// 
+// 		zriginalPassWord: 0,
+// 
+// 		赵: function() {
+// 			console.info("我是赵" + this.zriginalPassWord);
+// 		},
+// 
+// 		li: function() {
+// 			console.info("我是li" + this.zriginalPassWord);
+// 		}
+// 
+// 	});
 
 	// 继续改进的方法  使用自调用函数/立即执行函数 - 这就是模块
-	var module2 = (function() {
-
-		var zriginalPassWord = 0;
-
-		var zhao = function() {
-			console.info("我是zhao" + zriginalPassWord);
-		};
-
-		var li = function() {
-			console.info("我是li" + zriginalPassWord);
-		};
-
-		// 返回对象是必须的
-		return {
-			zhao: zhao,
-			li: li
-		};
-
-	})();
+// 	var module2 = (function() {
+// 
+// 		var zriginalPassWord = 0;
+// 
+// 		var zhao = function() {
+// 			console.info("我是zhao" + zriginalPassWord);
+// 		};
+// 
+// 		var li = function() {
+// 			console.info("我是li" + zriginalPassWord);
+// 		};
+// 
+// 		// 返回对象是必须的
+// 		return {
+// 			zhao: zhao,
+// 			li: li
+// 		};
+// 
+// 	})();
 
 	// 放大模式 - 可扩展 -- 告诉你可行性
-	module2 = (function(mod) {
-
-		mod.su = function() {
-			console.info("我是su");
-		};
-
-		return mod;
-
-	})(module2);
+// 	module2 = (function(mod) {
+// 
+// 		mod.su = function() {
+// 			console.info("我是su");
+// 		};
+// 
+// 		return mod;
+// 
+// 	})(module2);
 
 
 
@@ -102,7 +102,7 @@
 		var bollCount = 0;
 		var bollCountMax = 5;
 		var timer1 = 0;
-		var _fatherId = 0;
+		var _fatherId = "";
 		// 模块初始化,在页面上新增一个style标签
 		var init = function(fatherId) {
 
@@ -139,12 +139,18 @@
 			while (bollsCount.length > 0) {
 				bollsCount[0].remove();
 			}
-			var bollCount = 0;
+			 bollCount = 0;
 		};
-
+		
+		var destroy = function(){
+			clearInterval(timer1);
+			clearAll();
+		}
+		
+		// 返回对象是必须的
 		return {
 			init: init,
-
+			destroy: destroy
 		}
 	})();
 </script>
