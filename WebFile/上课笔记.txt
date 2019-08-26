@@ -280,3 +280,28 @@ respon -- 响应
 1.初始化
 2.组件要有具体的行为
 3.组件可以被销毁
+
+
+use strict -- js还有第二种运行模式：严格模式。顾名思义，这种模式采用更加严格的js语法
+1.明确禁止一些不合理、不严谨的语法，减少js语言的一些怪异行为
+2.增加更多报错的场合，消除代码运行的一些不安全之处，保证代码运行的安全
+3.提高编译器效率，增加运行速度。
+4.为未来新版本的 JavaScript 语法做好铺垫。
+
+借用wanpserver数据库
+启动wanpserver后，单击mysql的init文件默认为3306端口
+打开mysql的控制台  默认密码为空回车进去mysql
+//使用命令 查看mysql的所有数据库： show databases;
+mysql自带一些数据库，通常我们不用
+//删除数据库命令为： drop databases 数据库名；
+//创建数据库： create database liang;
+//使用 show tables; 查看该数据库内的所有表格 (初始的databases没有表格)Empty,set表示   查询语句返回了空数据集
+//使用 create table 创建一个名为Person 的表
+  -- create table Person (id int auto_increment,name varchar(20),key(id) );
+//可以使用desc Person;查看该表的结构，是否正确
+//使用insert命令，向这个表中添加一条记录
+  --insert into Person(name) values('liang');
+//使用select命令查询记录
+  -- select *from Person;/select *from Person where is not null;
+//使用update命令修改表记录
+  update Person set name='lianghongbiao' where id=1;
