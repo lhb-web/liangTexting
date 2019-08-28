@@ -309,3 +309,13 @@ mysql自带一些数据库，通常我们不用
   -- select *from Person;/select *from Person where is not null;
 //使用update命令修改表记录
   update Person set name='lianghongbiao' where id=1;
+
+
+HTTP模块最重要的两个东西
+1.request对象封装了HTTP请求
+2.response对象封装了HTTP响应
+
+
+fs
+删除文件
+unlink
