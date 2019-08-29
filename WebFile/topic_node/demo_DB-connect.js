@@ -17,5 +17,8 @@ connection.query('select * from Person',function(error,results,fields){
 		throw error;
 	}else{
 		console.info(results);
+		for( var x in results){
+			console.info(results[x].id);
+		}
 	}
 });
