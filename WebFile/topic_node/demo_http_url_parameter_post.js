@@ -64,6 +64,7 @@ function gotoPage(pagePath, request, response) {
 	var pathName = url.parse(request.url, true).pathname;
 	var urlQuery = url.parse(request.url, true).query;
 	var filePath = path.join(root, pagePath);
+	var studentName = "";
 	//获取文件状态
 	fs.stat(filePath, function(err, stats) {
 		if (!err && stats.isFile()) {
@@ -77,10 +78,17 @@ function gotoPage(pagePath, request, response) {
 				if (error) {
 					throw error;
 				} else {
+					console.info(results);
+					if( results == ""){
+						studentName = "未找到";
+					}else{
+						studentName = results[0].name;
+					}
+					
 					response.writeHead(200, {
-						'Content-Type': 'text/plain;charset=utf-8'
+						'Content-Type': 'text/plain;charset=utf-8',
 					});
-					response.end(results[0].name);
+					response.end(studentName);
 				}
 			});
 		} else {
@@ -90,7 +98,6 @@ function gotoPage(pagePath, request, response) {
 		}
 	});
 }
-
 
 // post   作业五!!!!!!!!!!!!!!
 function handlePost(urlRES, postDate, response) {
@@ -104,5 +111,6 @@ function handlePost(urlRES, postDate, response) {
 			'Content-Type': 'text/plain;charset=utf-8'
 		});
 		response.end('修改成功!');
+		
 	}
 }
