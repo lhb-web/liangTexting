@@ -45,7 +45,7 @@
 		$.ajax({
 			url: "getUserInfo",
 			type: "get",
-			dataType: 'text',
+			dataType: 'json',
 			data: {
 				"userId": userId
 			},
@@ -61,16 +61,23 @@
 	$("#updateUser").click(function(){
 		var userId = $("#userId").val();
 		var userName = $("#userName").val();
+		if (isNaN(parseInt(userId))) {
+			alert("请输入数字");
+			return;
+		};
 		$.ajax({
 			url: "updateUser",
 			type: "post",
-			dataType: 'text',
+			dataType: 'json',
 			data: {
 				"userId": userId,
 				"userName":userName
 			},
 			success: function(res) {
 				console.info(res);
+				$("#userId").val("");
+				$("#userName").val("");
+				alert(res.info);
 			},
 			error: function(a, b) {
 				console.info(a);
