@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>用户页面</title>
+		<script src="/web/jquery-2.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+		<script type="text/javascript">
+			$.ajax({
+				async: false,
+				url: "/checkeLogin",
+				type: "get",
+				dataType: 'json',
+				data: {},
+				success: function(res) {
+					if (res.login) {
+						//
+					} else {
+						//未登录
+						alert("您未登录");
+						window.location = "/";
+					}
+				},
+				error: function(a, b) {
+					alert(a);
+					window.location = "/web/login.html";
+				}
+			});
+		</script>
+	</head>
+	<body>
+		xxxxxxxxxxxx
+		<div id="app-5">
+			<p>{{ message }}</p>
+			<button v-on:click="delogout">登出</button>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var app5 = new Vue({
+		el: '#app-5',
+		data: {
+			message: 'Hello Vue.js!'
+		},
+		// 方法集
+		methods: {
+			delogout: function() {
+				$.ajax({
+					url:"/logout",
+					type:'post',
+					dataType:'json',
+					success:function(res){
+						console.info(res.logout)
+						window.location = "/web/login.html";
+					},
+					error:function(a,b){
+						alert(a);
+					}
+				});
+			}
+		}
+	});
+</script>

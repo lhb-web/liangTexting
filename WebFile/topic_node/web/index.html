@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>测试post请求</title>
-		<script src="web/jquery-2.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/web/jquery-2.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<form action="/" method="post">
@@ -35,53 +35,55 @@
 </html>
 
 <script type="text/javascript">
-	$("#getUserInfo").click(function() {
-		var userId = $("#userId").val();
-		if (isNaN(parseInt(userId))) {
-			alert("请输入数字");
-			return;
-		};
+	$(function() {
+		$("#getUserInfo").click(function() {
+			var userId = $("#userId").val();
+			if (isNaN(parseInt(userId))) {
+				alert("请输入数字");
+				return;
+			};
 
-		$.ajax({
-			url: "getUserInfo",
-			type: "get",
-			dataType: 'json',
-			data: {
-				"userId": userId
-			},
-			success: function(res) {
-				console.info(res);
-				$("#userName").val(res);
-			},
-			error: function(a, b) {
-				console.info(a);
-			}
+			$.ajax({
+				url: "/getUserInfo",
+				type: "get",
+				dataType: 'json',
+				data: {
+					"userId": userId
+				},
+				success: function(res) {
+					console.info(res);
+					$("#userName").val(res);
+				},
+				error: function(a, b) {
+					console.info(a);
+				}
+			});
 		});
-	});
-	$("#updateUser").click(function(){
-		var userId = $("#userId").val();
-		var userName = $("#userName").val();
-		if (isNaN(parseInt(userId))) {
-			alert("请输入数字");
-			return;
-		};
-		$.ajax({
-			url: "updateUser",
-			type: "post",
-			dataType: 'json',
-			data: {
-				"userId": userId,
-				"userName":userName
-			},
-			success: function(res) {
-				console.info(res);
-				$("#userId").val("");
-				$("#userName").val("");
-				alert(res.info);
-			},
-			error: function(a, b) {
-				console.info(a);
-			}
-		});
+		$("#updateUser").click(function() {
+			var userId = $("#userId").val();
+			var userName = $("#userName").val();
+			if (isNaN(parseInt(userId))) {
+				alert("请输入数字");
+				return;
+			};
+			$.ajax({
+				url: "/updateUser",
+				type: "post",
+				dataType: 'json',
+				data: {
+					"userId": userId,
+					"userName": userName
+				},
+				success: function(res) {
+					console.info(res);
+					$("#userId").val("");
+					$("#userName").val("");
+					alert(res.info);
+				},
+				error: function(a, b) {
+					console.info(a);
+				}
+			});
+		})
 	})
 </script>

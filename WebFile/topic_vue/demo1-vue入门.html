@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			{{ message }}
+		</div>
+
+		<div id="app-2">
+			<span v-bind:title="message">
+				鼠标悬停几秒钟查看此处动态绑定的提示信息！
+			</span>
+		</div>
+
+		<!-- 判断条件 -->
+		<div id="app-3">
+			<!-- 如果属性存在,就能看见 -->
+			<p v-if="seen">现在你看到我了</p>
+		</div>
+
+		<!-- 循环 -->
+		<div id="app-4">
+			<ol>
+				<!-- for in 循环 -->
+				<li v-for="todo in todos">
+					{{ todo.text }}
+				</li>
+			</ol>
+		</div>
+
+		<div id="app-5">
+			<p>{{ message }}</p>
+			<!-- 如果直接写onclick的话,要直接指向一个函数,而且这个函数必须是一个全局函数 -->
+
+			<button v-on:click="reverseMessage">反转消息</button>
+		</div>
+
+		<!--  v-model 数据的双向绑定 -->
+		<div id="app-6">
+			<p>{{ message }}</p>
+			<input v-model="message">
+			<input type="checkbox" v-model="check" />
+			<br>
+			A<input type="radio" name="x" value="A" v-model="SEX"/>
+			B<input type="radio" name="x" value="B" v-model="SEX"/>
+			C<input type="radio" name="x" value="C" v-model="SEX"/>
+		</div>
+
+	</body>
+</html>
+<script type="text/javascript">
+	var app = new Vue({
+		el: '#app', // element
+		data: {
+			message: 'Hello Vue!'
+		}
+	});
+
+	var app2 = new Vue({
+		el: '#app-2',
+		data: {
+			message: '页面加载于 ' + new Date().toLocaleString()
+		}
+	})
+
+	var app3 = new Vue({
+		el: '#app-3',
+		data: {
+			seen: true
+		}
+	})
+
+	var app4 = new Vue({
+		el: '#app-4',
+		data: {
+			todos: [{
+					text: '学习 JavaScript'
+				},
+				{
+					text: '学习 Vue'
+				},
+				{
+					text: '整个牛项目'
+				}
+			]
+		}
+	})
+
+	var app5 = new Vue({
+		el: '#app-5',
+		data: {
+			message: 'Hello Vue.js!'
+		},
+		// 方法集
+		methods: {
+			reverseMessage: function() {
+				this.message = this.message.split('').reverse().join('');
+			}
+		}
+	});
+
+	var app6 = new Vue({
+		el: '#app-6',
+		data: {
+			message: 'Hello Vue!',
+			check: false,
+			SEX: "B"
+		}
+	})
+</script>

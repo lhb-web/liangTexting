@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>登录</title>
+		<script src="/web/jquery-2.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<form action="/login" method="post">
+			<input type="text" name="userName" id="userName" placeholder="用户姓名" />
+			<input type="password" name="userPassword" id="userPassword" placeholder="用户密码" />
+			<input type="button" value="登录" id="loginBt" />
+		</form>
+		<!-- <form action="/logout" method="get">
+			<input type="button" id="logoutBt" value="注销" />
+		</form> -->
+	</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+		$("#loginBt").click(function(){
+			var userPassword = $("#userPassword").val();
+			var userName = $("#userName").val();
+			$.ajax({
+				url:'/login',
+				type: 'post',
+				dataType: 'json',
+				data:{
+					"userName": userName,
+					"userPassword": userPassword
+				},
+				success:function(res){
+					if( res.ok){
+						alert("登录成功");
+						window.location = "/";
+					}else{
+						alert("用户名或密码不正确");
+					}
+					
+				},
+				error:function(a,b){
+					console.info(a);
+				}
+			});
+		});
+	});
+</script>
