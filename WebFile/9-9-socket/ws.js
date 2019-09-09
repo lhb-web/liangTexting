@@ -1,12 +1,37 @@
+var url = require('url');
 const WebSocket = require('ws');
 const allData = [];
 const wss = new WebSocket.Server({
-	port: 3000
+	port: 3000,
+	verifyClient: function(info) {
+		// 取得的http请求的信息,进行校验
+		let urlxxx = info.req.url;
+		var queryObj = url.parse(urlxxx, true).query;
+		// console.info(queryObj);
+		// 写死,可以修改
+		if (queryObj.passCode && queryObj.passCode == '3344' && queryObj.name) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+}, function() {
+	console.info("socket服务开始监听3000端口");
 });
 
-wss.on('connection', function(ws) {
-	console.info('有新的连接');
+var allClient = [];
+
+wss.on('connection', function(ws, request) {
 	console.info('当前连接数 = ' + wss.clients.size); //所有的客户端,存在一个set结构中
+
+	let urlxxx = request.url;
+	var queryObj = url.parse(urlxxx, true).query;
+	console.info(queryObj);
+
+	ws.queryObj = queryObj;
+	allClient.push(ws);
+	// console.info(allClient);
+
 	ws.on('message', function(message) {
 		console.info('收到客户端的信息 %s', message);
 		allData.push(message);
@@ -15,14 +40,25 @@ wss.on('connection', function(ws) {
 		//ws.send(text4return);
 
 		// 群发/广播
-		wss.clients.forEach(function each(client) {
-			if ( client.readyState === WebSocket.OPEN) {
-				client.send(message + "\n");
-			}
-		})
+		// wss.clients.forEach(function each(client) {
+		// 	console.info(wss.clients.queryObj);
+		// 	if (client.readyState === WebSocket.OPEN) {
+		// 		client.send(message + "\n");
+		// 	}
+		// })
+
+		// 私聊
+		for (var j = 0; j < allClient.length; j++) {
+			//测试
+			// if( allClient[j].queryObj.name == '梁鸿标'){
+				// console.info(allClient[]);
+				allClient[j].send(queryObj.name+':'+message+'\n');
+			// }
+		}
+
 
 	});
-	ws.send('服务器连接成功,可以开始匿名聊天'+ '\n');
+	ws.send('服务器连接成功,可以开始匿名聊天' + '\n');
 });
 
 // 接收到用户的信息,存起来,一起返回到客户端

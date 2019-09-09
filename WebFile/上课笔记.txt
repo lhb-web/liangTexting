@@ -381,4 +381,5 @@ Response 对象 - response 对象表示 HTTP 响应，即在接收到请求时向客户端发送的 HTTP
   
   
   onbeforeunload--浏览器关闭事件
+  关闭或刷新浏览器时触发
    
