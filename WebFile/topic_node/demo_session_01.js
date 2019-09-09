@@ -42,6 +42,10 @@ app.get('/checkeLogin',function(req,res){
 	}
 })
 
+
+
+
+
 // 修改成权限页面
 app.get('/', function(req, res) {
 	// console.info("我没有被过滤器拦截");

@@ -372,3 +372,9 @@ Response 对象 - response 对象表示 HTTP 响应，即在接收到请求时向客户端发送的 HTTP
    session放在服务器这一端
    cookie放在浏览器这一端
    用户可以直接访问cookie,但是直接不能访问session
+   
+  webSocket
+  (1)建立tcp
+  (2)保留连接的句柄
+  (3)长连接
+   
