@@ -1,6 +1,25 @@
 var url = require('url');
+var express = require('express');
+var app = express();
 const WebSocket = require('ws');
 const allData = [];
+app.use('/web', express.static('web'));
+var mysql = require('mysql');
+const connection = mysql.createConnection({
+	host: "localhost", // 主机地址
+	port: 3306, // 如果修改了数据库的默认端口，这个属性不可忽略
+	user: "root", // 数据库用户名
+	password: "", // 数据库用户密码
+	database: "liang" // 数据库名
+});
+var server = app.listen(8081, function() {
+
+	console.log("服务器启动成功")
+
+})
+app.get('/', function(req, res) {
+	res.sendFile(__dirname + "/web/index.html");
+})
 const wss = new WebSocket.Server({
 	port: 3000,
 	verifyClient: function(info) {
@@ -51,10 +70,20 @@ wss.on('connection', function(ws, request) {
 		for (var j = 0; j < allClient.length; j++) {
 			//测试
 			// if( allClient[j].queryObj.name == '梁鸿标'){
-				// console.info(allClient[]);
-				allClient[j].send(queryObj.name+':'+message+'\n');
+			// console.info(allClient[]);
+			allClient[j].send(queryObj.name + ':' + message + '\n');
 			// }
 		}
+		splStrig = "insert into chatMessages(user_name ,user_chat) values('" + queryObj.name + "','" + message + "')";
+		connection.query(splStrig, function(error, result, fields) {
+			if (error) {
+				console.info('插入失败')
+			} else if (result.length <= 0) {
+				console.info('插入失败')
+			} else {
+				console.info('插入成功')
+			}
+		});
 
 
 	});
