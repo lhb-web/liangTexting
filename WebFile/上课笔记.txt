@@ -395,4 +395,6 @@ Response 对象 - response 对象表示 HTTP 响应，即在接收到请求时向客户端发送的 HTTP
   vue 不能相互嵌套
   v-bind:绑定标签的属性
   v-on:绑定事件
+  
+  在vue中 $event代表事件源
    
