@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="/web/bootstrap/css/bootstrap.css" />
+		<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+		<style type="text/css">
+			.imgMT {
+				margin-top: 200px;
+			}
+
+			img {
+				width: 300px;
+				height: 300px;
+			}
+
+			#dropDown {
+				position: absolute;
+			}
+			.sousuo{
+				height: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="row sousuo">
+			<div class="col-sm-8 col-sm-offset-2 sousuo">
+				<form class="navbar-form navbar-right " id="checkuser" role="search">
+					<div class="form-group ">
+						<input id="searchName" type="text" class="form-control" placeholder="Search" @change="drDownList($event)" v-model="checkname">
+						<div id="dropDownList" class="hidden" style="width: 196px;">
+							<ul class="list-group">
+								<li class="list-group-item" @click="pickIt(item,index,$event)" v-for="(item,index) in todos">{{item}}</li>
+							</ul>
+						</div>
+					</div>
+					<button type="button" class="btn btn-default" @click="checkUser" style="top: 8px;position: absolute;">搜索</button>
+				</form>
+			</div>
+		</div>
+		<div class="row" id="userDesc">
+			<div class="col-sm-6 col-sm-offset-2">
+				<form>
+					<div class="form-group">
+						<label>Name</label>
+						<input type="text" class="form-control" placeholder="Name" v-model="userImation.user_name">
+					</div>
+					<div class="form-group">
+						<label>Age</label>
+						<input type="number" class="form-control" placeholder="Age" v-model="userImation.user_age">
+					</div>
+					<div class="form-group">
+						<label>Phone</label>
+						<input type="text" class="form-control" placeholder="Phone" v-model="userImation.user_phone">
+					</div>
+					<div class="form-group">
+						<label>Address</label>
+						<input type="text" class="form-control" placeholder="Address" v-model="userImation.user_address">
+					</div>
+					<strong>个人技术</strong>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="JAVA" v-model="userImation.technology"> JAVA
+						</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="JS" v-model="userImation.technology"> JS
+						</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="MYSQL" v-model="userImation.technology"> MYSQL
+						</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="UI" v-model="userImation.technology"> UI
+						</label>
+					</div>
+					<strong>个人描述</strong>
+					<textarea class="form-control" rows="3" v-model="userImation.desc"></textarea>
+					<strong>备注</strong>
+					<textarea class="form-control" rows="5" v-model="userImation.note"></textarea>
+					<br>
+					<button type="button" class="btn btn-default center-block" @click="upUser">提交</button>
+					<button type="button" class="btn btn-default center-block" >修改</button>
+				</form>
+			</div>
+			<div class="col-sm-2 imgMT">
+				<img src="/web/002.jpg" class="img-rounded center-block" id="userIMG">
+				<div class="form-group">
+					<label for="exampleInputFile">上传头像</label>
+					<input type="file" id="exampleInputFile" v-model="userImation.file01">
+					<p>{{userImation.file01}}</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="/web/jquery-2.js" type="text/javascript" charset="utf-8"></script>
+<script src="/web/bootstrap/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var userInfo = new Vue({
+		el: '#userDesc',
+		data: {
+			userImation: {
+				user_name: '',
+				user_age: '',
+				user_phone: '',
+				user_address: '',
+				technology: [],
+				desc: '',
+				note: '',
+				file01: ''
+			}
+		},
+		methods: {
+			upUser: function() {
+				var data2update = new window.FormData();
+				// console.info(this.userImation);
+				for (var x in this.userImation) {
+					// console.info(this.userImation[x])
+					data2update.append(x, this.userImation[x])
+
+				}
+				data2update.append("faceImage", $('#exampleInputFile')[0].files[0]);
+
+				$.ajax({
+					type: 'POST',
+					url: "/file_upload",
+					processData: false, // 使数据不做处理  // 必填!!!!
+					//contentType: "multipart/form-data;",
+					contentType: false, // 不要设置Content-Type请求头 // 必填!!!!
+					data: data2update,
+					success: function(res) {
+						if (res.load) {
+							alert("插入成功!!!!!");
+							window.location = "/";
+						} else {
+							alert("名字已存在!!!!!");
+						}
+					},
+					error: function(a, b) {
+						console.info(a);
+					}
+				});
+
+			}
+		}
+	});
+	var userCheck = new Vue({
+		el: '#checkuser',
+		data: {
+			checkname: '',
+			todos:[]
+		},
+		methods: {
+			checkUser: function() {
+				var checkName = this.checkname
+				var imgSrc = null;
+				$.ajax({
+					type: 'get',
+					url: '/file_query',
+					dataType: 'json',
+					data: {
+						"checkName": checkName
+					},
+					success: function(res) {
+						if (!res.qeyresults) {
+							alert("查无此人")
+						} else {
+							userInfo.userImation.user_name = res.qeyresults[0].name;
+							userInfo.userImation.user_age = res.qeyresults[0].age;
+							userInfo.userImation.user_phone = res.qeyresults[0].phone;
+							userInfo.userImation.user_address = res.qeyresults[0].address;
+							userInfo.userImation.technology = res.qeyresults[0].specialty.split(",");
+							userInfo.userImation.desc = res.qeyresults[0].userdesc;
+							userInfo.userImation.note = res.qeyresults[0].note;
+							imgSrc = res.qeyresults[0].fileAdd.replace("C:fakepath", "/web/temp/");
+							$("#userIMG").attr("src", imgSrc)
+						}
+					},
+					error: function(a, b) {
+						console.info(a)
+					}
+				});
+			},
+			drDownList:function(e){
+				$("#dropDownList").removeClass("hidden");
+				$("#dropDownList").addClass("show");
+				var serchName = e.target.value
+				$.ajax({
+					type:'get',
+					url: '/select_name',
+					dataType:'json',
+					data:{
+						'serchName':serchName
+					},
+					success:function(res){
+						// console.info(res.data.likePersons);
+						for(var i = 0;i<res.data.likePersons.length;i++){
+							userCheck.todos.push(res.data.likePersons[i].name);
+						}
+						console.info(userCheck.todos);
+					},
+					error:function(a,b){
+						alert(a)
+					}
+				});
+			},
+			pickIt:function(item,index,$event){
+				this.checkname = item;
+				$("#dropDownList").removeClass("show");
+				$("#dropDownList").addClass("hidden");
+				this.todos = [];
+			}
+		}
+	});
+	
+</script>
