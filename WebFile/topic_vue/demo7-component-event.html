@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+		<title>组件的事件传递</title>
+	</head>
+	<body>
+		<div id="blog-posts-events-demo">
+			<div :style="{ fontSize: postFontSize + 'em' }">
+				<blog-post v-for="(post,index) in posts" v-bind:key="post.id" v-bind:post="post" v-model="searchText" v-on:enlarge-text="audit(index,$event)"></blog-post>
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	Vue.component('blog-post', {
+		props: ['post','value'],
+		template: `<div class="blog-post" :style="{ fontSize: post.fontZ + 'em' }"> <h3>{{ post.title }}</h3> <button v-on:click="$emit('enlarge-text',111)"> Enlarge text </button> <input type="text" v-bind:value="value" v-on:input="$emit('input', $event.target.value)" /> <div v-html="post.content"></div> </div> `
+	})
+	new Vue({
+		el: '#blog-posts-events-demo',
+		data: {
+			posts: [ {
+				title:"文章的标题",
+				content:"文章的内容",
+				fontZ:1
+			},
+			{
+				title:"文章的标题",
+				content:"文章的内容",
+				fontZ:1
+			}
+			],
+			postFontSize: 1,
+			searchText:'梁鸿标'
+		},
+		methods:{
+			audit:function(a,b){
+				// console.info(b)
+				// this.postFontSize += a;
+				// console.info(this.posts[a]);
+				this.posts[a].title += "(正在审核)";
+				this.posts[a].fontZ += 0.5
+			}
+		}
+	})
+	// 课堂练习,子组件的按钮向父组件传递事件,父组件该表该子组件的标题名称,标题名称+="(正在审核)",因为没有解决传参问题,所以不需要区分是谁
+</script>

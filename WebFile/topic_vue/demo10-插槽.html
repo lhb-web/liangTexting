@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+		<title>插槽</title>
+	</head>
+	<body>
+		<div id="demo-slot" style="width: 300px;background-color: #C9302C;">
+			<alert-box>
+				<input type="text" name="" id="" value="" />
+				<liang>
+					
+					<liang02></liang02>
+				</liang>
+
+			</alert-box>
+		</div>
+
+	</body>
+</html>
+<script type="text/javascript">
+	Vue.component('alert-box', {
+		template: `
+	    <div class="demo-alert-box">
+	      <strong>Error!</strong>
+	      <slot></slot>
+	    </div>
+	  `
+	})
+	Vue.component('liang', {
+		template: `
+		<div>
+			<span>你是猪!!!</span>
+			<slot></slot>
+		</div>
+		
+		`
+	})
+	Vue.component('liang02', {
+		template: `
+		<div>
+			<span>你是肥猪!!!</span>
+		</div>
+		`
+	})
+	new Vue({
+		el: "#demo-slot"
+	})
+</script>

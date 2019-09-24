@@ -85,7 +85,26 @@
 					<textarea class="form-control" rows="5" v-model="userImation.note"></textarea>
 					<br>
 					<button type="button" class="btn btn-default center-block" @click="upUser">提交</button>
-					<button type="button" class="btn btn-default center-block" >修改</button>
+					<button type="button" class="btn btn-default center-block" @click="alterUser" >修改</button>
+					<button type="button" class="btn btn-default center-block" @click="according" >显示全部成员</button>
+					<table class="table table-striped">
+						<th style="width: 150px;">name</th>
+						<th style="width: 150px;">age</th>
+						<th style="width: 150px;">phone</th>
+						<th style="width: 150px;">address</th>
+						<th style="width: 150px;">specialty</th>
+						<th style="width: 150px;">userdesc</th>
+						<th style="width: 150px;">note</th>
+					</table>
+					<table class="table table-striped" v-for="(item,index) in userImation.users">
+						<td style="width: 150px;">{{item.name}}</td>
+						<td style="width: 150px;">{{item.age}}</td>
+						<td style="width: 150px;">{{item.phone}}</td>
+						<td style="width: 150px;">{{item.address}}</td>
+						<td style="width: 150px;">{{item.specialty}}</td>
+						<td style="width: 150px;">{{item.userdesc}}</td>
+						<td style="width: 150px;">{{item.note}}</td>
+					</table>
 				</form>
 			</div>
 			<div class="col-sm-2 imgMT">
@@ -113,7 +132,8 @@
 				technology: [],
 				desc: '',
 				note: '',
-				file01: ''
+				file01: '',
+				users:[]
 			}
 		},
 		methods: {
@@ -125,6 +145,7 @@
 					data2update.append(x, this.userImation[x])
 
 				}
+				console.info(data2update.get('user_name'));
 				data2update.append("faceImage", $('#exampleInputFile')[0].files[0]);
 
 				$.ajax({
@@ -147,6 +168,50 @@
 					}
 				});
 
+			},
+			alterUser:function(){
+				var data2update = new window.FormData();
+				// console.info(this.userImation);
+				for (var x in this.userImation) {
+					// console.info(this.userImation[x])
+					data2update.append(x, this.userImation[x])
+				
+				}
+				data2update.append("faceImage", $('#exampleInputFile')[0].files[0]);
+				
+				$.ajax({
+					type: 'POST',
+					url: "/atUser",
+					processData: false, // 使数据不做处理  // 必填!!!!
+					//contentType: "multipart/form-data;",
+					contentType: false, // 不要设置Content-Type请求头 // 必填!!!!
+					data: data2update,
+					success: function(res) {
+						if (res.load) {
+							alert("修改成功!!!!!");
+							window.location = "/";
+						} else {
+							alert("名字不存在!!!!!");
+						}
+					},
+					error: function(a, b) {
+						console.info(a);
+					}
+				});
+				
+			},
+			according:function(){
+				$.ajax({
+					type:'get',
+					url:'/accUser',
+					data:{},
+					success:function(res){
+						userInfo.userImation.users = res.results
+					},
+					error:function(a,b){
+						alert(a)
+					}
+				})
 			}
 		}
 	});

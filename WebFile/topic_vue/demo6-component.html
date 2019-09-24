@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue组件</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="components-demo">
+			<button-counter></button-counter>
+			<button-counter></button-counter>
+			<hr>
+			<!-- <blog-post title="My journey with Vue"></blog-post> -->
+			<hr>
+			<blog-post v-for="post in posts"  v-bind:liang="post"></blog-post>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	// 全局组件的声明
+	Vue.component('button-counter', {
+		// data不能直接给,会暴露元素,所以要包在一个函数里面
+		data: function() {
+			return {
+				count: 0
+			}
+		},
+		template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+	});
+
+	// 全局组件的prop属性,接收外部数据
+	Vue.component('blog-post', {
+		data: function() {
+			return {
+				prop1: "fang"
+			}
+		},
+		// props内的属性优先级比data里面高,如果同名,那么最终显示的是外部传进来的值
+		props: ['liang'],
+		//只能有一个根元素
+		template: '<div><h3>{{ liang.title }}</h3><span>{{ liang.content}}</span></div>'
+	})
+
+	new Vue({
+		el: '#components-demo',
+		data: {
+			posts: [{
+					id: 1,
+					title: 'My journey with Vue',
+					content: '爱上了打卡机和挖静待花开按时'
+				},
+				{
+					id: 2,
+					title: 'Blogging with Vue',
+					content: '爱上了打卡机和挖静待花开按时'
+				},
+				{
+					id: 3,
+					title: 'Why Vue is so fun',
+					content: '爱上了打卡机和挖静待花开按时'
+				}
+			]
+		}
+	})
+</script>
