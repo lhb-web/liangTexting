@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	function ob1(a, b, c, d) {
+		this.a = a;
+		this.b = b;
+		this.c = c;
+		this.d = d;
+		// 清空自己的属性
+		this.clear = function() {
+			for (var x in this) {
+				if (typeof(this[x]) != "function") {
+					this[x] = null;
+				}
+			}
+		}
+	}
+
+	var xx = new ob1(1, 2, 3, 4);
+	console.info(xx);
+	xx.clear();
+	console.info(xx);
+
+
+	var a = 12;
+	var a = 13;
+
+	// let a = 14 ; //报错 , "a"已被声明;  let 不能重复声明变量
+	// let只在作用域内有效,出了作用域无效
+	// block 是一个块
+	{
+		var b = 16;
+		let c = 17;
+	}
+	console.info(b); // 有效
+	console.info(c); // 报错,未定义,因为不在作用域
+
+	let c = 18; //正常执行,当前作用域是全局,全局并没有声明过c 所以可以声明
+
+
+
+
+	var a = [];
+	for (let i = 0; i < 10; i++) {
+		a[i] = function() {
+			console.log(i);
+		};
+	}
+	a[6](); // 6
+
+
+
+
+	// for循环还有一个特别之处，就是设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域。
+	for (let i = 0; i < 3; i++) {
+		let i = 'abc';
+		console.log(i);
+	}
+	
+	
+	// 变量的提升,把变量的声明语句提升到脚本最前面,但是不赋值
+	// var 的情况
+	console.log(foo); // 输出undefined
+	var foo = 2;
+	
+	// let 的情况   //let 不存在变量提升 
+	console.log(bar); // 报错ReferenceError
+	let bar = 2;
+	
+	// 相对于变量的提升, 这个概念,我们最常见的是函数的提升 - 如下
+	bui("buibuiuu~~~~");
+	
+	function bui(para){
+		console.info(para);
+	}
+	
+	
+	var tmp = 123;
+	
+	if (true) {
+	  tmp = 'abc'; // ReferenceError
+	  let tmp;
+	}
+	
+	
+	
+</script>
