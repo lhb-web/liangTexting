@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>easyui总览</title>
+
+		<!-- easyui必要的引用 -->
+		<link rel="stylesheet" type="text/css" href="../easyui/themes/black/easyui.css">
+		<link rel="stylesheet" type="text/css" href="../easyui/themes/icon.css">
+		<link rel="stylesheet" type="text/css" href="../easyui/demo.css">
+		<script type="text/javascript" src="../easyui/jquery.min.js"></script>
+		<script type="text/javascript" src="../easyui/jquery.easyui.min.js"></script>
+		<!-- easyui必要的引用 -->
+
+		<script type="text/javascript">
+			$.extend($.fn.validatebox.defaults.rules, {
+				minLength: {
+					validator: function(value, param) {
+						return value.length >= param[0];
+					},
+					message: '客官，至少 {0} 个字符'
+				},
+
+				isQingwen: {
+					validator: function(value) {
+						return value === "庆文";
+					},
+					message: '除了我庆文，还有谁~~~'
+				},
+
+
+				yanzhengma: {
+					validator: function(value) {
+						// 从外部取到一个验证码, 跟用户的验证码做比较
+						var ax = "AXXP"; // 测试, 这个值是从后台拿到的
+						return value === ax;
+					},
+					message: '验证码不对啊！'
+				}
+
+			});
+		</script>
+
+	</head>
+	<body>
+		<h1>我是模板</h1>
+		<hr>
+
+		<div id="cal001" class="easyui-calendar" style="width:250px;height:250px; float: left; " data-options=" "> </div>
+
+		<div title="TreeMenu" data-options="iconCls:'icon-search'" style="width:250px;height:250px;padding:10px 0; ">
+
+			<ul class="easyui-tree">
+				<li>
+					<span>Foods</span>
+					<ul>
+						<li>
+							<span>Fruits</span>
+							<ul>
+								<li>apple</li>
+								<li>orange</li>
+							</ul>
+						</li>
+						<li>
+							<span>Vegetables</span>
+							<ul>
+								<li>tomato</li>
+								<li>carrot</li>
+								<li>cabbage</li>
+								<li>potato</li>
+								<li>lettuce</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+		<hr>
+		<input type="button" name="" id="" value="动态加载数据1" onclick="laodCombo('data1')" />
+		<input type="button" name="" id="" value="动态加载数据2" onclick="laodCombo(data2)" />
+		<input type="button" name="" id="" value="使用高级方法" onclick="loaddataCombo()" />
+		<hr>
+
+		可校验的验证
+		<input id="vv" class="easyui-validatebox" data-options="required:true,validType:['email']">
+
+		<br>
+		只能输入8位以内的数字
+		<input class="easyui-numberbox" data-options=" 
+				required:true,
+				validType:[ 'number' ,'length[3,5]' ],
+				invalidMessage: '嘿嘿,你猜',
+				missingMessage: '嘿嘿,你再猜',
+				tipPosition: 'left',
+				deltaX: 40,
+				iconCls:'icon-search'
+				"
+		 style="width:160px">
+
+		<br>
+
+		<hr>
+		<p>自定义校验规则</p>
+		<input class="easyui-textbox" data-options="
+			iconCls:'icon-search' , 
+			validType: [ 'yanzhengma']  " style="width:300px">
+
+
+		<hr>
+		<input id="cc" class="easyui-combobox" name="language">
+		<input id="cc2" class="easyui-combobox" name="language">
+		<input id="cc3" class="easyui-combobox" name="language">
+
+
+		<br>
+		<hr>
+
+		<div id="">
+			<table id="dg" class="easyui-datagrid" title="Basic DataGrid" style="width:700px;height:250px">
+			</table>
+		</div>
+
+
+		<hr>
+		<div class="easyui-panel" title="New Topic" style="width:100%;max-width:400px;padding:30px 60px; float: left;">
+			<form id="ff" method="post">
+				<div style="margin-bottom:20px">
+					<input class="easyui-textbox" name="name" style="width:100%" data-options="label:'Name:',required:true">
+				</div>
+				<div style="margin-bottom:20px">
+					<input class="easyui-textbox" name="email" style="width:100%" data-options="label:'Email:',required:true,validType:'email'">
+				</div>
+				<div style="margin-bottom:20px">
+					<input class="easyui-textbox" name="subject" style="width:100%" data-options="label:'Subject:',required:true">
+				</div>
+				<div style="margin-bottom:20px">
+					<input class="easyui-textbox" name="message" style="width:100%;height:60px" data-options="label:'Message:',multiline:true">
+				</div>
+				<div style="margin-bottom:20px">
+					<select class="easyui-combobox" name="language" label="Language" style="width:100%">
+						<option value="ar">Arabic</option>
+						<option value="bg">Bulgarian</option>
+						<option value="ca">Catalan</option>
+						<option value="zh-cht">Chinese Traditional</option>
+						<option value="cs">Czech</option>
+						<option value="da">Danish</option>
+						<option value="nl">Dutch</option>
+						<option value="en" selected="selected">English</option>
+						<option value="et">Estonian</option>
+						<option value="fi">Finnish</option>
+						<option value="fr">French</option>
+						<option value="de">German</option>
+						<option value="el">Greek</option>
+						<option value="ht">Haitian Creole</option>
+						<option value="he">Hebrew</option>
+						<option value="hi">Hindi</option>
+						<option value="mww">Hmong Daw</option>
+						<option value="hu">Hungarian</option>
+						<option value="id">Indonesian</option>
+						<option value="it">Italian</option>
+						<option value="ja">Japanese</option>
+						<option value="ko">Korean</option>
+						<option value="lv">Latvian</option>
+						<option value="lt">Lithuanian</option>
+						<option value="no">Norwegian</option>
+						<option value="fa">Persian</option>
+						<option value="pl">Polish</option>
+						<option value="pt">Portuguese</option>
+						<option value="ro">Romanian</option>
+						<option value="ru">Russian</option>
+						<option value="sk">Slovak</option>
+						<option value="sl">Slovenian</option>
+						<option value="es">Spanish</option>
+						<option value="sv">Swedish</option>
+						<option value="th">Thai</option>
+						<option value="tr">Turkish</option>
+						<option value="uk">Ukrainian</option>
+						<option value="vi">Vietnamese</option>
+					</select>
+				</div>
+				<div style="margin-bottom:20px">
+					<label for="accept" class="textbox-label">Accept:</label>
+					<input id="accept" type="checkbox" name="accept" value="true">
+				</div>
+			</form>
+
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var data0001 = {
+		"total": 28,
+		"rows": [{
+				"productid": "FI-SW-01",
+				"productname": "Koi",
+				"unitcost": "10.00",
+				"status": "P",
+				"listprice": "36.50",
+				"attr1": "Large",
+				"itemid": "EST-1"
+			},
+			{
+				"productid": "K9-DL-01",
+				"productname": "Dalmation",
+				"unitcost": "12.00",
+				"status": "P",
+				"listprice": "18.50",
+				"attr1": "Spotted Adult Female",
+				"itemid": "EST-10"
+			}
+
+		]
+	};
+	$('#dg').datagrid({
+		//url:'datagrid_data1.json',
+
+		data: data0001,
+		method: 'get',
+		pagination: true,
+		striped: true,
+		columns: [
+			[{
+					field: 'productid',
+					title: 'productid',
+					width: '25%'
+				},
+				{
+					field: 'productname',
+					title: 'Name',
+					width: '25%'
+				},
+				{
+					field: 'unitcost',
+					title: 'Price',
+					width: '25%',
+					align: 'center'
+				},
+				{
+					field: 'xxxx',
+					title: 'xxxx',
+					width: '25%',
+					align: 'right'
+				}
+			]
+		]
+	});
+
+
+
+	var data1 = [{
+		"id": 1,
+		"text": "广西"
+
+	}, {
+		"id": 2,
+		"text": "湖南"
+
+	}];
+
+	var data2 = [{
+		"id": 3,
+		"text": "南宁",
+		fatherId: 1
+
+	}, {
+		"id": 4,
+		"text": "柳州",
+		fatherId: 1
+	}, {
+		"id": 5,
+		"text": "长沙",
+		fatherId: 2
+	}, {
+		"id": 6,
+		"text": "衡阳",
+		fatherId: 2
+	}];
+
+
+	var data3 = [{
+		"id": 7,
+		"text": "西乡塘",
+		fatherId: 3
+	}, {
+		"id": 8,
+		"text": "江南区",
+		fatherId: 3
+	}, {
+		"id": 9,
+		"text": "人民区",
+		fatherId: 5
+	}, {
+		"id": 10,
+		"text": "穷人区",
+		fatherId: 5
+	}, {
+		"id": 11,
+		"text": "柳北区",
+		fatherId: 4
+	}, {
+		"id": 12,
+		"text": "鱼峰区",
+		fatherId: 4
+	}, {
+		"id": 13,
+		"text": "衡阳1区",
+		fatherId: 6
+	}, {
+		"id": 14,
+		"text": "衡阳222区",
+		fatherId: 6
+	}]
+
+	// 初始化各个组件
+	initeComp();
+
+	function initeComp() {
+		$("#cc").combobox({
+			valueField: 'id',
+			textField: 'text',
+			panelHeight: 'auto',
+			editable:false,
+			data: data1,
+			// formatter: function(row) {
+			// 	var opts = $(this).combobox('options');
+			// 	if (row[opts.textField] == "庆文") {
+			// 		return "<span style='color: red'>" + row[opts.textField] + "**</span>";
+			// 	} else {
+			// 		return "<span style='color: black'>" + row[opts.textField] + "**</span>";
+			// 	}
+
+
+			// },
+			onSelect: function(re) {
+				var newData = [];
+				for (var x in data2) {
+					if (data2[x].fatherId == re.id) {
+						newData.push(data2[x]);
+					}
+				}
+				$('#cc2').combobox('setValue', '');
+				$('#cc3').combobox('setValue', '');
+				$("#cc2").combobox({
+					valueField: 'id',
+					textField: 'text',
+					panelHeight: 'auto',
+					editable:false,
+					data: newData,
+					onSelect: function(re2) {
+						var newData2 = [];
+						$('#cc3').combobox('setValue', '');
+						for (var x in data3) {
+							if (data3[x].fatherId == re2.id) {
+								newData2.push(data3[x]);
+							}
+						}
+						$("#cc3").combobox({
+							valueField: 'id',
+							textField: 'text',
+							editable:false,
+							panelHeight: 'auto',
+							data: newData2
+						})
+					}
+				})
+
+			}
+
+		})
+	}
+
+
+	function laodCombo(a) {
+		$('#cc').combobox('setValue', ''); // 退弹
+
+		if (a == 'data1') {
+			$('#cc').combobox({
+				data: data1
+			});
+		} else {
+			$('#cc').combobox({
+				data: data2
+			});
+		}
+
+	}
+
+
+	function loaddataCombo() {
+		$('#cc').combobox('setValue', '');
+		$('#cc').combobox('loadData', data3);
+	}
+
+	// 取数据用$('#cal001').calendar('options'). ...(）)
+	$('#cal001').calendar({
+		firstDay: 0,
+		weeks: ['天', '红色', '蓝色', '绿色', 'T', 'F', 'S'],
+		months: ['一月', 'Feb', 'Mar', 'Apr', 'May', '叮咚', 'Jul', 'Aug', 'Sep', '咣当', 'Nov', 'Dec'],
+		// year:2012,
+		// month:6,
+
+		onSelect: function(date) {
+			alert(date.getFullYear() + ":" + (date.getMonth() + 1) + ":" + date.getDate());
+		}
+	});
+</script>
