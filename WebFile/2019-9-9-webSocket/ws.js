@@ -54,19 +54,19 @@ wss.on('connection', function(ws, request) {
 	ws.on('message', function(message) {
 		console.info('收到客户端的信息 %s', message);
 		allData.push(message);
-		//var text4return = refreshData(message);
+		// var text4return = refreshData(message);
 		// 单发
-		//ws.send(text4return);
+		// ws.send(text4return);
 
 		// 群发/广播
 		// wss.clients.forEach(function each(client) {
-		// 	console.info(wss.clients.queryObj);
+		// 	// console.info(wss.clients.queryObj);
 		// 	if (client.readyState === WebSocket.OPEN) {
 		// 		client.send(message + "\n");
 		// 	}
 		// })
-
-		// 私聊
+		
+		// 群聊
 		for (var j = 0; j < allClient.length; j++) {
 			//测试
 			// if( allClient[j].queryObj.name == '梁鸿标'){
